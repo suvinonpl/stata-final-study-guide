@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Master Study Guide &amp; Cheat Sheet — 3014710 &amp; 3014831 Final (STATA + Biostatistics)</title>
+  <title>Master Study Guide &amp; Mock Exam — 3014710 &amp; 3014831 Final (STATA + Biostatistics)</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
@@ -52,18 +52,16 @@
       font-family: "Sarabun", "Thonburi", "Tahoma", -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg);
       color: var(--text);
-      line-height: 1.68;
+      line-height: 1.7;
     }
-
-    code, pre, .mono {
-      font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, monospace;
-    }
+    code, pre, .mono { font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, monospace; }
+    code { background: #f1f5f9; color: #0f172a; padding: 1px 5px; border-radius: 4px; font-size: 0.9em; }
 
     .app-layout { display: flex; min-height: 100vh; }
 
     /* Sidebar */
     .sidebar {
-      width: 310px;
+      width: 315px;
       background: var(--surface);
       border-right: 1px solid var(--border);
       position: sticky;
@@ -96,7 +94,7 @@
     .sidebar-header p { font-size: 12px; color: #cbd5e1; margin-top: 3px; }
 
     .sidebar-search {
-      padding: 12px 14px;
+      padding: 10px 14px;
       border-bottom: 1px solid var(--border);
       background: var(--surface-alt);
     }
@@ -115,7 +113,7 @@
       box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
     }
 
-    .sidebar-nav { padding: 10px 10px 24px; flex: 1; }
+    .sidebar-nav { padding: 8px 10px 28px; flex: 1; }
     .nav-group-label {
       font-size: 11px;
       font-weight: 800;
@@ -126,12 +124,12 @@
     }
     .nav-item {
       display: block;
-      padding: 7px 10px;
+      padding: 6.5px 10px;
       margin: 2px 0;
       border-radius: var(--radius-sm);
       color: var(--text);
       text-decoration: none;
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 500;
       transition: all 0.15s;
       border-left: 3px solid transparent;
@@ -143,6 +141,14 @@
       border-left-color: var(--accent);
       font-weight: 700;
     }
+    .nav-item.nav-exam {
+      background: #fff1f2;
+      color: #be123c;
+      font-weight: 700;
+      border: 1px solid #fecdd3;
+      margin-top: 6px;
+    }
+    .nav-item.nav-exam:hover { background: #ffe4e6; }
     .nav-item.hidden { display: none; }
 
     /* Mobile Header */
@@ -179,17 +185,17 @@
     .main-content {
       flex: 1;
       min-width: 0;
-      padding: 28px 34px 64px;
-      max-width: 1120px;
+      padding: 26px 32px 68px;
+      max-width: 1140px;
       margin: 0 auto;
     }
 
     /* Hero */
     .hero {
-      background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 60%, #4f46e5 100%);
+      background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 58%, #4f46e5 100%);
       color: #fff;
       border-radius: var(--radius-lg);
-      padding: 28px 30px;
+      padding: 26px 28px;
       margin-bottom: 22px;
       box-shadow: var(--shadow-md);
     }
@@ -202,15 +208,9 @@
       padding: 3px 10px;
       border-radius: 999px;
     }
-    .hero h2 { font-size: 24px; font-weight: 800; line-height: 1.3; margin-bottom: 8px; }
-    .hero p { font-size: 14.5px; color: #dbeafe; max-width: 820px; }
-
-    .quick-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
-    }
+    .hero h2 { font-size: 23px; font-weight: 800; line-height: 1.3; margin-bottom: 8px; }
+    .hero p { font-size: 14px; color: #dbeafe; max-width: 860px; }
+    .quick-pills { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
     .pill {
       display: inline-block;
       background: rgba(255,255,255,0.14);
@@ -224,8 +224,10 @@
       transition: background 0.15s;
     }
     .pill:hover { background: rgba(255,255,255,0.28); }
+    .pill-hot { background: #e11d48; border-color: #fb7185; }
+    .pill-hot:hover { background: #be123c; }
 
-    /* Sections & Cards */
+    /* Sections */
     section.guide-section {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -233,14 +235,14 @@
       padding: 24px 26px;
       margin-bottom: 22px;
       box-shadow: var(--shadow-sm);
-      scroll-margin-top: 20px;
+      scroll-margin-top: 18px;
     }
     .section-head {
       display: flex;
       align-items: center;
       gap: 10px;
       padding-bottom: 12px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       border-bottom: 2px solid var(--surface-alt);
     }
     .section-num {
@@ -252,31 +254,29 @@
       border-radius: 999px;
       flex-shrink: 0;
     }
-    .section-head h2 {
-      font-size: 19px;
-      font-weight: 800;
-      color: var(--primary);
-    }
-    .section-sub {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-top: -10px;
-      margin-bottom: 16px;
-    }
+    .section-num-rose { background: var(--rose); }
+    .section-head h2 { font-size: 19px; font-weight: 800; color: var(--primary); }
+    .section-sub { font-size: 13px; color: var(--text-muted); margin-top: -8px; margin-bottom: 14px; }
 
     h3.sub-title {
       font-size: 15.5px;
       font-weight: 800;
       color: #1e3a8a;
-      margin: 18px 0 8px;
+      margin: 20px 0 8px;
+      padding-left: 10px;
+      border-left: 3.5px solid var(--accent);
     }
+
+    p.body-p { font-size: 14px; color: #1e293b; margin-bottom: 8px; }
+    ul.std-list, ol.std-list { padding-left: 22px; margin: 6px 0 12px; font-size: 14px; color: #1e293b; }
+    ul.std-list li, ol.std-list li { margin-bottom: 5px; }
 
     /* Callouts */
     .callout {
       padding: 13px 16px;
       border-radius: var(--radius-md);
       margin: 12px 0;
-      font-size: 14px;
+      font-size: 13.8px;
       border-left: 4px solid;
     }
     .callout-blue { background: var(--accent-light); border-color: var(--accent); color: #1e3a8a; }
@@ -285,43 +285,52 @@
     .callout-rose { background: var(--rose-light); border-color: var(--rose); color: #9f1239; }
     .callout-purple { background: var(--purple-light); border-color: var(--purple); color: #4c1d95; }
 
+    /* Worked Example Card */
+    .example-card {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-top: 4px solid #0d9488;
+      border-radius: var(--radius-md);
+      padding: 15px 18px;
+      margin: 14px 0;
+    }
+    .example-card .ex-badge {
+      display: inline-block;
+      background: #0d9488;
+      color: #fff;
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 2px 9px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+    .example-card h4 { font-size: 14.5px; font-weight: 800; color: #0f172a; margin-bottom: 6px; }
+    .example-card p, .example-card li { font-size: 13.5px; color: #334155; }
+
     /* Tables */
     .table-wrap { overflow-x: auto; margin: 12px 0; border-radius: var(--radius-md); border: 1px solid var(--border); }
-    table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13.2px; }
     thead th {
       background: #0f172a;
       color: #fff;
       font-weight: 700;
       text-align: left;
-      padding: 10px 12px;
-      white-space: nowrap;
+      padding: 9px 11px;
     }
-    tbody td {
-      padding: 9px 12px;
-      border-top: 1px solid var(--border);
-      vertical-align: top;
-    }
+    tbody td { padding: 8.5px 11px; border-top: 1px solid var(--border); vertical-align: top; }
     tbody tr:nth-child(even) { background: #f8fafc; }
     tbody tr:hover { background: #eff6ff; }
 
     /* Tags */
-    .tag {
-      display: inline-block;
-      font-size: 11.5px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 999px;
-      white-space: nowrap;
-    }
+    .tag { display: inline-block; font-size: 11.5px; font-weight: 700; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
     .tag-blue { background: #dbeafe; color: #1d4ed8; }
     .tag-green { background: #d1fae5; color: #047857; }
     .tag-amber { background: #fef3c7; color: #b45309; }
     .tag-rose { background: #ffe4e6; color: #be123c; }
     .tag-purple { background: #ede9fe; color: #6d28d9; }
 
-    /* Code Blocks with Copy */
+    /* Code Blocks */
     .code-box {
-      position: relative;
       background: #0f172a;
       color: #e2e8f0;
       border-radius: var(--radius-md);
@@ -348,22 +357,16 @@
       font-weight: 700;
       cursor: pointer;
       font-family: inherit;
-      transition: background 0.15s;
     }
     .copy-btn:hover { background: #1d4ed8; }
     .copy-btn.copied { background: #059669; }
-    .code-box pre {
-      padding: 12px 14px;
-      overflow-x: auto;
-      font-size: 12.5px;
-      line-height: 1.55;
-      white-space: pre;
-    }
+    .code-box pre { padding: 11px 14px; overflow-x: auto; font-size: 12.2px; line-height: 1.5; white-space: pre; }
+    .code-box pre code { background: transparent; color: inherit; padding: 0; }
     .c-cmt { color: #94a3b8; }
     .c-cmd { color: #38bdf8; font-weight: 600; }
     .c-opt { color: #fbbf24; }
 
-    /* Grid */
+    /* Grid & Cards */
     .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 12px 0; }
     .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 12px 0; }
     .mini-card {
@@ -376,30 +379,29 @@
     .mini-card p, .mini-card li { font-size: 13.5px; color: #334155; }
     .mini-card ul { padding-left: 18px; margin-top: 4px; }
 
-    /* Formula Box */
     .formula-box {
       background: #f8fafc;
       border: 1px solid var(--accent-border);
       border-radius: var(--radius-md);
-      padding: 12px 16px;
+      padding: 10px 14px;
       margin: 10px 0;
       overflow-x: auto;
       text-align: center;
     }
 
-    /* Interactive 10-Sec Finder */
+    /* Interactive Finder */
     .finder-panel {
       background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
       border: 2px solid var(--accent-border);
       border-radius: var(--radius-lg);
       padding: 18px 20px;
-      margin: 14px 0 18px;
+      margin: 12px 0 18px;
     }
     .finder-step { margin-bottom: 12px; }
     .finder-label { font-size: 13px; font-weight: 800; color: #1e3a8a; margin-bottom: 6px; }
-    .finder-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+    .finder-btns { display: flex; flex-wrap: wrap; gap: 7px; }
     .f-btn {
-      padding: 7px 13px;
+      padding: 6.5px 12px;
       border-radius: 8px;
       border: 1.5px solid var(--border-dark);
       background: #fff;
@@ -408,25 +410,19 @@
       font-size: 13px;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.15s;
     }
     .f-btn:hover { border-color: var(--accent); color: var(--accent); }
-    .f-btn.selected {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-      box-shadow: 0 2px 6px rgba(37,99,235,0.28);
-    }
+    .f-btn.selected { background: var(--accent); color: #fff; border-color: var(--accent); }
     .finder-result {
-      margin-top: 14px;
+      margin-top: 12px;
       background: #fff;
       border: 1.5px solid var(--emerald);
       border-radius: var(--radius-md);
       padding: 14px 16px;
     }
-    .finder-result h4 { color: #065f46; font-size: 15.5px; font-weight: 800; margin-bottom: 6px; }
+    .finder-result h4 { color: #065f46; font-size: 15px; font-weight: 800; margin-bottom: 6px; }
 
-    /* Template Copy Card */
+    /* Templates */
     .tpl-card {
       background: #fff;
       border: 1px solid var(--border-dark);
@@ -434,12 +430,7 @@
       padding: 12px 14px;
       margin: 10px 0;
     }
-    .tpl-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 6px;
-    }
+    .tpl-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
     .tpl-text {
       font-size: 13.5px;
       color: #1e293b;
@@ -449,7 +440,99 @@
       border: 1px dashed var(--border-dark);
     }
 
-    /* Back to top */
+    /* Interactive Mock Exam */
+    .exam-scoreboard {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: linear-gradient(135deg, #0f172a 0%, #881337 100%);
+      color: #fff;
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      margin-bottom: 18px;
+    }
+    .exam-score-val { font-size: 22px; font-weight: 800; }
+    .exam-reset-btn {
+      background: #fff;
+      color: #881337;
+      border: none;
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-weight: 800;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .mcq-card {
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      margin-bottom: 14px;
+      background: #fff;
+    }
+    .mcq-q { font-size: 14.5px; font-weight: 700; color: #0f172a; margin-bottom: 10px; }
+    .mcq-tag { font-size: 11px; font-weight: 700; color: #4f46e5; background: #eef2ff; padding: 2px 8px; border-radius: 999px; margin-right: 6px; }
+    .mcq-opts { display: grid; gap: 7px; }
+    .mcq-opt {
+      text-align: left;
+      padding: 9px 13px;
+      border: 1.5px solid var(--border-dark);
+      border-radius: 8px;
+      background: #f8fafc;
+      font-family: inherit;
+      font-size: 13.5px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .mcq-opt:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-light); }
+    .mcq-opt.correct { background: #d1fae5 !important; border-color: #059669 !important; color: #065f46; font-weight: 700; }
+    .mcq-opt.wrong { background: #ffe4e6 !important; border-color: #e11d48 !important; color: #9f1239; }
+    .mcq-exp {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 13px;
+      border-radius: 8px;
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+      font-size: 13.2px;
+      color: #1e3a8a;
+    }
+    .mcq-exp.show { display: block; }
+
+    /* Written Problem Accordion */
+    details.written-prob {
+      border: 1.5px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      margin-bottom: 14px;
+      background: #fff;
+      overflow: hidden;
+    }
+    details.written-prob summary {
+      padding: 14px 18px;
+      font-weight: 800;
+      font-size: 14.5px;
+      color: #0f172a;
+      background: #f8fafc;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    details.written-prob summary::after { content: "▼ ดูโจทย์และเฉลยละเอียด"; font-size: 12px; color: var(--accent); font-weight: 700; }
+    details.written-prob[open] summary::after { content: "▲ ซ่อนเฉลย"; }
+    .written-body { padding: 16px 18px; border-top: 1px solid var(--border); font-size: 13.8px; }
+    .sol-box {
+      margin-top: 12px;
+      padding: 14px 16px;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-left: 4px solid #059669;
+      border-radius: 8px;
+    }
+
     .back-top {
       position: fixed;
       right: 22px;
@@ -467,22 +550,11 @@
       box-shadow: var(--shadow-md);
       z-index: 30;
     }
-
-    footer {
-      text-align: center;
-      font-size: 12.5px;
-      color: var(--text-muted);
-      padding: 16px 0 8px;
-    }
+    footer { text-align: center; font-size: 12.5px; color: var(--text-muted); padding: 16px 0 8px; }
 
     @media (max-width: 960px) {
       .mobile-topbar { display: flex; }
-      .sidebar {
-        position: fixed;
-        left: 0;
-        top: 0;
-        transform: translateX(-100%);
-      }
+      .sidebar { position: fixed; left: 0; top: 0; transform: translateX(-100%); }
       .sidebar.open { transform: translateX(0); }
       .sidebar-backdrop.open { display: block; }
       .main-content { padding: 18px 14px 56px; }
@@ -491,14 +563,13 @@
     @media print {
       .sidebar, .mobile-topbar, .back-top, .copy-btn, .finder-panel { display: none !important; }
       .main-content { max-width: 100%; padding: 0; }
-      section.guide-section { break-inside: avoid; box-shadow: none; }
     }
   </style>
 </head>
 <body id="top">
 
 <div class="mobile-topbar">
-  <strong>📊 Final Study Guide (3014710 + 3014831)</strong>
+  <strong>📊 Final Master Study Guide + Mock Exam</strong>
   <button class="menu-btn" id="menuToggle">☰ เมนู</button>
 </div>
 <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
@@ -507,31 +578,32 @@
   <!-- Sticky Sidebar -->
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
-      <div class="badge-top">CHULA PREVMED • FINAL MASTER GUIDE</div>
-      <h1>3014710 + 3014831<br>Master Cheat Sheet</h1>
-      <p>Suvinon Pluckwattanachai, M.D.<br>ครอบคลุมครบ 17 ไฟล์ Final (Theory + STATA)</p>
+      <div class="badge-top">CHULA PREVMED • FINAL EXAM EDITION</div>
+      <h1>3014710 + 3014831<br>Master Study Guide</h1>
+      <p>Suvinon Pluckwattanachai, M.D.<br>เนื้อหาละเอียดระดับ Slide + Mock Exam</p>
     </div>
 
     <div class="sidebar-search">
-      <input type="text" id="navSearch" placeholder="🔍 ค้นหาหัวข้อ / คำสั่ง STATA (เช่น kwallis, power, mcc)...">
+      <input type="text" id="navSearch" placeholder="🔍 ค้นหาหัวข้อ / คำสั่ง STATA (เช่น kwallis2, mcc, power)...">
     </div>
 
     <nav class="sidebar-nav" id="sidebarNav">
       <div class="nav-group-label">⚡ Quick Reference (เปิดสอบ)</div>
       <a class="nav-item active" href="#master-cheat-sheet" data-kw="decision tree finder เลือกสถิติ ttest anova chi2 logistic">⚡ 1. Decision Tree &amp; 10-Sec Finder</a>
-      <a class="nav-item" href="#assumption-matrix" data-kw="assumption bartlett swilk sktest robvar vif rvfplot hettest gof expected">🧪 2. ตารางเช็ค Assumption ครบชุด</a>
-      <a class="nav-item" href="#p-value-master-table" data-kw="pvalue ci 95% คร่อม 0 คร่อม 1 rr or cs cc ir mcc">🎯 3. จุดจ้องดู p-value, 95% CI &amp; RR/OR</a>
+      <a class="nav-item" href="#assumption-matrix" data-kw="assumption bartlett swilk sktest robvar vif rvfplot hettest gof cochran expected">🧪 2. ตารางเช็ค Assumption ครบชุด</a>
+      <a class="nav-item" href="#p-value-master-table" data-kw="pvalue ci 95% คร่อม 0 คร่อม 1 rr or cs cc ir mcc">🎯 3. จุดดู p-value, 95% CI &amp; RR/OR</a>
 
-      <div class="nav-group-label">📚 3014710 + 3014831 Modules</div>
-      <a class="nav-item" href="#two-sample-binomial" data-kw="l6-1 l6-2 ttest paired ranksum signrank mann whitney wilcoxon binomial prtest bitest">⚖️ บทที่ 1: 2 กลุ่ม, Binomial &amp; Nonparametric</a>
-      <a class="nav-item" href="#categorical-epi" data-kw="l9 l10 chi2 fisher exact mcnemar mcc mcci cs csi cc cci ir iri mantel haenszel mhodds rr or">📑 บทที่ 2: Categorical, Matched &amp; Epitab</a>
-      <a class="nav-item" href="#anova-multiple" data-kw="l11 anova oneway bartlett bonferroni scheffe sidak pwmean kwallis kruskal wallis">📊 บทที่ 3: ≥3 กลุ่ม (ANOVA &amp; Kruskal-Wallis)</a>
-      <a class="nav-item" href="#sample-size" data-kw="l12 sample size power twomeans twoproportions sampsi precision non-response z 1.96 0.84 1.28">📐 บทที่ 4: Sample Size &amp; Power (L12)</a>
-      <a class="nav-item" href="#correlation-linear" data-kw="l13 l14 correlation pwcorr spearman linear regression multiple dummy i. ib r2 adj r2 vif ancova lbw">📈 บทที่ 5: Correlation &amp; Linear Regression</a>
-      <a class="nav-item" href="#logistic-regression" data-kw="logistic logit or aor predicted probability lrtest gof hosmer lemeshow lroc roc auc classification lbw dm">🧬 บทที่ 6: Multiple Logistic Regression</a>
+      <div class="nav-group-label">📚 เนื้อหาละเอียดจาก Slide (17 PDFs)</div>
+      <a class="nav-item" href="#two-sample-binomial" data-kw="l6-1 l6-2 ttest sdtest pooled welch paired binomial poisson sign test ranksum signrank cotinine">⚖️ บทที่ 1: Two-Sample, Binomial, Poisson &amp; Nonparametric</a>
+      <a class="nav-item" href="#categorical-epi" data-kw="l9 l10 chi2 cochran yates fisher mcnemar crossover cpap mas mcc mcci cs csi cc cci ir iri mantel haenszel coffee mi">📑 บทที่ 2: Categorical, Matched/Crossover &amp; Epitab (MH)</a>
+      <a class="nav-item" href="#anova-multiple" data-kw="l11 anova ssb ssw bartlett robvar levene bonferroni scheffe tukey duncan lsd pwmean kwallis kwallis2">📊 บทที่ 3: ≥3 กลุ่ม (ANOVA, Post-hoc &amp; kwallis2)</a>
+      <a class="nav-item" href="#sample-size" data-kw="l12 sample size power twomeans twoproportions sampsi precision non-response z 1.96 0.84 1.28 cohort case-control">📐 บทที่ 4: Sample Size &amp; Power ครบ 5 สูตร (L12)</a>
+      <a class="nav-item" href="#correlation-linear" data-kw="l13 l14 correlation pwcorr spearman linear regression multiple dummy i. ib r2 adj r2 vif ancova stepwise lbw">📈 บทที่ 5: Correlation &amp; Multiple Linear Regression</a>
+      <a class="nav-item" href="#logistic-regression" data-kw="logistic logit or aor predicted probability lrtest gof hosmer lemeshow lroc roc auc classification sensitivity specificity lbw dm">🧬 บทที่ 6: Multiple Logistic Regression &amp; ROC</a>
 
-      <div class="nav-group-label">🚨 Exam Day Playbook</div>
-      <a class="nav-item" href="#copy-templates" data-kw="template ประโยคแปลผล checklist กับดัก ข้อสอบ mock exam">📋 7. คลังประโยคแปลผล &amp; Checklist 30 วิ</a>
+      <div class="nav-group-label">📋 Playbook &amp; ฝึกทำข้อสอบ</div>
+      <a class="nav-item" href="#copy-templates" data-kw="template ประโยคแปลผล checklist กับดัก ข้อสอบ">📋 7. คลังประโยคแปลผล &amp; Checklist 30 วิ</a>
+      <a class="nav-item nav-exam" href="#mock-exam" data-kw="mock exam quiz test โจทย์ ข้อสอบจำลอง ปรนัย อัตนัย คำนวณ">🔥 8. MOCK EXAM (20 ปรนัย + 5 อัตนัย)</a>
     </nav>
   </aside>
 
@@ -541,22 +613,22 @@
     <!-- Hero -->
     <div class="hero">
       <div class="hero-badges">
-        <span class="hero-badge">3014710 สถิติในงานวิจัยด้านสุขภาพ (10 PDFs)</span>
-        <span class="hero-badge">3014831 การวิเคราะห์ข้อมูลฯ STATA (7 PDFs)</span>
-        <span class="hero-badge">Open-Book &amp; Exam Ready</span>
+        <span class="hero-badge">3014710 สถิติในงานวิจัยด้านสุขภาพ (10 Slide Decks)</span>
+        <span class="hero-badge">3014831 การวิเคราะห์ข้อมูลฯ STATA (7 Slide Decks)</span>
+        <span class="hero-badge">Deep Exam Notes + Interactive Mock Test</span>
       </div>
-      <h2>สรุปเข้มสถิติการแพทย์ + STATA ฉบับพิชิตข้อสอบ Final</h2>
-      <p>รวมครบทั้ง 2 โฟลเดอร์ Final ในหน้าเดียว: Decision Tree เลือกสถิติใน 10 วินาที, ตารางเช็ค Assumption, สูตร Sample Size พร้อมคำสั่ง <code>power</code>, ตารางระบาดวิทยา <code>cs/cc/ir/mcc</code>, ANOVA/Kruskal-Wallis, Multiple Linear &amp; Logistic Regression พร้อมประโยคแปลผลก๊อปใช้งานได้ทันที</p>
+      <h2>สรุปเข้มระดับ Slide + คู่มือ STATA + Mock Exam ฉบับพิชิตข้อสอบ Final</h2>
+      <p>สรุปเนื้อหาละเอียดจากทุกสไลด์ของอาจารย์ (รศ.นพ.ธนันท์, รศ.สมรัตน์, ศ.ดร.นพ.วิฑูรย์, ผศ.ดร.นพ.ธนภูมิ) ทั้งสูตรคำนวณมือ ตัวอย่างโจทย์จริงในห้องเรียน (Enalapril, Cotinine, CPAP/MAS, Coffee-MI, Business Executives, LBW, DM) คำสั่ง STATA พร้อมปุ่ม Copy และ <strong>ข้อสอบ Mock Exam ออนไลน์ 20 ปรนัย + 5 อัตนัย</strong></p>
       <div class="quick-pills">
         <a class="pill" href="#master-cheat-sheet">⚡ Finder 10 วิ</a>
         <a class="pill" href="#assumption-matrix">🧪 Assumptions</a>
-        <a class="pill" href="#p-value-master-table">🎯 จุดดู p-value &amp; CI</a>
-        <a class="pill" href="#categorical-epi">📑 cs / cc / mcc / MH</a>
-        <a class="pill" href="#anova-multiple">📊 ANOVA &amp; KW</a>
-        <a class="pill" href="#sample-size">📐 สูตร Sample Size</a>
-        <a class="pill" href="#correlation-linear">📈 Linear Reg</a>
+        <a class="pill" href="#two-sample-binomial">⚖️ L6-1 / L6-2 / Nonparam</a>
+        <a class="pill" href="#categorical-epi">📑 L9 / L10 / Epitab / MH</a>
+        <a class="pill" href="#anova-multiple">📊 L11 ANOVA / kwallis2</a>
+        <a class="pill" href="#sample-size">📐 L12 Sample Size</a>
+        <a class="pill" href="#correlation-linear">📈 L13-14 Linear Reg</a>
         <a class="pill" href="#logistic-regression">🧬 Logistic &amp; P̂</a>
-        <a class="pill" href="#copy-templates">🚨 SOS Checklist</a>
+        <a class="pill pill-hot" href="#mock-exam">🔥 ทำข้อสอบ Mock Exam</a>
       </div>
     </div>
 
@@ -568,132 +640,78 @@
         <span class="section-num">01</span>
         <h2>⚡ Master Decision Tree &amp; ตัวช่วยเลือกสถิติใน 10 วินาที (Interactive Finder)</h2>
       </div>
-      <p class="section-sub">คลิกเลือกประเภทตัวแปรตาม (Outcome) และโครงสร้างกลุ่ม เพื่อดูชื่อสถิติ คำสั่ง STATA และวิธีอ่านค่าทันที</p>
+      <p class="section-sub">คลิกเลือกประเภทตัวแปรตาม (Outcome), โครงสร้างกลุ่ม และเงื่อนไขการกระจายตัว เพื่อดูชื่อสถิติ คำสั่ง STATA และจุดดู p-value ทันที</p>
 
       <div class="finder-panel">
         <div class="finder-step">
           <div class="finder-label">Step 1: ตัวแปรตาม (Outcome / Y) เป็นแบบไหน?</div>
           <div class="finder-btns" id="fStep1">
-            <button class="f-btn selected" data-val="cont">ตัวเลขต่อเนื่อง (Continuous: bwt, BP, BMD)</button>
+            <button class="f-btn selected" data-val="cont">ตัวเลขต่อเนื่อง (Continuous: bwt, SBP, BMD)</button>
             <button class="f-btn" data-val="bin">กลุ่ม 2 ค่า (Binary: lbw 0/1, dm 0/1)</button>
             <button class="f-btn" data-val="cat">กลุ่ม ≥2 ค่า (Nominal/Ordinal)</button>
             <button class="f-btn" data-val="rate">อัตราอุบัติการณ์ / Person-Time</button>
           </div>
         </div>
-
         <div class="finder-step">
           <div class="finder-label">Step 2: โครงสร้างการเปรียบเทียบ / ตัวแปรต้น (X)</div>
           <div class="finder-btns" id="fStep2">
             <button class="f-btn selected" data-val="2ind">2 กลุ่มอิสระ (Independent)</button>
-            <button class="f-btn" data-val="2pair">2 กลุ่มจับคู่ / ก่อน-หลัง (Paired/Matched)</button>
+            <button class="f-btn" data-val="2pair">2 กลุ่มจับคู่ / ก่อน-หลัง / Crossover</button>
             <button class="f-btn" data-val="3plus">≥ 3 กลุ่มอิสระ</button>
-            <button class="f-btn" data-val="multi">หลายตัวแปร / คุมตัวแปรกวน (Multivariable)</button>
+            <button class="f-btn" data-val="multi">หลายตัวแปร / คุม Confounder (Multivariable)</button>
             <button class="f-btn" data-val="corr">หาความสัมพันธ์ตัวเลข 2 ตัว (X &amp; Y)</button>
           </div>
         </div>
-
         <div class="finder-step">
-          <div class="finder-label">Step 3: การกระจายตัว / เงื่อนไข (Normality &amp; Assumptions)</div>
+          <div class="finder-label">Step 3: การกระจายตัว / เงื่อนไข (Assumptions)</div>
           <div class="finder-btns" id="fStep3">
-            <button class="f-btn selected" data-val="param">ปกติ / ผ่านเกณฑ์ (Parametric / Expected ≥ 5)</button>
-            <button class="f-btn" data-val="nonparam">เบ้มาก / Ordinal / ตกเกณฑ์ (Nonparametric / Expected &lt; 5)</button>
+            <button class="f-btn selected" data-val="param">ปกติ / ผ่านเกณฑ์ (Normal / Expected ≥ 5)</button>
+            <button class="f-btn" data-val="nonparam">เบ้มาก / Ordinal / ตกเกณฑ์ (Skewed / Expected &lt; 5)</button>
           </div>
         </div>
-
-        <div class="finder-result" id="finderResult">
-          <!-- Populated by JS -->
-        </div>
+        <div class="finder-result" id="finderResult"></div>
       </div>
 
-      <h3 class="sub-title">ตารางสรุปการเลือกสถิติฉบับเต็ม (ครอบคลุม 3014710 + 3014831)</h3>
+      <h3 class="sub-title">ตาราง Master Choosing Test-Statistics (ตรงตามตารางในสไลด์ รศ.นพ.ธนันท์)</h3>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
               <th>Outcome (Y)</th>
-              <th>กลุ่ม / ตัวแปรต้น (X)</th>
-              <th>Parametric (ปกติ/ผ่านเกณฑ์)</th>
-              <th>Non-Parametric / Exact (เบ้/ตกเกณฑ์)</th>
-              <th>คำสั่ง STATA หลัก</th>
+              <th>One-group / Paired</th>
+              <th>Two-group (Independent)</th>
+              <th>≥ 3 groups (Independent)</th>
+              <th>Continuous Predictor / Multivariable</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><span class="tag tag-blue">Continuous</span></td>
-              <td>1 กลุ่ม เทียบค่ามาตรฐาน</td>
-              <td>One-sample t-test</td>
-              <td>Wilcoxon signed-rank / Sign test</td>
-              <td><code>ttest y == #</code> / <code>signrank y = #</code></td>
+              <td><span class="tag tag-blue">Continuous (Normal)</span></td>
+              <td>Paired t-test<br><code>ttest y1 == y2</code></td>
+              <td>Unpaired t-test (<code>sdtest</code>→<code>unequal</code>)<br><code>ttest y, by(x)</code></td>
+              <td>One-way ANOVA + Post-hoc<br><code>oneway y x, tab bonf</code></td>
+              <td>Pearson $r$ / Linear Regression<br><code>pwcorr</code> / <code>reg y x1 x2</code></td>
             </tr>
             <tr>
-              <td><span class="tag tag-blue">Continuous</span></td>
-              <td>2 กลุ่มอิสระ</td>
-              <td>Independent t-test (หรือ Welch ถ้า SD ต่าง)</td>
-              <td>Mann-Whitney U (Rank-sum)</td>
-              <td><code>ttest y, by(x)</code> / <code>ranksum y, by(x)</code></td>
+              <td><span class="tag tag-amber">Continuous (Skewed) / Ordinal</span></td>
+              <td>Wilcoxon signed-rank / Sign test<br><code>signrank</code> / <code>signtest</code></td>
+              <td>Mann-Whitney U (Rank-sum)<br><code>ranksum y, by(x)</code></td>
+              <td>Kruskal-Wallis + <code>kwallis2</code><br><code>kwallis y, by(x)</code></td>
+              <td>Spearman $\rho$<br><code>spearman x y, stats(rho p)</code></td>
             </tr>
             <tr>
-              <td><span class="tag tag-blue">Continuous</span></td>
-              <td>2 กลุ่มจับคู่ (ก่อน–หลัง)</td>
-              <td>Paired t-test</td>
-              <td>Wilcoxon signed-rank test</td>
-              <td><code>ttest y1 == y2</code> / <code>signrank y1 = y2</code></td>
+              <td><span class="tag tag-purple">Binary / Nominal</span></td>
+              <td>McNemar's test (Exact if $b+c&lt;25$)<br><code>mcc</code> / <code>mcci</code></td>
+              <td>Chi-square / Fisher's exact / <code>prtest</code><br><code>cs</code> (RR) / <code>cc</code> (OR)</td>
+              <td>Chi-square / Fisher's exact ($R\times C$)<br><code>tab x y, chi2 exact</code></td>
+              <td>Logistic Regression<br><code>logistic y i.cat cont</code></td>
             </tr>
             <tr>
-              <td><span class="tag tag-blue">Continuous</span></td>
-              <td>≥ 3 กลุ่มอิสระ</td>
-              <td>One-way ANOVA + Post-hoc (Bonferroni)</td>
-              <td>Kruskal-Wallis test</td>
-              <td><code>oneway y x, tab bonferroni</code> / <code>kwallis y, by(x)</code></td>
-            </tr>
-            <tr>
-              <td><span class="tag tag-blue">Continuous</span></td>
-              <td>Continuous X (หาความสัมพันธ์)</td>
-              <td>Pearson correlation ($r$)</td>
-              <td>Spearman rank correlation ($\rho$)</td>
-              <td><code>pwcorr x y, sig obs</code> / <code>spearman x y, stats(rho p)</code></td>
-            </tr>
-            <tr>
-              <td><span class="tag tag-blue">Continuous</span></td>
-              <td>หลายตัวแปร / คุม Confounder</td>
-              <td>Multiple Linear Regression / ANCOVA</td>
-              <td>Transform Y / Robust SE (<code>vce(robust)</code>)</td>
-              <td><code>reg y i.cat cont</code></td>
-            </tr>
-            <tr>
-              <td><span class="tag tag-purple">Binary / Cat</span></td>
-              <td>1 กลุ่ม เทียบสัดส่วน $p_0$</td>
-              <td>One-sample z-test (Proportion)</td>
-              <td>Exact Binomial test</td>
-              <td><code>prtest y == #</code> / <code>bitest y == #</code></td>
-            </tr>
-            <tr>
-              <td><span class="tag tag-purple">Binary / Cat</span></td>
-              <td>2+ กลุ่มอิสระ (ตาราง $R \times C$)</td>
-              <td>Pearson's Chi-square ($\chi^2$)</td>
-              <td>Fisher's exact test (Expected &lt; 5)</td>
-              <td><code>tab x y, row col chi2 exact expected</code></td>
-            </tr>
-            <tr>
-              <td><span class="tag tag-purple">Binary</span></td>
-              <td>2 กลุ่มจับคู่ (Matched / Pre-Post)</td>
-              <td>McNemar's $\chi^2$ test</td>
-              <td>Exact McNemar test ($b+c &lt; 25$)</td>
-              <td><code>mcc case ctrl</code> / <code>mcci a b c d</code></td>
-            </tr>
-            <tr>
-              <td><span class="tag tag-green">Epi 2×2</span></td>
-              <td>Cohort / Case-Control / Person-Time</td>
-              <td>RR, RD (`cs`) / OR (`cc`) / IRR (`ir`)</td>
-              <td>Stratified Mantel-Haenszel (`by(z)`)</td>
-              <td><code>cs y x</code> / <code>cc y x</code> / <code>ir y x time</code></td>
-            </tr>
-            <tr>
-              <td><span class="tag tag-rose">Binary (0/1)</span></td>
-              <td>หลายตัวแปร / คุม Confounder</td>
-              <td>Multiple Logistic Regression (AOR)</td>
-              <td>Exact logistic (ถ้าเซลล์น้อยมาก)</td>
-              <td><code>logistic y i.cat cont</code> / <code>logit y ...</code></td>
+              <td><span class="tag tag-green">Rate / Person-Time</span></td>
+              <td>—</td>
+              <td>Incidence Rate Ratio (IRR)<br><code>ir</code> / <code>iri</code></td>
+              <td>Poisson Regression</td>
+              <td>Poisson / Cox Regression</td>
             </tr>
           </tbody>
         </table>
@@ -708,72 +726,64 @@
         <span class="section-num">02</span>
         <h2>🧪 ตารางเช็ค Assumption &amp; Diagnostics ครบชุด</h2>
       </div>
-      <p class="section-sub">กฎการเช็คสุขภาพข้อมูลก่อนเชื่อผลลัพธ์ — จำง่าย: พวกทดสอบ Assumption ส่วนใหญ่ "อยากได้ $p \ge 0.05$" (แปลว่าผ่านเกณฑ์!)</p>
+      <p class="section-sub">กฎจำง่าย: การทดสอบ Assumption แทบทุกตัวตั้ง $H_0$ ว่า "ปกติ / เท่ากัน / โมเดลฟิตดี" → จึง<strong>อยากได้ $p \ge 0.05$</strong> (= ผ่านเกณฑ์ ✅)</p>
 
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th>สถิติที่ใช้</th>
+              <th>สถิติ</th>
               <th>Assumption ที่ต้องเช็ค</th>
               <th>คำสั่ง STATA</th>
-              <th>เกณฑ์ "ผ่าน" ✅</th>
-              <th>ถ้า "ตกเกณฑ์" ❌ ต้องทำอะไร?</th>
+              <th>เกณฑ์ผ่าน ✅</th>
+              <th>ถ้าตกเกณฑ์ ❌ ต้องเปลี่ยนเป็น</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><strong>t-test / ANOVA</strong></td>
-              <td>Normality (แจกแจงปกติ)</td>
-              <td><code>swilk y</code> หรือ <code>sktest y</code></td>
-              <td>$p \ge 0.05$ (และดู Histogram/Boxplot)</td>
-              <td>ใช้ <code>ranksum</code> (2 กลุ่ม), <code>signrank</code> (คู่), <code>kwallis</code> (≥3 กลุ่ม)</td>
+              <td>Normality (หรือ CLT เมื่อ $n$ ใหญ่)</td>
+              <td><code>swilk y</code> / <code>sktest y</code> / <code>histogram y, normal</code></td>
+              <td>$p \ge 0.05$ (สำหรับ Paired t-test เช็คที่ผลต่าง $\Delta_i$)</td>
+              <td><code>ranksum</code> (2 กลุ่ม), <code>signrank</code> (คู่), <code>kwallis</code> (≥3 กลุ่ม)</td>
             </tr>
             <tr>
               <td><strong>2-sample t-test</strong></td>
-              <td>Equal variances (SD 2 กลุ่มเท่ากัน)</td>
+              <td>Equal Variances ($H_0: s_x^2/s_y^2 = 1$)</td>
               <td><code>sdtest y, by(x)</code></td>
-              <td>$p \ge 0.05$ → ใช้ t-test ปกติ</td>
-              <td>$p &lt; 0.05$ → เติม <code>, unequal</code> (Welch's t-test)</td>
+              <td>$p \ge 0.05$ → Pooled variance t-test</td>
+              <td>$p &lt; 0.05$ → <code>ttest y, by(x) unequal</code> (Welch/Satterthwaite)</td>
             </tr>
             <tr>
               <td><strong>One-way ANOVA</strong></td>
-              <td>Equal variances (≥3 กลุ่ม)</td>
-              <td>ดูบรรทัดล่างสุดของ <code>oneway</code> (<strong>Bartlett's test</strong>) หรือ <code>robvar y, by(x)</code></td>
-              <td><code>Prob&gt;chi2</code> $\ge 0.05$ → ใช้ ANOVA ได้</td>
-              <td>ถ้า $p &lt; 0.05$ + ข้อมูลเบ้มาก → เปลี่ยนเป็น <strong>Kruskal-Wallis</strong> (<code>kwallis</code>)</td>
+              <td>Equal Variances (≥3 กลุ่ม)</td>
+              <td><strong>Bartlett's test</strong> (บรรทัดล่างของ <code>oneway</code>) หรือ <code>robvar y, by(x)</code> (Levene)</td>
+              <td><code>Prob&gt;chi2</code> $\ge 0.05$</td>
+              <td>ถ้า $p &lt; 0.05$ + ข้อมูลเบ้ → <strong>Kruskal-Wallis</strong> (<code>kwallis</code>)</td>
             </tr>
             <tr>
               <td><strong>Chi-square ($\chi^2$)</strong></td>
-              <td>Expected count ในแต่ละช่อง</td>
+              <td><strong>Cochran's Rule</strong> (Expected count)</td>
               <td><code>tab x y, expected</code></td>
-              <td>2×2: ทุกช่อง $E \ge 5$<br>$R\times C$: ช่องที่ $E&lt;5$ ไม่เกิน 20% และไม่มีช่อง $E&lt;1$</td>
-              <td>อ่านค่า <strong>Fisher's exact</strong> (<code>, exact</code>) แทน Pearson chi2</td>
+              <td>• ไม่มีช่องที่ $E &lt; 1$<br>• ช่องที่ $E \ge 5$ ต้อง $&gt; 80\%$ ของช่องทั้งหมด<br>• ตาราง 2×2: ทุกช่องต้อง $E \ge 5$ และ $n &gt; 20$</td>
+              <td><strong>Fisher's exact test</strong> (<code>, exact</code>) หรือ Yates' continuity correction (2×2)</td>
             </tr>
             <tr>
               <td><strong>Linear Regression</strong></td>
-              <td><strong>L-I-N-E</strong> &amp; Multicollinearity</td>
-              <td><code>rvfplot</code>, <code>estat hettest</code>, <code>predict r, resid</code> → <code>swilk r</code>, <code>vif</code></td>
-              <td>• Homoscedasticity: <code>hettest</code> $p \ge 0.05$<br>• Normality of residuals: <code>swilk r</code> $p \ge 0.05$<br>• No collinearity: <strong>VIF &lt; 10</strong></td>
-              <td>ใช้ <code>, vce(robust)</code> หรือ Transform $Y$ / ตัดตัวแปรที่ซ้ำซ้อนออก</td>
+              <td><strong>L-I-N-E</strong> + No Multicollinearity</td>
+              <td><code>rvfplot, yline(0)</code><br><code>estat hettest</code><br><code>predict r, resid</code> → <code>swilk r</code><br><code>vif</code></td>
+              <td>• <strong>L</strong>inearity: จุดกระจายสุ่มรอบ 0<br>• <strong>I</strong>ndependence: คนละรายกัน<br>• <strong>N</strong>ormality of residuals: <code>swilk r</code> $p \ge 0.05$<br>• <strong>E</strong>qual variance: <code>hettest</code> $p \ge 0.05$<br>• <strong>VIF &lt; 10</strong></td>
+              <td>ใช้ <code>, vce(robust)</code> / Transform $Y$ (เช่น $\ln Y$) / ตัดตัวแปรซ้ำซ้อน</td>
             </tr>
             <tr>
               <td><strong>Logistic Regression</strong></td>
               <td>Goodness-of-Fit &amp; Discrimination</td>
-              <td><code>estat gof, group(10)</code> (Hosmer-Lemeshow)<br><code>lroc</code> (AUC)</td>
-              <td>• H-L test: <strong>$p \ge 0.05$</strong> (โมเดลฟิตดี!)<br>• AUC $\ge 0.70$ (จำแนกได้ดี)</td>
-              <td>เพิ่ม Interaction / ปรับรูปตัวแปรต่อเนื่อง / ตรวจสอบ Outlier</td>
+              <td><code>estat gof, group(10)</code><br><code>lroc</code><br><code>estat classification</code></td>
+              <td>• Hosmer-Lemeshow: <strong>$p \ge 0.05$</strong> (Observed $\approx$ Expected)<br>• AUC $\ge 0.70$</td>
+              <td>ปรับโมเดล / เพิ่ม Interaction / ตรวจ Outlier</td>
             </tr>
           </tbody>
         </table>
-      </div>
-
-      <div class="callout callout-amber">
-        <strong>⚠️ ข้อควรระวังยอดฮิตในห้องสอบ:</strong>
-        <ul>
-          <li><strong>Bartlett's test / Shapiro-Wilk / Breusch-Pagan (hettest) / Hosmer-Lemeshow (gof):</strong> ทั้งหมดนี้ <strong>$p \ge 0.05$ คือ "ดี / ผ่านเกณฑ์"</strong> (ไม่ปฏิเสธ $H_0$ ที่ว่าปกติ / ความแปรปรวนเท่ากัน / โมเดลฟิตดี)</li>
-          <li><strong>Linear Regression:</strong> ต้องเช็ค Normality ที่ <strong>Residuals ($e = Y - \hat{Y}$)</strong> ไม่ใช่เช็คแค่ตัวแปร $Y$ ดิบๆ!</li>
-        </ul>
       </div>
     </section>
 
@@ -788,21 +798,22 @@
 
       <div class="grid-2">
         <div class="mini-card" style="border-left:4px solid var(--accent);">
-          <h4>1) 95% CI คร่อม 0 → ใช้กับ "ผลต่าง" (Difference)</h4>
+          <h4>95% CI คร่อม 0 → สถิติแบบ "ผลต่าง" (Difference)</h4>
           <p>มาจากการ <strong>ลบกัน ($A - B$)</strong>: Mean Diff, Risk Diff (RD), ค่า $\beta$ ใน Linear Regression</p>
           <ul>
             <li><strong>Null value ($H_0$):</strong> $= \mathbf{0}$</li>
-            <li><strong>คร่อม 0</strong> (เช่น $[-0.0026, +0.0041]$) → <strong>ไม่ซิก ($p \ge 0.05$)</strong></li>
+            <li><strong>คร่อม 0</strong> (ลบถึงบวก เช่น $[-22.24, +15.97]$) → <strong>ไม่ซิก ($p \ge 0.05$)</strong></li>
             <li><strong>ไม่คร่อม 0</strong> (บวกทั้งคู่ หรือ ลบทั้งคู่) → <strong>ซิก ($p &lt; 0.05$)</strong></li>
           </ul>
         </div>
         <div class="mini-card" style="border-left:4px solid var(--purple);">
-          <h4>2) 95% CI คร่อม 1 → ใช้กับ "อัตราส่วน" (Ratio)</h4>
-          <p>มาจากการ <strong>หารกัน ($A / B$)</strong>: Odds Ratio (OR), Risk Ratio (RR), IRR, Hazard Ratio (HR)</p>
+          <h4>95% CI คร่อม 1 → สถิติแบบ "อัตราส่วน" (Ratio)</h4>
+          <p>มาจากการ <strong>หารกัน ($A / B$)</strong>: OR, RR, IRR, HR</p>
           <ul>
             <li><strong>Null value ($H_0$):</strong> $= \mathbf{1}$</li>
             <li><strong>คร่อม 1</strong> (เช่น $[0.45, 1.12]$) → <strong>ไม่ซิก ($p \ge 0.05$)</strong></li>
-            <li><strong>ไม่คร่อม 1</strong> ($&gt;1$ ทั้งคู่ = ปัจจัยเสี่ยง, $&lt;1$ ทั้งคู่ = ปัจจัยป้องกัน) → <strong>ซิก ($p &lt; 0.05$)</strong></li>
+            <li><strong>$&gt;1$ ทั้งคู่:</strong> ปัจจัยเสี่ยง (Risk factor, ซิก)</li>
+            <li><strong>$&lt;1$ ทั้งคู่:</strong> ปัจจัยป้องกัน (Protective factor, ซิก)</li>
           </ul>
         </div>
       </div>
@@ -813,294 +824,371 @@
           <thead>
             <tr>
               <th>คำสั่ง STATA</th>
-              <th>ค่าสถิติที่รายงาน</th>
+              <th>ค่าสถิติหลัก</th>
               <th>จุดที่ต้องจ้องดู p-value</th>
-              <th>หมายเหตุสำคัญ</th>
+              <th>จุดระวังในข้อสอบ</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><code>ttest y, by(x)</code></td>
-              <td>$t$ (Mean diff)</td>
-              <td><code>Pr(|T| &gt; |t|)</code> (คอลัมน์กลาง = Two-sided)</td>
-              <td>ดูทิศทาง <code>diff = mean(0) - mean(1)</code> ให้ดีว่าใครตั้งลบใคร!</td>
-            </tr>
-            <tr>
-              <td><code>ranksum y, by(x)</code></td>
-              <td>$z$ (Mann-Whitney)</td>
-              <td><code>Prob &gt; |z|</code></td>
-              <td>รายงาน Median (IQR) ด้วยคำสั่ง <code>tabstat y, by(x) s(p50 p25 p75)</code></td>
-            </tr>
-            <tr>
-              <td><code>signrank x1 = x2</code></td>
-              <td>$z$ (Wilcoxon)</td>
-              <td><code>Prob &gt; |z|</code></td>
-              <td>สำหรับ 2 กลุ่มจับคู่ (Nonparametric)</td>
-            </tr>
-            <tr>
-              <td><code>oneway y x, bonf</code></td>
-              <td>$F$ (ANOVA)</td>
-              <td><code>Prob &gt; F</code> (ภาพรวม) + ตารางล่าง (รายคู่)</td>
-              <td>เช็ค <code>Bartlett's Prob&gt;chi2</code> ด้านล่างก่อนเสมอ!</td>
-            </tr>
-            <tr>
-              <td><code>kwallis y, by(x)</code></td>
-              <td>$\chi^2$ (Kruskal-Wallis)</td>
-              <td><code>probability with ties</code> (ใช้บรรทัด with ties เสมอ)</td>
-              <td>ข้อมูลคะแนน/ซ้ำกันเยอะต้องอ่าน <code>with ties</code></td>
-            </tr>
-            <tr>
-              <td><code>tab x y, chi2 exact</code></td>
-              <td>Pearson $\chi^2$</td>
-              <td><code>Pr = ...</code> (หรือ <code>Fisher's exact</code> ถ้า $E&lt;5$)</td>
-              <td>ใส่ <code>row</code> หรือ <code>col</code> เพื่อดูความชุก (%)</td>
-            </tr>
-            <tr>
-              <td><code>mcc / mcci</code></td>
-              <td>McNemar's $\chi^2$</td>
-              <td><code>Prob &gt; chi2</code> (หรือ <code>Exact McNemar</code> ถ้า $b+c&lt;25$)</td>
-              <td>ดูเฉพาะช่องที่ไม่ตรงกัน (Discordant pairs $b, c$)</td>
-            </tr>
-            <tr>
-              <td><code>reg y x1 x2</code></td>
-              <td>$F$ (โมเดล), $t$ (รายตัว)</td>
-              <td><code>Prob &gt; F</code> (ภาพรวม), <code>P&gt;|t|</code> (แต่ละตัวแปร)</td>
-              <td>ดู <code>Coef.</code> และ <code>[95% Conf. Interval]</code> (เช็คคร่อม 0)</td>
-            </tr>
-            <tr>
-              <td><code>logistic y x1 x2</code></td>
-              <td>LR $\chi^2$, $z$ (Wald)</td>
-              <td><code>Prob &gt; chi2</code> (ภาพรวม), <code>P&gt;|z|</code> (แต่ละตัวแปร)</td>
-              <td>แสดงเป็น <strong>Odds Ratio</strong> ทันที (เช็คคร่อม 1)</td>
-            </tr>
+            <tr><td><code>ttest y, by(x)</code></td><td>$t$</td><td><code>Pr(|T| &gt; |t|)</code> (คอลัมน์กลาง)</td><td>ดูบรรทัด <code>diff = mean(0) - mean(1)</code> ว่าใครลบใคร</td></tr>
+            <tr><td><code>ranksum</code> / <code>signrank</code></td><td>$z$</td><td><code>Prob &gt; |z|</code></td><td>รายงาน Median (IQR) ด้วย <code>tabstat</code></td></tr>
+            <tr><td><code>oneway y x, bonf</code></td><td>$F$</td><td><code>Prob &gt; F</code> + ตาราง Bonferroni ล่าง</td><td>เช็ค <code>Bartlett's Prob&gt;chi2</code> ก่อนเสมอ!</td></tr>
+            <tr><td><code>kwallis y, by(x)</code></td><td>$\chi^2$</td><td><code>probability with ties</code></td><td>ถ้าต้องเทียบรายคู่ ใช้ <code>kwallis2</code></td></tr>
+            <tr><td><code>tab x y, chi2 exact</code></td><td>$\chi^2$</td><td><code>Pr = ...</code> หรือ <code>Fisher's exact</code></td><td>ถ้า $E &lt; 5$ ห้ามอ่าน Pearson chi2 ให้อ่าน Fisher's exact</td></tr>
+            <tr><td><code>mcc</code> / <code>mcci</code></td><td>McNemar $\chi^2$</td><td><code>Prob &gt; chi2</code> (หรือ <code>Exact McNemar</code>)</td><td>ใช้เฉพาะคู่ไม่ตรงกัน $b, c$; Matched $\text{OR} = b/c$</td></tr>
+            <tr><td><code>reg y x1 x2</code></td><td>$F$, $t$</td><td><code>Prob &gt; F</code> (โมเดล), <code>P&gt;|t|</code> (รายตัว)</td><td>รายงาน <code>Coef.</code> และ 95% CI (เช็คคร่อม 0)</td></tr>
+            <tr><td><code>logistic</code> / <code>logit</code></td><td>LR $\chi^2$, $z$</td><td><code>Prob &gt; chi2</code> (โมเดล), <code>P&gt;|z|</code> (รายตัว)</td><td><code>logistic</code> = OR (คร่อม 1); <code>logit</code> = $\beta$ (คร่อม 0)</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
     <!-- ===================================================== -->
-    <!-- SECTION 4: TWO-SAMPLE, BINOMIAL & NONPARAMETRIC       -->
+    <!-- SECTION 4: MODULE 1 — TWO-SAMPLE, BINOMIAL, NONPARAM  -->
     <!-- ===================================================== -->
     <section class="guide-section" id="two-sample-binomial">
       <div class="section-head">
         <span class="section-num">04</span>
-        <h2>⚖️ บทที่ 1: Two-Sample Continuous, Binomial &amp; Nonparametric (L6-1, L6-2, Nonparametric)</h2>
+        <h2>⚖️ บทที่ 1: Two-Sample Continuous, Binomial, Poisson &amp; Nonparametric</h2>
+      </div>
+      <p class="section-sub">สรุปละเอียดจาก L6-1 (รศ.นพ.ธนันท์), L6-2 Binomial &amp; Sign Test, และ 2025 Nonparametric Statistics (ผศ.ดร.นพ.ธนภูมิ)</p>
+
+      <h3 class="sub-title">1.1 Two-Sample Comparison of Continuous Data (L6-1)</h3>
+      <p class="body-p">เมื่อต้องการเปรียบเทียบค่าเฉลี่ยของตัวแปรต่อเนื่องระหว่าง <strong>2 กลุ่มอิสระ</strong> ($X_1,\dots,X_n$ vs $Y_1,\dots,Y_m$) ให้เดินตาม <strong>3 ขั้นตอนมาตรฐานในสไลด์</strong>:</p>
+      <ol class="std-list">
+        <li><strong>Step 1 — ตรวจ Normality:</strong> ข้อมูลแจกแจงปกติหรือไม่ (หรือ $n$ ใหญ่พอใช้ Central Limit Theorem)? ถ้า <em>ไม่ปกติ</em> → ไป Nonparametric (<code>ranksum</code>)</li>
+        <li><strong>Step 2 — ตรวจ Equal Variances ด้วย F-test (`sdtest`):</strong> ตั้งสมมติฐาน $H_0: \frac{s_x^2}{s_y^2} = 1$ (SD ทั้ง 2 กลุ่มเท่ากัน)
+          <br>• ถ้า <code>sdtest</code> ได้ $p \ge 0.05$ → ความแปรปรวนเท่ากัน ใช้ <strong>Pooled-Variance t-test</strong>
+          <br>• ถ้า <code>sdtest</code> ได้ $p &lt; 0.05$ → ความแปรปรวนไม่เท่ากัน ใช้ <strong>Unequal-Variance (Welch's) t-test</strong> (เติม <code>, unequal</code>)
+        </li>
+        <li><strong>Step 3 — คำนวณ t-statistic และ 95% CI:</strong>
+          <div class="formula-box">
+            $$s_p^2 = \frac{(n-1)s_x^2 + (m-1)s_y^2}{n+m-2}, \qquad t_{df = n+m-2} = \frac{\bar{X} - \bar{Y}}{\sqrt{s_p^2\left(\frac{1}{n} + \frac{1}{m}\right)}}$$
+            $$95\%\text{ CI of } (\mu_1 - \mu_2) = (\bar{X} - \bar{Y}) \pm t_{n+m-2, \, 0.975} \cdot \sqrt{s_p^2\left(\frac{1}{n} + \frac{1}{m}\right)}$$
+          </div>
+          <em>หมายเหตุ:</em> หากทราบ Population variance ($\sigma_x^2, \sigma_y^2$) จึงใช้ Z-test: $Z = \frac{\bar{X} - \bar{Y}}{\sqrt{\sigma_x^2/n + \sigma_y^2/m}}$ (ในชีวิตจริงแทบไม่ทราบ จึงใช้ t-test)
+        </li>
+      </ol>
+
+      <h3 class="sub-title">1.2 Continuous Paired Data (L6-1)</h3>
+      <p class="body-p">ข้อมูลจับคู่ (Paired / Dependent data) เกิดได้จาก 3 รูปแบบ: <strong>(1) Before–After ในผู้ป่วยคนเดียวกัน, (2) Cross-over design, (3) Matched pairs design</strong> หลักการคือยุบ 2 ค่าเป็น 1 ตัวแปรคือ <strong>ผลต่าง $\Delta_i = X_{\text{after}} - X_{\text{before}}$</strong> แล้วทดสอบแบบ 1-sample กับ 0 ($H_0: \mu_\Delta = 0$):</p>
+      <div class="formula-box">
+        $$t_{df = n-1} = \frac{\bar{\Delta} - 0}{s_\Delta / \sqrt{n}}$$
       </div>
 
-      <div class="grid-2">
+      <div class="example-card">
+        <span class="ex-badge">WORKED EXAMPLE จากสไลด์ L6-1</span>
+        <h4>ตัวอย่าง: คะแนนสอบ Diagnostic Test ของนักศึกษา 20 คน ก่อนและหลังเรียน Module</h4>
+        <p>ได้ค่าเฉลี่ยผลต่าง $\bar{\Delta} = 2.05$, ส่วนเบี่ยงเบนมาตรฐานของผลต่าง $s_\Delta = 2.837$, $n = 20$:</p>
+        <p>• $SE(\bar{\Delta}) = \frac{2.837}{\sqrt{20}} = 0.634$ &nbsp;→&nbsp; $t = \frac{2.05}{0.634} = \mathbf{3.231}$ ที่ $df = 20 - 1 = 19$ &nbsp;→&nbsp; $p = \mathbf{0.004} &lt; 0.05$ → <strong>Reject $H_0$</strong> สรุปว่าหลักสูตรช่วยเพิ่มคะแนนอย่างมีนัยสำคัญ</p>
+      </div>
+
+      <h3 class="sub-title">1.3 Models Other Than Normal: Binomial, Poisson &amp; Sign Test (L6-2)</h3>
+      <div class="grid-3">
         <div class="mini-card">
-          <h4>Continuous 2 กลุ่ม (Parametric vs Nonparametric)</h4>
-          <ul>
-            <li><strong>2 กลุ่มอิสระ (ปกติ):</strong> Independent t-test → เช็ค <code>sdtest</code> ก่อน ถ้า SD ไม่เท่ากันให้เติม <code>, unequal</code> (Welch's t-test)</li>
-            <li><strong>2 กลุ่มอิสระ (เบ้/Ordinal):</strong> Mann-Whitney U test (<code>ranksum</code>)</li>
-            <li><strong>2 กลุ่มจับคู่ (ก่อน-หลัง, ปกติ):</strong> Paired t-test (<code>ttest x1 == x2</code>) — เช็ค normality ของ <em>ผลต่าง ($d = x_1 - x_2$)</em></li>
-            <li><strong>2 กลุ่มจับคู่ (ก่อน-หลัง, เบ้):</strong> Wilcoxon signed-rank test (<code>signrank</code>)</li>
-          </ul>
+          <h4>Normal Distribution</h4>
+          <p>ใช้กับ <strong>Continuous data</strong> (น้ำหนัก, BP, HbA1c)</p>
+          <p>พารามิเตอร์: Mean ($\mu$), Variance ($\sigma^2$)</p>
         </div>
         <div class="mini-card">
-          <h4>Binomial &amp; Proportion Tests (L6-2)</h4>
-          <ul>
-            <li><strong>1 กลุ่ม เทียบสัดส่วน $p_0$:</strong>
-              <br>• ตัวอย่างใหญ่ ($np_0 \ge 5$ และ $n(1-p_0) \ge 5$): <code>prtest</code> / <code>prtesti</code> (z-test)
-              <br>• ตัวอย่างเล็ก: <code>bitest</code> / <code>bitesti</code> (Exact Binomial)
-            </li>
-            <li><strong>2 กลุ่มอิสระ เทียบสัดส่วน ($p_1$ vs $p_2$):</strong>
-              <br>• <code>prtest y, by(group)</code> หรือ <code>prtesti n1 p1 n2 p2</code>
-              <br>• หมายเหตุ: Two-sample z-test for proportions ให้ค่า $z^2 = \chi^2$ และ $p$-value เท่ากับ Chi-square 2×2 เป๊ะ!
-            </li>
-          </ul>
+          <h4>Binomial Distribution</h4>
+          <p>ใช้กับ <strong>Binary / Dichotomous data</strong> (ผลรวมของ Bernoulli($p$) อิสระ $n$ ครั้ง)</p>
+          <p>$$P(Y=i) = \binom{n}{i} p^i (1-p)^{n-i}$$<br>$E(Y) = np$, $\text{Var}(Y) = np(1-p)$<br><small>Bernoulli เดี่ยว: $E(X)=p, \text{Var}(X)=p(1-p)$ (สูงสุดเมื่อ $p=0.5$ ได้ $\text{Var}=1/4$)</small></p>
         </div>
+        <div class="mini-card">
+          <h4>Poisson Distribution</h4>
+          <p>ใช้กับ <strong>Count data</strong> (จำนวนเหตุการณ์ต่อหน่วยเวลา/พื้นที่ เช่น จำนวนอุบัติเหตุต่อเดือน)</p>
+          <p><strong>คุณสมบัติเด่น (ออกสอบบ่อย!):</strong><br>$$\text{Mean} = E(Y) = \lambda = \text{Var}(Y)$$<br>เมื่อ $\lambda$ ใหญ่ จะประมาณด้วย Normal ได้</p>
+        </div>
+      </div>
+
+      <h3 class="sub-title">1.4 Nonparametric Tests: Sign Test, Wilcoxon Signed-Rank &amp; Mann-Whitney U (L6-2 + 2025 Nonparametric)</h3>
+      <ul class="std-list">
+        <li><strong>Sign Test (<code>signtest</code>):</strong> ดูเฉพาะ <strong>เครื่องหมาย (+ / −)</strong> ของผลต่าง $\Delta_i$ โดย <em>ไม่สนใจขนาดตัวเลข</em>! ภายใต้ $H_0: \text{Median}(\Delta_i) = 0 \iff P(+) = 0.5$, จำนวนเครื่องหมายบวก $Y \sim \text{Binomial}(n, 0.5)$ (Power ต่ำกว่า Wilcoxon เพราะทิ้งข้อมูลขนาดไป)</li>
+        <li><strong>Wilcoxon Signed-Rank Test (<code>signrank</code>):</strong> ใช้กับ <strong>2 กลุ่มจับคู่ (เบ้/Ordinal)</strong> ขั้นตอน: (1) หาผลต่าง $d_i$, (2) จัดอันดับ $|d_i|$ โดยไม่คิดเครื่องหมาย (ตัด $d_i=0$ ทิ้ง), (3) รวมอันดับฝั่งบวก $T^+$ และฝั่งลบ $T^-$, (4) หา $T = \min(T^+, T^-)$</li>
+        <li><strong>Mann-Whitney U / Wilcoxon Rank-Sum Test (<code>ranksum</code>):</strong> ใช้กับ <strong>2 กลุ่มอิสระ (เบ้/Ordinal)</strong> นำข้อมูลทั้ง 2 กลุ่มมารวมกันแล้วเรียงลำดับ (Rank) เพื่อดูว่า Rank sum ต่างกันหรือไม่</li>
+      </ul>
+
+      <div class="example-card">
+        <span class="ex-badge">WORKED EXAMPLE จากสไลด์ Nonparametric</span>
+        <h4>ตัวอย่าง Saliva Cotinine (nmol/L) ที่ 12 ชม. vs 24 ชม. ในอาสาสมัคร 10 คน</h4>
+        <p>คำสั่ง <code>signrank After24 = After12</code> ได้ผล: positive = 2 (sum ranks = 4), negative = 8 (sum ranks = 51), zero = 0 → $T = \min(4, 51) = 4$, $z = -2.395$, <strong>Prob &gt; |z| = 0.0166 &lt; 0.05</strong> → ระดับ Cotinine ลดลงอย่างมีนัยสำคัญจาก 12 ชม. ไป 24 ชม.</p>
       </div>
 
       <div class="code-box">
-        <div class="code-bar"><span>STATA Commands: Two-Sample Continuous, Nonparametric &amp; Proportions</span><button class="copy-btn">Copy</button></div>
-<pre><span class="c-cmt">* 1. ตรวจสอบ Normality &amp; Equal Variance</span>
-<span class="c-cmd">swilk</span> bwt
-<span class="c-cmd">sdtest</span> bwt, <span class="c-opt">by(smoke)</span>
+        <div class="code-bar"><span>STATA Commands: L6-1, L6-2 &amp; Nonparametric 2 กลุ่ม</span><button class="copy-btn">Copy</button></div>
+<pre><span class="c-cmt">* 1. Two-sample Continuous (ตัวอย่าง Drug A vs Enalapril / lbw.dta)</span>
+<span class="c-cmd">sdtest</span> age, <span class="c-opt">by(smoke)</span>                 <span class="c-cmt">// Step 2: เช็ค Equal variances (F-test)</span>
+<span class="c-cmd">ttest</span> age, <span class="c-opt">by(smoke)</span>                  <span class="c-cmt">// ถ้า sdtest p &gt;= 0.05 (Pooled)</span>
+<span class="c-cmd">ttest</span> age, <span class="c-opt">by(smoke) unequal</span>          <span class="c-cmt">// ถ้า sdtest p &lt; 0.05 (Welch)</span>
+<span class="c-cmd">ttest</span> After24 == After12              <span class="c-cmt">// Paired t-test</span>
 
-<span class="c-cmt">* 2. Independent &amp; Paired t-test (Parametric)</span>
-<span class="c-cmd">ttest</span> bwt, <span class="c-opt">by(smoke)</span>                <span class="c-cmt">// Equal variance</span>
-<span class="c-cmd">ttest</span> bwt, <span class="c-opt">by(smoke) unequal</span>        <span class="c-cmt">// Welch's t-test (เมื่อ sdtest p &lt; 0.05)</span>
-<span class="c-cmd">ttest</span> fuhip == basehip               <span class="c-cmt">// Paired t-test (ก่อน-หลัง ในคนเดียวกัน)</span>
-<span class="c-cmd">ttesti</span> 30 120 15 30 110 12          <span class="c-cmt">// Immediate (n1 m1 sd1 n2 m2 sd2)</span>
-
-<span class="c-cmt">* 3. Nonparametric 2 กลุ่ม (รายงาน Median, IQR)</span>
+<span class="c-cmt">* 2. Nonparametric 2 กลุ่ม (รายงาน Median, IQR เสมอ!)</span>
 <span class="c-cmd">tabstat</span> bwt, <span class="c-opt">by(smoke) stat(n p50 p25 p75)</span>
-<span class="c-cmd">ranksum</span> bwt, <span class="c-opt">by(smoke)</span>              <span class="c-cmt">// Mann-Whitney U test (2 กลุ่มอิสระ)</span>
-<span class="c-cmd">signrank</span> fuhip = basehip             <span class="c-cmt">// Wilcoxon signed-rank test (จับคู่)</span>
+<span class="c-cmd">ranksum</span> bwt, <span class="c-opt">by(smoke)</span>                <span class="c-cmt">// Mann-Whitney U (2 กลุ่มอิสระ)</span>
+<span class="c-cmd">signrank</span> After24 = After12            <span class="c-cmt">// Wilcoxon signed-rank (จับคู่)</span>
+<span class="c-cmd">signtest</span> After24 = After12            <span class="c-cmt">// Sign test (ดูแค่เครื่องหมาย +/-)</span>
 
-<span class="c-cmt">* 4. Binomial &amp; Proportion Test</span>
-<span class="c-cmd">bitesti</span> 20 14 0.5                    <span class="c-cmt">// Exact binomial (n=20, observed=14, p0=0.5)</span>
-<span class="c-cmd">prtest</span> lbw, <span class="c-opt">by(smoke)</span>               <span class="c-cmt">// 2-sample proportion z-test</span>
-<span class="c-cmd">prtesti</span> 74 30 115 29, <span class="c-opt">count</span>         <span class="c-cmt">// Immediate 2-sample proportion (ใส่ count)</span></pre>
+<span class="c-cmt">* 3. Proportion &amp; Binomial Tests</span>
+<span class="c-cmd">bitesti</span> 16 6 0.5                      <span class="c-cmt">// Exact Binomial (n=16, +6 ราย, p0=0.5)</span>
+<span class="c-cmd">prtest</span> lbw, <span class="c-opt">by(smoke)</span>                 <span class="c-cmt">// Two-sample z-test for proportions</span></pre>
       </div>
     </section>
 
     <!-- ===================================================== -->
-    <!-- SECTION 5: CATEGORICAL, MATCHED & EPITAB              -->
+    <!-- SECTION 5: MODULE 2 — CATEGORICAL, MATCHED, EPITAB    -->
     <!-- ===================================================== -->
     <section class="guide-section" id="categorical-epi">
       <div class="section-head">
         <span class="section-num">05</span>
-        <h2>📑 บทที่ 2: Categorical Outcomes, Matched/Paired &amp; Tables for Epidemiologists</h2>
+        <h2>📑 บทที่ 2: Categorical Outcomes, Matched/Crossover &amp; Tables for Epidemiologists</h2>
       </div>
-      <p class="section-sub">ครอบคลุม L9 Categorical Outcomes, L10 Matched/Paired Analysis, Measure of Association (RR/OR), 2024 Tables for Epidemiologists</p>
+      <p class="section-sub">สรุปละเอียดจาก L9 Categorical Outcomes, L10 Matched/Paired Analysis, Measure of Association (RR/OR), Categorical Data Analysis ver.2 และ 2024 Tables for Epidemiologists</p>
 
-      <div class="grid-3">
+      <h3 class="sub-title">2.1 Pearson's Chi-Square, Cochran's Rule &amp; Fisher's Exact (L9)</h3>
+      <div class="formula-box">
+        $$\chi^2 = \sum \frac{(O - E)^2}{E}, \qquad E_{ij} = \frac{\text{Row Total}_i \times \text{Col Total}_j}{N}, \qquad df = (r-1)(c-1)$$
+      </div>
+      <div class="callout callout-amber">
+        <strong>📌 กฎของ Cochran (Cochran's Rule — ออกสอบประจำ!):</strong>
+        <ul style="padding-left:20px; margin-top:4px;">
+          <li><strong>ตาราง $R \times C$ ทั่วไป:</strong> (1) ห้ามมีช่องใดมี $E &lt; 1$ และ (2) จำนวนช่องที่มี $E \ge 5$ ต้อง <strong>มากกว่า 80%</strong> ของช่องทั้งหมด (ถ้าผิดข้อใดข้อหนึ่ง → ใช้ <strong>Fisher's exact</strong>)</li>
+          <li><strong>ตาราง $2 \times 2$ โดยเฉพาะ:</strong>
+            <br>1) ถ้า $n \le 20$ → ใช้ <strong>Fisher's exact test เสมอ</strong>
+            <br>2) ถ้า $20 &lt; n \le 40$ → ถ้ามีช่อง $E &lt; 5$ ใช้ <strong>Fisher's exact</strong>; ถ้าทุกช่อง $E \ge 5$ ใช้ Chi-square (หรือ Yates' continuity correction)
+            <br>3) ถ้า $n &gt; 40$ → ใช้ Pearson's $\chi^2$ (หรือ Yates' continuity correction: $\chi^2_{\text{Yates}} = \frac{n(|ad-bc| - n/2)^2}{(a+b)(c+d)(a+c)(b+d)}$)
+          </li>
+          <li><strong>ข้อจำกัดสำคัญ (สไลด์ P20):</strong> Chi-square บอกได้แค่ว่ามี <em>Association</em> หรือไม่ แต่ <strong>Association $\neq$ Causation</strong> และ <strong>บอกทิศทางไม่ได้</strong> (ต้องคำนวณสัดส่วน %, PR, RR, OR เพิ่ม!)</li>
+        </ul>
+      </div>
+
+      <h3 class="sub-title">2.2 Matched/Paired Binary Data &amp; Crossover RCT (L10)</h3>
+      <p class="body-p"><strong>การวิเคราะห์ Matched Case-Control หรือ Crossover RCT (เช่น CPAP vs MAS ในสไลด์ L10) หรือ Pre–Post Binary:</strong> ห้ามเอาไปวิเคราะห์แบบ Unmatched 2×2 ปกติเด็ดขาด! ต้องจัดตาราง <strong>1 คู่ = 1 หน่วย ($N$ pairs)</strong>:</p>
+      <div class="grid-2">
         <div class="mini-card">
-          <h4>1) Chi-square ($\chi^2$) &amp; Fisher's Exact</h4>
-          <div class="formula-box">$$\chi^2 = \sum \frac{(O - E)^2}{E}, \quad E = \frac{\text{Row} \times \text{Col}}{\text{Total}}$$</div>
-          <p>$df = (r-1)(c-1)$<br>ค่าวิกฤตที่ $\alpha=0.05$: $df=1 \to \mathbf{3.841}$, $df=2 \to \mathbf{5.991}$<br>ถ้าช่อง 2×2 มี $E &lt; 5$ → ใช้ <strong>Fisher's exact</strong></p>
-        </div>
-        <div class="mini-card">
-          <h4>2) Matched / Paired (McNemar's Test)</h4>
-          <div class="formula-box">$$\text{OR}_{\text{matched}} = \frac{b}{c}, \quad \chi^2_{\text{McNemar}} = \frac{(b - c)^2}{b + c}$$</div>
-          <p>ใช้เฉพาะ <strong>Discordant pairs ($b, c$)</strong> (คู่ที่ผลต่างกัน)<br>ถ้า $b+c &lt; 25$ → ดูค่า <strong>Exact McNemar p-value</strong><br>STATA: <code>mcc case_exp ctrl_exp</code> / <code>mcci a b c d</code></p>
-        </div>
-        <div class="mini-card">
-          <h4>3) Measure of Association (2×2)</h4>
+          <h4>Crossover RCT (2-Treatment, 2-Period)</h4>
           <ul>
-            <li><strong>Cohort / RCT (`cs`):</strong><br>$\text{RR} = \frac{a/(a+b)}{c/(c+d)}$, $\text{RD} = R_1 - R_0$</li>
-            <li><strong>Case-Control (`cc`):</strong><br>$\text{OR} = \frac{a \times d}{b \times c}$ (ใช้แทน RR ได้เมื่อโรคหายาก &lt;10%)</li>
-            <li><strong>Person-Time (`ir`):</strong><br>$\text{IRR} = \frac{a / PT_1}{b / PT_0}$</li>
-            <li><strong>Attributable Fraction:</strong><br>$AF_e = \frac{RR-1}{RR}$ (หรือ $\frac{OR-1}{OR}$)</li>
+            <li><strong>ข้อดี (Advantages):</strong> ผู้ป่วยเป็น Control ของตัวเอง → ลด Confounding, Paired analysis เพิ่ม Statistical Power, ใช้จำนวนคนน้อยกว่า</li>
+            <li><strong>ข้อเสีย (Disadvantages):</strong> <strong>Carryover effect</strong> (ฤทธิ์ยาเดิมค้าง ต้องมี Washout period!), <strong>Period effect</strong>, Drop-outs กระทบมาก, ใช้ได้เฉพาะโรคเรื้อรังคงที่ (ไม่หายขาด)</li>
           </ul>
         </div>
+        <div class="mini-card">
+          <h4>McNemar's Test &amp; Matched OR</h4>
+          <p>ดูเฉพาะ <strong>Discordant pairs ($b, c$)</strong> (คู่ที่ผล 2 ฝั่งต่างกัน):<br>ภายใต้ $H_0: b = c$ (หรือ $b \sim \text{Binomial}(b+c, 0.5)$)</p>
+          <div class="formula-box">
+            $$\chi^2 = \frac{(b-c)^2}{b+c}, \quad \chi^2_{\text{corr}} = \frac{(|b-c|-1)^2}{b+c}, \quad \text{OR}_{\text{matched}} = \frac{b}{c}$$
+          </div>
+          <p><small>ถ้า $b+c &lt; 25$ (หรือ $b+c$ น้อย) → ใช้ <strong>Exact McNemar p-value</strong> (Binomial tail)</small></p>
+        </div>
       </div>
 
-      <h3 class="sub-title">Mantel-Haenszel Stratified Analysis: แยก Confounding vs. Effect Modification</h3>
-      <div class="callout callout-purple">
-        เมื่อสั่ง <code>cc y x, by(z)</code> หรือ <code>cs y x, by(z)</code> เพื่อแบ่งชั้นตามตัวแปรที่ 3 ($z$ เช่น แยกตาม <code>smoke</code>):
-        <ol style="padding-left:20px; margin-top:6px;">
-          <li><strong>ดู Test of homogeneity (Breslow-Day / M-H) ก่อนเสมอ!</strong>
-            <br>• ถ้า <strong>$p &lt; 0.05$</strong> → ค่า OR ในแต่ละชั้น <em>ไม่เท่ากัน</em> = เกิด <strong>Effect Modification (Interaction)</strong> → <strong>ห้ามรวมเป็นค่าเดียว!</strong> ต้องรายงานแยกแต่ละชั้น (Stratum-specific OR)
-            <br>• ถ้า <strong>$p \ge 0.05$</strong> → ค่า OR ในแต่ละชั้นใกล้เคียงกัน (ไม่มี Interaction) → ขยับไปเช็ค Confounding ข้อ 2
-          </li>
-          <li><strong>เช็ค Confounding (กฎ 10%):</strong> เทียบ Crude OR กับ M-H Combined OR (Adjusted OR)
-            <br>• ถ้า $\left|\frac{\text{Crude OR} - \text{Adjusted OR}}{\text{Adjusted OR}}\right| \ge 10\%$ → ตัวแปร $z$ เป็น <strong>Confounder</strong> ให้รายงานค่า <strong>M-H Adjusted OR</strong>
-          </li>
-        </ol>
+      <h3 class="sub-title">2.3 Tables for Epidemiologists (`cs`, `cc`, `ir`) &amp; Mantel-Haenszel (2024 Epitab + Multiple Logistic)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>คำสั่ง STATA</th>
+              <th>Study Design</th>
+              <th>Measure of Association &amp; สูตร</th>
+              <th>Attributable Fraction</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>cs y x</code> / <code>csi a b c d</code></td>
+              <td>Cohort / RCT / Cross-sectional (PR)</td>
+              <td>$\text{RR} = \frac{a/(a+b)}{c/(c+d)}$, $\text{RD} = R_1 - R_0$</td>
+              <td>$AF_e = \frac{RR-1}{RR}$, $AF_p = \frac{P_e(RR-1)}{1+P_e(RR-1)}$</td>
+            </tr>
+            <tr>
+              <td><code>cc y x</code> / <code>cci a b c d</code></td>
+              <td>Unmatched Case-Control</td>
+              <td>$\text{OR} = \frac{a \times d}{b \times c}$ (แทน RR ได้เมื่อโรคหายาก &lt;10%)</td>
+              <td>$AF_e = \frac{OR-1}{OR}$</td>
+            </tr>
+            <tr>
+              <td><code>ir y x pt</code> / <code>iri a b N1 N2</code></td>
+              <td>Cohort (Person-Time / Dynamic)</td>
+              <td>$\text{IRR} = \frac{a/N_1}{b/N_2}$, $\text{IRD} = I_1 - I_0$</td>
+              <td>$AF_e = \frac{IRR-1}{IRR}$</td>
+            </tr>
+            <tr>
+              <td><code>cc y x, by(z)</code></td>
+              <td><strong>Mantel-Haenszel Stratified</strong></td>
+              <td>1) ดู <strong>Test of homogeneity</strong>: $p &lt; 0.05 \implies$ <strong>Effect Modification</strong> (รายงานแยกชั้น)<br>2) ถ้า $p \ge 0.05$: เทียบ Crude OR vs M-H OR ต่าง $\ge 10\% \implies$ <strong>Confounding</strong> (รายงาน M-H Adjusted OR)</td>
+              <td>เช่น <code>cc coffee mi [freq=count], by(smoke)</code> ในสไลด์ รศ.สมรัตน์</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <div class="code-box">
-        <div class="code-bar"><span>STATA Commands: Categorical, Matched &amp; Tables for Epidemiologists</span><button class="copy-btn">Copy</button></div>
-<pre><span class="c-cmt">* 1. ตาราง 2x2 / RxC พร้อม Expected count, Chi-square และ Fisher's exact</span>
-<span class="c-cmd">tabulate</span> smoke lbw, <span class="c-opt">row col chi2 exact expected</span>
-<span class="c-cmd">tabi</span> 24 96 \ 32 48, <span class="c-opt">row chi2 exact expected</span>     <span class="c-cmt">// Immediate table (ไม่ต้องมี dataset)</span>
-
-<span class="c-cmt">* 2. Cohort Study (Risk Ratio, Risk Difference, AFe, AFp)</span>
-<span class="c-cmd">cs</span> lbw smoke                                     <span class="c-cmt">// ระวัง: ใส่ outcome(Y) ก่อน exposure(X)</span>
-<span class="c-cmd">csi</span> 30 29 44 86                                  <span class="c-cmt">// Immediate (a=ExpCase, b=UnexpCase, c=ExpNon, d=UnexpNon)</span>
-
-<span class="c-cmt">* 3. Case-Control Study (Odds Ratio, AFe, AFp) &amp; Stratified Mantel-Haenszel</span>
-<span class="c-cmd">cc</span> lbw smoke                                     <span class="c-cmt">// Crude OR + Chi2</span>
-<span class="c-cmd">cci</span> 30 29 44 86                                  <span class="c-cmt">// Immediate Case-Control</span>
-<span class="c-cmd">cc</span> lbw smoke, <span class="c-opt">by(race)</span>                          <span class="c-cmt">// Stratified OR + M-H Adjusted OR + Test of Homogeneity</span>
-
-<span class="c-cmt">* 4. Incidence Rate (Person-Time) &amp; Matched Case-Control (McNemar)</span>
-<span class="c-cmd">iri</span> 26 14 365 400                                <span class="c-cmt">// a=CaseExp, b=CaseUnexp, N1=PT_exp, N2=PT_unexp</span>
-<span class="c-cmd">mcc</span> case_exp ctrl_exp                            <span class="c-cmt">// Matched pair (1 แถว = 1 คู่)</span>
-<span class="c-cmd">mcci</span> 12 25 8 55                                  <span class="c-cmt">// Immediate McNemar (a=++, b=+-, c=-+, d=--)</span></pre>
+        <div class="code-bar"><span>STATA Commands: Categorical, McNemar &amp; Epidemiologic Tables</span><button class="copy-btn">Copy</button></div>
+<pre><span class="c-cmd">tab</span> exercise BMICAT, <span class="c-opt">row col chi2 exact expected</span>  <span class="c-cmt">// RxC + Expected + Fisher</span>
+<span class="c-cmd">tabi</span> 24 96 \ 32 48, <span class="c-opt">row chi2 exact expected</span>       <span class="c-cmt">// Immediate 2x2</span>
+<span class="c-cmd">cs</span> lbw smoke                                       <span class="c-cmt">// Cohort: RR, RD, AFe, AFp (outcome ก่อน!)</span>
+<span class="c-cmd">cc</span> lbw smoke                                       <span class="c-cmt">// Case-Control: OR, AFe, AFp</span>
+<span class="c-cmd">cc</span> lbw smoke, <span class="c-opt">by(race)</span>                            <span class="c-cmt">// Mantel-Haenszel Stratified OR + Homogeneity</span>
+<span class="c-cmd">iri</span> 26 14 365 400                                  <span class="c-cmt">// Person-time IRR (a b PT1 PT0)</span>
+<span class="c-cmd">mcci</span> 10 28 12 50                                   <span class="c-cmt">// Matched McNemar (b=28, c=12 → OR=28/12=2.33)</span></pre>
       </div>
     </section>
-
     <!-- ===================================================== -->
-    <!-- SECTION 6: ANOVA & KRUSKAL-WALLIS                     -->
+    <!-- SECTION 6: MODULE 3 — ANOVA, POST-HOC & KWALLIS2      -->
     <!-- ===================================================== -->
     <section class="guide-section" id="anova-multiple">
       <div class="section-head">
         <span class="section-num">06</span>
-        <h2>📊 บทที่ 3: Comparing Multiple Samples (≥ 3 กลุ่ม) — ANOVA &amp; Kruskal-Wallis</h2>
+        <h2>📊 บทที่ 3: Comparing Multiple Samples (≥ 3 กลุ่ม) — ANOVA, Post-hoc &amp; Kruskal-Wallis</h2>
       </div>
-      <p class="section-sub">ครอบคลุม L11 Comparing Multiple Samples &amp; 2026-10 ANOVA</p>
+      <p class="section-sub">สรุปละเอียดจาก L11 Comparing Multiple Samples (รศ.นพ.ธนันท์), 2026-10 ANOVA และ 2025 Nonparametric (ผศ.ดร.นพ.ธนภูมิ)</p>
 
-      <div class="grid-2">
-        <div class="mini-card">
-          <h4>โครงสร้างตาราง ANOVA (F-test)</h4>
-          <div class="formula-box">$$F = \frac{MS_{\text{between}}}{MS_{\text{within}}} = \frac{SS_B / (k-1)}{SS_W / (N-k)}$$</div>
-          <ul>
-            <li><strong>ทำไมค่า F เบ้ขวาเสมอ?</strong> เพราะเป็นอัตราส่วนของผลรวมกำลังสอง ($F \ge 0$ ติดลบไม่ได้), ใต้ $H_0$ ค่า $F \approx 1$, บริเวณปฏิเสธอยู่ <strong>หางขวาเท่านั้น</strong></li>
-            <li><strong>ถ้ามี 2 กลุ่ม:</strong> One-way ANOVA ให้ค่า $F = t^2$ และ $p$-value เท่ากับ Independent t-test (two-tailed) เป๊ะ!</li>
-            <li><strong>ข้อตกลง:</strong> เช็ค <strong>Bartlett's test</strong> ด้านล่างตาราง ต้องได้ $p \ge 0.05$</li>
-          </ul>
-        </div>
-        <div class="mini-card">
-          <h4>Post-hoc Multiple Comparisons (เมื่อ ANOVA $p &lt; 0.05$)</h4>
-          <ul>
-            <li>ANOVA ตอบได้แค่ว่า <em>"มีอย่างน้อย 1 คู่ที่ต่างกัน"</em> แต่ไม่บอกว่าคู่ไหน</li>
-            <li><strong>Bonferroni correction:</strong> ป้องกัน Family-wise Type I error ($1 - (1-\alpha)^c$)
-              <div class="formula-box">$$c = \frac{k(k-1)}{2}, \quad \alpha^* = \frac{\alpha}{c}$$</div>
-              เช่น 3 กลุ่ม $\to 3$ คู่ ($\alpha^* = 0.0167$); 4 กลุ่ม $\to 6$ คู่ ($\alpha^* = 0.0083$)
-            </li>
-            <li>ใน STATA: ค่า $p$-value ในตาราง Bonferroni ถูกคูณ $c$ มาให้แล้ว อ่านเทียบ $0.05$ ได้เลย!</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="code-box">
-        <div class="code-bar"><span>STATA Commands: One-way ANOVA, Post-hoc &amp; Kruskal-Wallis</span><button class="copy-btn">Copy</button></div>
-<pre><span class="c-cmt">* 1. One-way ANOVA + ตารางค่าเฉลี่ย + Bonferroni Post-hoc + Bartlett's test</span>
-<span class="c-cmd">oneway</span> bwt race, <span class="c-opt">tabulate bonferroni</span>
-<span class="c-cmd">oneway</span> bwt race, <span class="c-opt">scheffe sidak</span>                <span class="c-cmt">// ทางเลือก Post-hoc อื่น</span>
-
-<span class="c-cmt">* 2. เช็ค Equal Variance ด้วย Levene's test (ทนต่อข้อมูลเบ้ดีกว่า Bartlett)</span>
-<span class="c-cmd">robvar</span> bwt, <span class="c-opt">by(race)</span>                            <span class="c-cmt">// ดูค่า W0 (Levene) หรือ W50 (Brown-Forsythe)</span>
-
-<span class="c-cmt">* 3. Pairwise comparisons พร้อม 95% CI ของผลต่างรายคู่</span>
-<span class="c-cmd">pwmean</span> bwt, <span class="c-opt">over(race) mcompare(bonferroni) effects</span>
-
-<span class="c-cmt">* 4. Nonparametric ≥3 กลุ่ม (เมื่อข้อมูลเบ้มาก / Ordinal / Bartlett p &lt; 0.05)</span>
-<span class="c-cmd">tabstat</span> bwt, <span class="c-opt">by(race) stat(n p50 p25 p75)</span>
-<span class="c-cmd">kwallis</span> bwt, <span class="c-opt">by(race)</span>                           <span class="c-cmt">// อ่าน probability with ties</span></pre>
-      </div>
-    </section>
-
-    <!-- ===================================================== -->
-    <!-- SECTION 7: SAMPLE SIZE CALCULATION & POWER            -->
-    <!-- ===================================================== -->
-    <section class="guide-section" id="sample-size">
-      <div class="section-head">
-        <span class="section-num">07</span>
-        <h2>📐 บทที่ 4: Sample Size Calculation &amp; Power (L12)</h2>
-      </div>
-      <p class="section-sub">สูตรคำนวณมือออกสอบทุกปี + คำสั่ง STATA <code>power</code> ครบทั้ง Estimation (1 กลุ่ม) และ Hypothesis Testing (2 กลุ่ม)</p>
-
-      <div class="callout callout-blue">
-        <strong>📌 ค่า Z ที่ต้องจำให้แม่น (ใช้คำนวณมือ):</strong><br>
-        • Two-sided $\alpha = 0.05 \implies \mathbf{Z_{1-\alpha/2} = 1.96}$ &nbsp;|&nbsp; $\alpha = 0.01 \implies \mathbf{Z_{1-\alpha/2} = 2.576}$<br>
-        • Power $80\%$ ($\beta = 0.20$) $\implies \mathbf{Z_{1-\beta} = 0.84}$ &nbsp;|&nbsp; Power $90\%$ ($\beta = 0.10$) $\implies \mathbf{Z_{1-\beta} = 1.28}$<br>
-        • <strong>กฎปัดเศษ:</strong> Sample size ต้อง <strong>ปัดขึ้น (Round UP) เสมอ</strong> (เช่น $311.17 \to \mathbf{312}$)
-      </div>
+      <h3 class="sub-title">3.1 หลักการ &amp; โครงสร้างตาราง One-Way ANOVA (F-Table Anatomy)</h3>
+      <p class="body-p"><strong>วัตถุประสงค์ 2 ข้อของ ANOVA (สไลด์ L11 P21):</strong> (1) ทดสอบสมมติฐานเกี่ยวกับค่าเฉลี่ยประชากรตั้งแต่ 3 กลุ่มขึ้นไป ($H_0: \mu_1 = \mu_2 = \dots = \mu_k$ vs $H_a:$ มีอย่างน้อย 1 คู่ที่ $\mu_i \neq \mu_j$) และ (2) ประมาณค่าและทดสอบความแปรปรวนประชากร</p>
 
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th>สถานการณ์ / วัตถุประสงค์</th>
+              <th>Source of Variation</th>
+              <th>Sum of Squares (SS)</th>
+              <th>df</th>
+              <th>Mean Square (MS)</th>
+              <th>F-statistic</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Between groups</strong> (Model / Treatment)</td>
+              <td>$SS_B = \sum_{i=1}^{k} n_i (\bar{y}_i - \bar{y})^2$</td>
+              <td>$k - 1$</td>
+              <td>$MS_B = \frac{SS_B}{k - 1}$</td>
+              <td rowspan="2" style="vertical-align:middle;font-weight:800;color:#1d4ed8;">$$F = \frac{MS_B}{MS_W}$$</td>
+            </tr>
+            <tr>
+              <td><strong>Within groups</strong> (Error / Residual)</td>
+              <td>$SS_W = \sum_{i=1}^{k} \sum_{j=1}^{n_i} (y_{ij} - \bar{y}_i)^2$</td>
+              <td>$N - k$</td>
+              <td>$MS_W = \frac{SS_W}{N - k}$</td>
+            </tr>
+            <tr>
+              <td><strong>Total</strong></td>
+              <td>$SS_T = SS_B + SS_W$</td>
+              <td>$N - 1$</td>
+              <td>$MS_T = \frac{SS_T}{N - 1}$</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2">
+        <div class="mini-card">
+          <h4>ทำไมค่า F เบ้ขวาเสมอ &amp; ความสัมพันธ์ $F = t^2$</h4>
+          <ul>
+            <li><strong>$F \ge 0$ เสมอ (ติดลบไม่ได้):</strong> เพราะ $MS_B$ และ $MS_W$ มาจากผลรวมกำลังสอง</li>
+            <li><strong>ใต้ $H_0$:</strong> ความแปรปรวนระหว่างกลุ่ม $\approx$ ในกลุ่ม $\implies F \approx 1$; เมื่อกลุ่มต่างกันมาก $F \gg 1$ พุ่งไปทางขวา → <strong>Rejection region อยู่หางขวาเท่านั้น</strong></li>
+            <li><strong>กรณี 2 กลุ่ม:</strong> One-way ANOVA ให้ค่า $F = t^2$ และ $p$-value เท่ากับ Independent t-test (two-tailed) เป๊ะ!</li>
+          </ul>
+        </div>
+        <div class="mini-card">
+          <h4>ลำดับความเข้มงวดของ Post-hoc (สไลด์ L11 P40)</h4>
+          <p>เมื่อ ANOVA ซิก ($p &lt; 0.05$) ต้องทำ Post-hoc เพื่อคุม <strong>Family-wise Type I error</strong> ($1 - (1-\alpha)^c$, โดย $c = \frac{k(k-1)}{2}$ คู่):</p>
+          <ul>
+            <li><strong>เข้มงวดที่สุด (Most conservative):</strong> <strong>Bonferroni</strong> ($\alpha^* = \alpha / c$) → โอกาส False positive ต่ำสุด (เช่น 4 กลุ่ม $\to 6$ คู่ $\to \alpha^* = 0.05/6 = 0.0083$)</li>
+            <li><strong>รองลงมา:</strong> <strong>Scheffé</strong> → <strong>Tukey (HSD)</strong> → <strong>Duncan</strong></li>
+            <li><strong>เข้มงวดน้อยที่สุด (Least conservative):</strong> <strong>Fisher's LSD</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <span class="ex-badge">WORKED EXAMPLE จากสไลด์ L11 &amp; 2026-10 ANOVA</span>
+        <h4>ตัวอย่าง: Business Executives ($N = 30$) สุ่มเข้าโปรแกรมออกกำลังกาย 4 แบบ (A=9, B=8, C=7, D=6)</h4>
+        <p>• $df_{\text{between}} = 4 - 1 = \mathbf{3}$, $df_{\text{within}} = 30 - 4 = \mathbf{26}$, $df_{\text{total}} = 29$ | $SS_W = 580.77$<br>
+        • ขั้นตอนตอบข้อสอบ: (1) เช็ค Bartlett's test $p \ge 0.05$ → ผ่าน, (2) ดู ANOVA $p = 0.002 &lt; 0.05$ → มีอย่างน้อย 1 คู่ต่างกัน, (3) ดูตาราง Bonferroni เพื่อระบุว่าโปรแกรมใดต่างจากโปรแกรมใด</p>
+      </div>
+
+      <h3 class="sub-title">3.2 Nonparametric ≥ 3 กลุ่ม: Kruskal-Wallis &amp; Post-hoc <code>kwallis2</code></h3>
+      <p class="body-p">ใช้เมื่อข้อมูล <strong>เบ้มาก (Strongly skewed)</strong>, เป็น <strong>Ordinal (เช่น Pain score 0–10)</strong>, หรือ <strong>Bartlett's test $p &lt; 0.05$</strong> ร่วมกับข้อมูลไม่ปกติ:</p>
+      <ul class="std-list">
+        <li><code>kwallis Scores, by(Method)</code> → อ่านบรรทัด <strong><code>probability with ties</code></strong> เสมอ (เพราะคะแนนมักมีค่าซ้ำ)</li>
+        <li><strong>Post-hoc สำหรับ Kruskal-Wallis ในสไลด์ 2025 Nonparametric (P17–18):</strong> ใช้คำสั่ง <strong><code>kwallis2 Scores, by(Method)</code></strong> ซึ่งจะทำ Multiple comparisons ระหว่างคู่ Rank Means พร้อมปรับ Adjusted $\alpha$ ให้อัตโนมัติ (เช่น 3 กลุ่ม $\alpha_{\text{adj}} = 0.05 / [3 \times 2] = 0.008333$)</li>
+      </ul>
+
+      <div class="code-box">
+        <div class="code-bar"><span>STATA Commands: One-Way ANOVA, Levene, Post-hoc &amp; Kruskal-Wallis</span><button class="copy-btn">Copy</button></div>
+<pre><span class="c-cmd">oneway</span> bwt race, <span class="c-opt">tabulate bonferroni</span>             <span class="c-cmt">// ANOVA + Mean/SD + Bartlett's + Bonferroni</span>
+<span class="c-cmd">oneway</span> bwt race, <span class="c-opt">scheffe sidak</span>                   <span class="c-cmt">// Post-hoc ทางเลือกอื่น</span>
+<span class="c-cmd">robvar</span> bwt, <span class="c-opt">by(race)</span>                             <span class="c-cmt">// Levene's (W0) &amp; Brown-Forsythe (W50)</span>
+<span class="c-cmd">pwmean</span> bwt, <span class="c-opt">over(race) mcompare(bonferroni) effects</span>  <span class="c-cmt">// ได้ผลต่างรายคู่ + 95% CI</span>
+<span class="c-cmd">kwallis</span> Scores, <span class="c-opt">by(Method)</span>                       <span class="c-cmt">// Nonparametric ≥3 กลุ่ม (อ่าน with ties)</span>
+<span class="c-cmd">kwallis2</span> Scores, <span class="c-opt">by(Method)</span>                      <span class="c-cmt">// Kruskal-Wallis + Post-hoc รายคู่</span></pre>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- SECTION 7: MODULE 4 — SAMPLE SIZE & POWER (L12)       -->
+    <!-- ===================================================== -->
+    <section class="guide-section" id="sample-size">
+      <div class="section-head">
+        <span class="section-num">07</span>
+        <h2>📐 บทที่ 4: Sample Size Calculation &amp; Power ครบ 5 สูตร (L12)</h2>
+      </div>
+      <p class="section-sub">สรุปละเอียดจาก L12 Sample Size Calculation (รศ.นพ.ธนันท์, 92 สไลด์) — ครบทุกสูตรคำนวณมือ &amp; คำสั่ง STATA <code>power</code> / <code>sampsi</code></p>
+
+      <h3 class="sub-title">4.1 องค์ประกอบ 4 ตัวของ Sample Size &amp; ความหมาย Type I / II Error</h3>
+      <div class="grid-2">
+        <div class="mini-card">
+          <h4>Type I Error ($\alpha$), Type II Error ($\beta$) &amp; Power ($1-\beta$)</h4>
+          <ul>
+            <li><strong>Type I Error ($\alpha$ — False Positive):</strong> ปฏิเสธ $H_0$ ทั้งที่ $H_0$ เป็นจริง (นิยมตั้ง $\alpha = 0.05$)</li>
+            <li><strong>Type II Error ($\beta$ — False Negative):</strong> ไม่ปฏิเสธ $H_0$ ทั้งที่ $H_0$ เป็นเท็จ (นิยมตั้ง $\beta = 0.20$ หรือ $0.10$)</li>
+            <li><strong>Power ($1 - \beta$):</strong> ความน่าจะเป็นที่จะปฏิเสธ $H_0$ ได้อย่างถูกต้องเมื่อ $H_0$ เป็นเท็จ (นิยม 80%–90%)</li>
+          </ul>
+        </div>
+        <div class="mini-card">
+          <h4>ตารางค่า $Z$ ที่ต้องจำเข้าห้องสอบ</h4>
+          <ul>
+            <li>Two-sided $\alpha = 0.05 \implies \mathbf{Z_{1-\alpha/2} = 1.96}$</li>
+            <li>Two-sided $\alpha = 0.01 \implies \mathbf{Z_{1-\alpha/2} = 2.576}$</li>
+            <li>Power $80\%$ ($\beta = 0.20$) $\implies \mathbf{Z_{1-\beta} = 0.84}$</li>
+            <li>Power $90\%$ ($\beta = 0.10$) $\implies \mathbf{Z_{1-\beta} = 1.28}$</li>
+            <li><strong>กฎเหล็ก:</strong> คำนวณได้ทศนิยมเท่าไหร่ <strong>ปัดขึ้น (Round UP) เสมอ!</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="sub-title">4.2 รวม 5 สูตรหลักคำนวณขนาดตัวอย่าง + คำสั่ง STATA</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>รูปแบบการวิจัย</th>
               <th>สูตรคำนวณมือ</th>
               <th>คำสั่ง STATA</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>1. ประมาณค่าเฉลี่ย 1 กลุ่ม</strong><br>(Estimating 1 Mean)</td>
-              <td>$$n = \frac{Z_{1-\alpha/2}^2 \cdot \sigma^2}{d^2}$$</td>
-              <td><code>sampsi m0 m1, sd(#) power(0.5) onesample</code></td>
+              <td><strong>1. ประมาณค่าเฉลี่ย 1 กลุ่ม</strong><br>(Estimate 1 Mean)</td>
+              <td>$$n = \frac{Z_{1-\alpha/2}^2 \cdot \sigma^2}{E^2}$$<small>($E$ หรือ $d$ = margin of error เช่น $\pm 100$)</small></td>
+              <td><code>sampsi 120 125, sd(20) power(0.5) onesample</code></td>
             </tr>
             <tr>
-              <td><strong>2. ประมาณค่าสัดส่วน 1 กลุ่ม</strong><br>(Estimating 1 Proportion)</td>
-              <td>$$n = \frac{Z_{1-\alpha/2}^2 \cdot p(1-p)}{d^2}$$<br><small>(ถ้าไม่ทราบ $p$ ใช้ $p = 0.5$)</small></td>
-              <td><code>sampsi p0 p1, power(0.5) onesample</code></td>
+              <td><strong>2. ประมาณค่าสัดส่วน 1 กลุ่ม</strong><br>(Estimate 1 Proportion)</td>
+              <td>$$n = \frac{Z_{1-\alpha/2}^2 \cdot p(1-p)}{E^2}$$<small>(ถ้าไม่ทราบ $p$ ใช้ $p = 0.5$ เพื่อให้ได้ $n$ มากสุด)</small></td>
+              <td><code>sampsi .2 .25, power(0.5) onesample</code></td>
             </tr>
             <tr>
-              <td><strong>3. เปรียบเทียบค่าเฉลี่ย 2 กลุ่มอิสระ</strong><br>(Two independent means, $n$ ต่อกลุ่ม)</td>
+              <td><strong>3. เปรียบเทียบค่าเฉลี่ย 2 กลุ่มอิสระ</strong><br>($n$ <em>ต่อกลุ่ม</em>, เท่ากัน 2 กลุ่ม)</td>
               <td>$$n = \frac{2\sigma^2 (Z_{1-\alpha/2} + Z_{1-\beta})^2}{(\mu_1 - \mu_2)^2}$$</td>
               <td><code>power twomeans m1 m2, sd(#) power(0.8)</code></td>
             </tr>
             <tr>
-              <td><strong>4. เปรียบเทียบสัดส่วน 2 กลุ่มอิสระ</strong><br>(Cohort / Case-Control, $n$ ต่อกลุ่ม)</td>
-              <td>$$n = \frac{\left[Z_{1-\alpha/2}\sqrt{2\bar{p}(1-\bar{p})} + Z_{1-\beta}\sqrt{p_1(1-p_1)+p_2(1-p_2)}\right]^2}{(p_1 - p_2)^2}$$<br><small>โดย $\bar{p} = \frac{p_1 + p_2}{2}$; Cohort: $p_1 = RR \times p_2$; Case-Control: $p_1 = \frac{OR \cdot p_2}{1 + p_2(OR-1)}$</small></td>
-              <td><code>power twoproportions p1 p2, test(chi2) power(0.9)</code><br><code>power twoproportions p2, rrisk(#) power(0.9)</code><br><code>power twoproportions p2, oratio(#) power(0.9)</code></td>
+              <td><strong>4. เปรียบเทียบสัดส่วน 2 กลุ่มอิสระ</strong><br>(Cohort / Case-Control, $n$ <em>ต่อกลุ่ม</em>)</td>
+              <td>$$n = \frac{\left[Z_{1-\alpha/2}\sqrt{2\bar{p}(1-\bar{p})} + Z_{1-\beta}\sqrt{p_1(1-p_1)+p_2(1-p_2)}\right]^2}{(p_2 - p_1)^2}$$<small>$\bar{p} = \frac{p_1+p_2}{2}$ • <strong>Cohort:</strong> $p_1 = RR \times p_2$ • <strong>Case-Control:</strong> $p_1 = \frac{OR \cdot p_2}{1 + p_2(OR-1)}$</small></td>
+              <td><code>power twoproportions 0.175 0.35, test(chi2) power(0.9)</code><br><code>power twoproportions 0.35, test(chi2) rrisk(0.5) power(0.9)</code><br><code>power twoproportions 0.3, test(chi2) oratio(3) power(0.9)</code></td>
             </tr>
             <tr>
               <td><strong>5. เปรียบเทียบค่าเฉลี่ยจับคู่</strong><br>(Paired / Dependent samples)</td>
@@ -1111,138 +1199,150 @@
         </table>
       </div>
 
-      <div class="grid-2">
-        <div class="callout callout-rose" style="margin:0;">
-          <strong>🚨 กับดัก Non-response / Drop-out (ออกสอบบ่อยมาก!):</strong><br>
-          ถ้าเผื่อ Non-response 10% ($r = 0.10$) <strong>ต้องใช้สูตรหาร:</strong>
-          $$n_{\text{final}} = \frac{n}{1 - r} = \frac{312}{1 - 0.10} = \frac{312}{0.90} = 346.67 \to \mathbf{347}$$
-          <em>❌ ห้ามเอา $n \times 1.10$ เด็ดขาด!</em>
-        </div>
-        <div class="callout callout-green" style="margin:0;">
-          <strong>💡 กฎการเปลี่ยน Precision ($d$):</strong><br>
-          เนื่องจาก $n \propto \frac{1}{d^2}$ หากต้องการความแม่นยำเพิ่มขึ้น 2 เท่า (ลด margin of error ลงครึ่งหนึ่ง เช่น $\pm 100 \to \pm 50$):<br>
-          <strong>ขนาดตัวอย่าง $n$ จะเพิ่มขึ้นเป็น $2^2 = \mathbf{4 \text{ เท่า}}$ เสมอ!</strong>
-        </div>
+      <div class="example-card">
+        <span class="ex-badge">WORKED EXAMPLES ออกสอบบ่อย (จากสไลด์ L12 &amp; Mock Exam)</span>
+        <h4>ตัวอย่าง A (Estimating Mean + Non-response + Precision Rule):</h4>
+        <p>ต้องการประมาณค่าเฉลี่ยการบริโภคโซเดียมของคนกรุงเทพฯ ($\sigma = 900$ mg/day) ให้คลาดเคลื่อนไม่เกิน $\pm 100$ mg/day ที่ 95% CI เผื่อ Non-response 10%:<br>
+        1) $n = \frac{1.96^2 \times 900^2}{100^2} = 3.8416 \times 81 = 311.17 \to \mathbf{312}$ คน<br>
+        2) ปรับ Non-response 10% <strong>ต้องหารด้วย $(1 - r)$</strong>: $n_{\text{final}} = \frac{312}{1 - 0.10} = \frac{312}{0.90} = 346.67 \to \mathbf{347}$ คน (<em>❌ ห้ามเอา $312 \times 1.10$!</em>)<br>
+        3) <strong>ถ้าเปลี่ยน Precision จาก $\pm 100 \to \pm 50$ (ลดครึ่งหนึ่ง):</strong> เนื่องจาก $n \propto \frac{1}{E^2}$ ขนาดตัวอย่างจะ <strong>เพิ่มขึ้นเป็น $2^2 = \mathbf{4 \text{ เท่า}}$</strong> ($4 \times 312 = 1,248$ คน)</p>
+        <h4 style="margin-top:8px;">ตัวอย่าง B (Case-Control จากสไลด์ L12 P29–32):</h4>
+        <p>ศึกษาความสัมพันธ์ระหว่าง Congenital Heart Defects กับการใช้ยาคุมกำเนิด ($p_2 = 0.30$, ต้องการตรวจจับ $\text{OR} = 3$, $\alpha = 0.05$, Power $= 90\%$):<br>
+        • หา $p_1 = \frac{3 \times 0.30}{1 + 0.30(3-1)} = \frac{0.90}{1.60} = 0.5625$ → สั่ง STATA: <code>power twoproportions 0.3, test(chi2) oratio(3) power(0.9)</code></p>
       </div>
     </section>
 
     <!-- ===================================================== -->
-    <!-- SECTION 8: CORRELATION & LINEAR REGRESSION            -->
+    <!-- SECTION 8: MODULE 5 — CORRELATION & LINEAR REGRESSION -->
     <!-- ===================================================== -->
     <section class="guide-section" id="correlation-linear">
       <div class="section-head">
         <span class="section-num">08</span>
-        <h2>📈 บทที่ 5: Correlation, Simple &amp; Multiple Linear Regression (L13, L14, 2025 Correlation, Stata 3 Nov)</h2>
+        <h2>📈 บทที่ 5: Correlation, Simple &amp; Multiple Linear Regression</h2>
       </div>
+      <p class="section-sub">สรุปละเอียดจาก L13 (รศ.นพ.ธนันท์), L14 Multiple Linear Regression (รศ.สมรัตน์), 2025 Correlation, 3. Linear &amp; Logistic (ศ.ดร.นพ.วิฑูรย์) และ Stata 3 Nov</p>
 
+      <h3 class="sub-title">5.1 Correlation vs. Regression &amp; Pearson ($r$) vs. Spearman ($\rho$)</h3>
       <div class="grid-2">
         <div class="mini-card">
-          <h4>Correlation ($r$ vs $\rho$)</h4>
+          <h4>ความต่างระหว่าง Correlation กับ Regression</h4>
           <ul>
-            <li><strong>Pearson ($r$):</strong> Continuous ทั้งคู่, เส้นตรง, ปกติ, ไม่มี Outlier</li>
-            <li><strong>Spearman ($\rho$):</strong> เบ้มาก, มี Outlier, หรือเป็น Ordinal</li>
-            <li><strong>เกณฑ์ขนาด $|r|$:</strong> $0.10-0.29$ ต่ำ, $0.30-0.49$ ปานกลาง, $0.50-0.69$ สูง, $\ge 0.70$ สูงมาก, $\ge 0.90$ เกือบสมบูรณ์</li>
-            <li><strong>Coefficient of Determination ($R^2 = r^2$):</strong> เช่น $r = 0.60 \implies R^2 = 0.36$ (อธิบายความผันแปรได้ <strong>36%</strong>)</li>
-            <li>⚠️ <strong>จำไว้:</strong> Correlation บอกแค่ความสัมพันธ์ (Association) <em>ไม่ใช่</em> เหตุและผล (Causation)!</li>
+            <li><strong>Correlation:</strong> วัด <em>ความแรงและทิศทาง</em> ของความสัมพันธ์เชิงเส้นระหว่างตัวแปร 2 ตัว ($r_{xy} = r_{yx}$ สลับแกนได้, ไม่มีหน่วย)</li>
+            <li><strong>Regression:</strong> สร้างสมการ <em>ทำนาย</em> ค่าตัวแปรตาม $Y$ จากตัวแปรต้น $X$ ด้วยวิธี <strong>Ordinary Least Squares (OLS)</strong> (สลับ $X, Y$ ไม่ได้, ค่าความชัน $\beta$ มีหน่วย!)</li>
+            <li><strong>จำให้แม่น:</strong> $r = -0.82$ แปลว่า <em>Strong negative linear association</em> แต่ <strong>ห้ามสรุปว่า X ทำให้เกิด Y (Association $\neq$ Causation)</strong> และ $R^2 = (-0.82)^2 = 0.6724$ (อธิบายได้ 67.2% ไม่ใช่ 82%!)</li>
           </ul>
         </div>
         <div class="mini-card">
-          <h4>Multiple Linear Regression &amp; Dummy Variables</h4>
+          <h4>เกณฑ์ขนาด $|r|$ &amp; การเลือกใช้</h4>
           <ul>
-            <li><strong>สมการ:</strong> $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \varepsilon$</li>
-            <li><strong>กฎ Dummy:</strong> ตัวแปรกลุ่มมี $k$ ระดับ $\to$ สร้าง <strong>$k - 1$</strong> ตัวแปรดัมมี่ (เว้น 1 กลุ่มเป็น Reference)</li>
-            <li><strong>ใน STATA:</strong> ใส่ <code>i.race</code> (อ้างอิงกลุ่มแรก) หรือ <code>ib2.race</code> (เปลี่ยนกลุ่มอ้างอิงเป็นกลุ่ม 2)</li>
-            <li><strong>สมมติฐานใน Regression (3 กลุ่ม):</strong><br>$H_0: \beta_1 = \beta_2 = 0$<br>$H_a:$ มีอย่างน้อยหนึ่งค่า $\beta_j \neq 0$</li>
-            <li><strong>$R^2$ vs Adjusted $R^2$:</strong> ใช้ <strong>Adj $R^2$</strong> เปรียบเทียบโมเดลที่มีจำนวนตัวแปรต่างกัน</li>
+            <li><strong>Pearson ($r$):</strong> Continuous ทั้งคู่, เส้นตรง, ปกติ, ไม่มี Outlier</li>
+            <li><strong>Spearman ($\rho$):</strong> ข้อมูลเบ้, มี Outlier, หรือเป็น Ordinal</li>
+            <li><strong>เกณฑ์ $|r|$:</strong> $0.10-0.29$ ต่ำ | $0.30-0.49$ ปานกลาง | $0.50-0.69$ สูง | $0.70-0.89$ สูงมาก | $\ge 0.90$ เกือบสมบูรณ์</li>
+            <li><strong>Variation Decomposition (L14 P13):</strong><br>$SS_{\text{Total}} = SS_{\text{Model (Explained)}} + SS_{\text{Residual (Unexplained)}}$<br>$$R^2 = \frac{SS_{\text{Model}}}{SS_{\text{Total}}} = 1 - \frac{SS_{\text{Residual}}}{SS_{\text{Total}}}$$</li>
           </ul>
         </div>
+      </div>
+
+      <h3 class="sub-title">5.2 Multiple Linear Regression, Dummy Coding &amp; Stepwise Selection (L14)</h3>
+      <ul class="std-list">
+        <li><strong>สมการทั่วไป:</strong> $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p + \varepsilon$</li>
+        <li><strong>Dummy (Indicator) Variables:</strong> ตัวแปรเชิงกลุ่มมี $k$ กลุ่ม ต้องสร้าง <strong>$k - 1$ ตัวแปรดัมมี่</strong> (เช่น 5 ภูมิภาค $\to 4$ dummy; 3 เชื้อชาติ $\to 2$ dummy) โดยเว้น 1 กลุ่มเป็น Reference</li>
+        <li><strong>การตั้งสมมติฐานในสมการ Regression (ตัวอย่าง <code>race</code> 3 กลุ่ม):</strong>
+          <br>• Overall test (F-test): $H_0: \beta_1 = \beta_2 = 0$ vs $H_a:$ มีอย่างน้อยหนึ่งค่า $\beta_j \neq 0$
+          <br>• Individual test (t-test): $H_0: \beta_1 = 0$ vs $H_a: \beta_1 \neq 0$ (เทียบ Black กับ White)
+        </li>
+        <li><strong>Adjusted $R^2$:</strong> แก้ปัญหาที่ $R^2$ ปกติเพิ่มขึ้นเสมอเมื่อยัดตัวแปรเพิ่มเข้าไป โดยลงโทษตามจำนวนตัวแปรต้น — ใช้ <strong>Adj $R^2$</strong> เปรียบเทียบโมเดล</li>
+        <li><strong>Stepwise Criteria (สไลด์ L14 P37):</strong> เกณฑ์มาตรฐานมักใช้ <strong>Probability-of-F-to-enter $\le 0.05$</strong> และ <strong>Probability-of-F-to-remove $\ge 0.10$</strong></li>
+        <li><strong>4 Assumptions (L-I-N-E) + Multicollinearity:</strong>
+          (1) <strong>L</strong>inearity, (2) <strong>I</strong>ndependence (ห้ามวัดซ้ำคนเดิมใน OLS ธรรมดา), (3) <strong>N</strong>ormality of residuals (<code>swilk r</code>), (4) <strong>E</strong>qual variance / Homoscedasticity (<strong><code>rvfplot</code></strong> กราฟ residuals vs fitted values และ <code>estat hettest</code>), และ (5) No Multicollinearity (<strong><code>vif</code> &lt; 10</strong>)
+        </li>
+      </ul>
+
+      <div class="example-card">
+        <span class="ex-badge">WORKED EXAMPLES จากสไลด์ 3. Linear &amp; Logistic + Stata 3 Nov (lbw)</span>
+        <p>• <strong>Simple Linear:</strong> $\text{bodyfat} = -1.668 + 1.467 \times \text{bmi}$ → ทุกๆ BMI ที่เพิ่มขึ้น $1\text{ kg/m}^2$ เปอร์เซ็นต์ไขมันในร่างกายจะเพิ่มขึ้นเฉลี่ย <strong>1.467%</strong><br>
+        • <strong>Multiple Linear (`reg bwt i.race smoke age hyper wt_lmp`):</strong> $R^2 = 0.1774$ (อธิบายได้ 17.74%), $\text{Prob}&gt;F = 0.0000$<br>
+        &nbsp;&nbsp;— <code>Black</code> ($\beta = -495.15, p = 0.002$): เมื่อควบคุมปัจจัยอื่นคงที่ ทารกมารดา Black น้ำหนักน้อยกว่า White เฉลี่ย 495.15 กรัม<br>
+        &nbsp;&nbsp;— <code>smoke</code> ($\beta = -388.29, p &lt; 0.001$): มารดาสูบบุหรี่ ทารกน้ำหนักน้อยกว่าไม่สูบเฉลี่ย 388.29 กรัม<br>
+        &nbsp;&nbsp;— <code>age</code> ($\beta = -3.13, 95\%\text{ CI: } -22.24\text{ ถึง } 15.97, p = 0.747$): <strong>คร่อม 0 → ไม่ซิก!</strong></p>
       </div>
 
       <div class="code-box">
-        <div class="code-bar"><span>STATA Commands: Correlation, Multiple Linear Regression, ANCOVA &amp; Diagnostics (lbw)</span><button class="copy-btn">Copy</button></div>
-<pre><span class="c-cmt">* 1. Correlation (Pearson &amp; Spearman) + Scatter plot</span>
-<span class="c-cmd">pwcorr</span> bwt age lwt, <span class="c-opt">sig obs</span>
-<span class="c-cmd">spearman</span> bwt age, <span class="c-opt">stats(rho p)</span>
-<span class="c-cmd">twoway</span> (scatter bwt lwt) (lfit bwt lwt)
-
-<span class="c-cmt">* 2. Multiple Linear Regression (Outcome = Continuous bwt)</span>
-<span class="c-cmd">reg</span> bwt <span class="c-opt">i.race</span> smoke age hyper wt_lmp           <span class="c-cmt">// White เป็น Reference</span>
+        <div class="code-bar"><span>STATA Commands: Correlation, Multiple Linear Regression &amp; Diagnostics</span><button class="copy-btn">Copy</button></div>
+<pre><span class="c-cmd">pwcorr</span> bwt age wt_lmp, <span class="c-opt">sig obs</span>                  <span class="c-cmt">// Pearson r + p-value</span>
+<span class="c-cmd">spearman</span> bwt age, <span class="c-opt">stats(rho p)</span>                  <span class="c-cmt">// Spearman rho</span>
+<span class="c-cmd">reg</span> bwt <span class="c-opt">i.race</span> smoke age hyper wt_lmp           <span class="c-cmt">// Multiple Linear (White = Ref)</span>
 <span class="c-cmd">reg</span> bwt <span class="c-opt">ib2.race</span> smoke age hyper wt_lmp         <span class="c-cmt">// เปลี่ยนกลุ่ม 2 เป็น Reference</span>
-<span class="c-cmd">test</span> 2.race = 3.race                             <span class="c-cmt">// ทดสอบคู่ที่ไม่ได้เป็น Reference</span>
-
-<span class="c-cmt">* 3. Interaction (Effect Modification)</span>
-<span class="c-cmd">reg</span> bwt <span class="c-opt">i.race##i.smoke</span> age wt_lmp              <span class="c-cmt">// ใส่ ## จะได้ทั้ง Main effects + Interaction</span>
-
-<span class="c-cmt">* 4. ตรวจสอบ LINE Assumptions &amp; Multicollinearity</span>
-<span class="c-cmd">vif</span>                                              <span class="c-cmt">// เช็ค Multicollinearity (ต้อง &lt; 10)</span>
-<span class="c-cmd">rvfplot</span>, <span class="c-opt">yline(0)</span>                               <span class="c-cmt">// เช็ค Homoscedasticity &amp; Linearity</span>
-<span class="c-cmd">estat hettest</span>                                    <span class="c-cmt">// Breusch-Pagan test (p &gt;= 0.05 = ผ่าน)</span>
+<span class="c-cmd">reg</span> bwt <span class="c-opt">i.race##i.smoke</span> age wt_lmp              <span class="c-cmt">// ทดสอบ Interaction (Effect modification)</span>
+<span class="c-cmd">test</span> 2.race = 3.race                             <span class="c-cmt">// ทดสอบความต่างระหว่างคู่ที่ไม่ใช่ Ref</span>
+<span class="c-cmd">vif</span>                                              <span class="c-cmt">// Multicollinearity (ต้อง &lt; 10)</span>
+<span class="c-cmd">rvfplot</span>, <span class="c-opt">yline(0)</span>                               <span class="c-cmt">// กราฟ Residuals vs Fitted (เช็ค Homoscedasticity)</span>
+<span class="c-cmd">estat hettest</span>                                    <span class="c-cmt">// Breusch-Pagan (p &gt;= 0.05 = ผ่าน)</span>
 <span class="c-cmd">predict</span> r, <span class="c-opt">resid</span>
-<span class="c-cmd">swilk</span> r                                          <span class="c-cmt">// เช็ค Normality ของ Residuals (p &gt;= 0.05 = ผ่าน)</span></pre>
+<span class="c-cmd">swilk</span> r                                          <span class="c-cmt">// Normality ของ Residuals (p &gt;= 0.05 = ผ่าน)</span></pre>
       </div>
     </section>
 
     <!-- ===================================================== -->
-    <!-- SECTION 9: MULTIPLE LOGISTIC REGRESSION               -->
+    <!-- SECTION 9: MODULE 6 — MULTIPLE LOGISTIC REGRESSION    -->
     <!-- ===================================================== -->
     <section class="guide-section" id="logistic-regression">
       <div class="section-head">
         <span class="section-num">09</span>
-        <h2>🧬 บทที่ 6: Simple &amp; Multiple Logistic Regression (Binary Outcome: 0/1)</h2>
+        <h2>🧬 บทที่ 6: Multiple Logistic Regression, Goodness-of-Fit &amp; ROC</h2>
       </div>
-      <p class="section-sub">ครอบคลุม Multiple_Logistic_Stat1_Nov5-2026 &amp; 3. Linear and Logistic Regression</p>
+      <p class="section-sub">สรุปละเอียดจาก Multiple_Logistic_Stat1_Nov5-2026 (รศ.สมรัตน์, 53 สไลด์) &amp; 3. Linear and Logistic Regression (ศ.ดร.นพ.วิฑูรย์)</p>
+
+      <h3 class="sub-title">6.1 หลักการ, สมการ Logit, การคำนวณ AOR และ Predicted Probability ($\hat{P}$)</h3>
+      <p class="body-p"><strong>4 วัตถุประสงค์หลักของ Multivariable Model (สไลด์ P23):</strong> (1) หาปัจจัยพยากรณ์โรคโดยควบคุมตัวแปรกวน (Confounders), (2) ปรับความแตกต่างของลักษณะพื้นฐาน (Baseline adjustment), (3) พยากรณ์โรค (Prognostic model), และ (4) ช่วยวินิจฉัยโรค (Diagnostic model)</p>
+
+      <div class="formula-box">
+        $$\text{logit}(P) = \ln\!\left(\frac{P}{1 - P}\right) = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_k X_k = z$$
+        $$\text{AOR (ต่อ 1 หน่วย)} = e^{\beta}, \qquad \text{AOR (เมื่อเพิ่ม } \Delta X \text{ หน่วย)} = e^{\beta \times \Delta X}, \qquad \hat{P} = \frac{1}{1 + e^{-z}} = \frac{e^z}{1 + e^z}$$
+      </div>
 
       <div class="grid-2">
         <div class="mini-card">
-          <h4>สมการ Logit, AOR และ Predicted Probability ($\hat{P}$)</h4>
-          <div class="formula-box">
-            $$\text{logit}(P) = \ln\!\left(\frac{P}{1-P}\right) = \beta_0 + \beta_1 X_1 + \dots + \beta_k X_k = z$$
-          </div>
-          <ul style="margin-top:8px;">
-            <li><strong>แปลง $\beta$ เป็น AOR (ต่อ 1 หน่วย):</strong> $\text{AOR} = e^{\beta}$ (เช่น $e^{0.693} = 2.00$)</li>
-            <li><strong>แปลง $\beta$ เป็น AOR เมื่อเพิ่ม $\Delta X$ หน่วย:</strong> $\text{AOR}_{\Delta X} = e^{\beta \times \Delta X}$<br><small>(เช่น BMI เพิ่ม 5 หน่วย, $\beta = 0.120 \implies e^{0.120 \times 5} = e^{0.60} \approx \mathbf{1.82}$)</small></li>
-            <li><strong>คำนวณความน่าจะเป็น (Predicted Probability):</strong>
-              <div class="formula-box">$$P = \frac{1}{1 + e^{-z}} = \frac{e^z}{1 + e^z}$$</div>
-            </li>
+          <h4><code>logit</code> vs. <code>logistic</code> vs. <code>reg</code> (ห้ามสับสน!)</h4>
+          <ul>
+            <li><strong><code>reg</code>:</strong> Linear Regression สำหรับ Outcome <strong>Continuous</strong></li>
+            <li><strong><code>logit</code>:</strong> Logistic Regression สำหรับ Outcome <strong>Binary (0/1)</strong> — แสดงผลเป็น <strong>Coef ($\beta$ = log-odds)</strong> ใช้เขียนสมการ &amp; คำนวณ $z$</li>
+            <li><strong><code>logistic</code>:</strong> Logistic Regression ตัวเดียวกับ <code>logit</code> แต่แสดงผลเป็น <strong>Odds Ratio ($e^\beta$)</strong> ทันที!</li>
           </ul>
         </div>
         <div class="mini-card">
-          <h4>Model Building &amp; Diagnostics (รศ.สมรัตน์)</h4>
+          <h4>Model Building &amp; Evaluation (สไลด์ P44–51)</h4>
           <ul>
-            <li><strong>Univariate Screening (Hosmer-Lemeshow):</strong> คัดตัวแปรที่ $p &lt; 0.25$ หรือมีความสำคัญทางชีววิทยาเข้า Multivariable model</li>
-            <li><strong><code>logit</code> vs <code>logistic</code>:</strong><br>• <code>logit</code> แสดงเป็น $\beta$ (Log-odds) — ใช้เขียนสมการ &amp; คำนวณ $z$<br>• <code>logistic</code> แสดงเป็น <strong>Odds Ratio (AOR)</strong> ทันที</li>
-            <li><strong>เทียบ 2 โมเดล (Nested models):</strong> ใช้ <strong>Likelihood Ratio Test (<code>lrtest</code>)</strong></li>
-            <li><strong>Goodness-of-Fit:</strong> <code>estat gof, group(10)</code> (Hosmer-Lemeshow) → <strong>$p \ge 0.05$ = โมเดลฟิตดี</strong></li>
-            <li><strong>Classification &amp; ROC:</strong> <code>estat classification</code> (Sens/Spec/Accuracy) และ <code>lroc</code> (AUC)</li>
+            <li><strong>Univariate Screening (Hosmer-Lemeshow):</strong> คัดตัวแปรที่ $p &lt; 0.25$ และตัวแปรที่มีความสำคัญทางชีววิทยาเข้า Multivariable model</li>
+            <li><strong>เปรียบเทียบ Nested Models:</strong> ใช้ <strong>Likelihood Ratio Test (<code>lrtest</code>)</strong> ดูผลต่างของ $-2\text{LL}$</li>
+            <li><strong>Goodness-of-Fit:</strong> <code>estat gof, group(10)</code> (Hosmer-Lemeshow) → <strong>$p \ge 0.05$</strong> แปลว่าโมเดลฟิตดี</li>
+            <li><strong>Classification Table (สไลด์ P51, lbw):</strong> Accuracy $= \frac{24+116}{189} = 74\%$, Sensitivity $= \frac{24}{59} = 41\%$, Specificity $= \frac{116}{130} = 89\%$ → ขยายเป็น <strong>ROC Curve (<code>lroc</code>)</strong> เพื่อดู AUC</li>
           </ul>
         </div>
       </div>
 
-      <div class="callout callout-green">
-        <strong>🧮 ตัวอย่างคำนวณความน่าจะเป็น ($\hat{P}$) ออกสอบอัตนัย (ข้อสอบจำลองข้อ 3.5):</strong><br>
-        สมการ: $z = -8.100 + 0.045(\text{age}) + 0.120(\text{bmi}) + 0.250(\text{male}) + 0.920(\text{famhx})$<br>
-        โจทย์: ผู้หญิง ($\text{male}=0$) อายุ $50$ ปี, $\text{BMI}=30$, มีประวัติครอบครัว ($\text{famhx}=1$)<br>
-        1) $z = -8.100 + 0.045(50) + 0.120(30) + 0.250(0) + 0.920(1) = -8.100 + 2.25 + 3.60 + 0.92 = \mathbf{-1.330}$<br>
-        2) $P = \frac{1}{1 + e^{-(-1.330)}} = \frac{1}{1 + e^{1.330}} = \frac{1}{1 + 3.781} = \mathbf{0.209}$ (หรือ <strong>20.9%</strong>)
+      <div class="example-card">
+        <span class="ex-badge">WORKED EXAMPLE (ข้อสอบจริง &amp; สไลด์ lbw)</span>
+        <h4>ตัวอย่าง A — การแปลผล Continuous Predictor ใน <code>logistic lbw ib2.race smoke age wt_lmp hyper urirr</code>:</h4>
+        <p>• <code>wt_lmp</code> ($\text{AOR} = 0.9648, 95\%\text{ CI: } 0.937 - 0.994, p = 0.018$): เมื่อควบคุมปัจจัยอื่นคงที่ <strong>ทุกๆ 1 ปอนด์ที่เพิ่มขึ้น</strong> ของน้ำหนักแม่ก่อนตั้งครรภ์ โอกาสคลอดทารกน้ำหนักน้อย <strong>ลดลง 3.52%</strong> ($(1 - 0.9648)\times 100\%$) อย่างมีนัยสำคัญ<br>
+        • <code>age</code> ($\text{AOR} = 0.9819, 95\%\text{ CI: } 0.916 - 1.052, p = 0.606$): <strong>95% CI คร่อม 1 → ไม่ซิก!</strong></p>
+        <h4 style="margin-top:8px;">ตัวอย่าง B — คำนวณ AOR ต่อ 5 หน่วย และ Predicted Probability ($\hat{P}$) จาก <code>logit dm age bmi male famhx</code>:</h4>
+        <p>สมการ: $z = -8.100 + 0.045(\text{age}) + 0.120(\text{bmi}) + 0.250(\text{male}) + 0.920(\text{famhx})$<br>
+        1) AOR ของ BMI ที่เพิ่มขึ้น <strong>5 kg/m²</strong>: $e^{0.120 \times 5} = e^{0.60} \approx \mathbf{1.82}$ (โอกาสเป็นเบาหวานเพิ่ม 1.82 เท่า)<br>
+        2) หญิง ($\text{male}=0$) อายุ $50$, $\text{BMI}=30$, $\text{famhx}=1$: $z = -8.100 + 0.045(50) + 0.120(30) + 0 + 0.920 = \mathbf{-1.330}$ → $\hat{P} = \frac{1}{1 + e^{1.330}} = \frac{1}{1 + 3.781} = \mathbf{0.209}$ (<strong>20.9%</strong>)</p>
       </div>
 
       <div class="code-box">
-        <div class="code-bar"><span>STATA Commands: Logistic Regression, LRT, Goodness-of-Fit &amp; ROC</span><button class="copy-btn">Copy</button></div>
-<pre><span class="c-cmt">* 1. รัน Logistic Regression (แสดง OR vs แสดง Coef)</span>
-<span class="c-cmd">logistic</span> lbw <span class="c-opt">ib2.race</span> smoke age wt_lmp hyper urirr   <span class="c-cmt">// แสดง AOR ทันที</span>
-<span class="c-cmd">logit</span>    lbw <span class="c-opt">ib2.race</span> smoke age wt_lmp hyper urirr   <span class="c-cmt">// แสดง Coef (β) สำหรับเขียนสมการ</span>
-
-<span class="c-cmt">* 2. Likelihood Ratio Test (เปรียบเทียบ Full model vs Reduced model)</span>
-<span class="c-cmd">logit</span> lbw i.race smoke age wt_lmp hyper urirr
+        <div class="code-bar"><span>STATA Commands: Multiple Logistic Regression, LRT, GOF &amp; ROC</span><button class="copy-btn">Copy</button></div>
+<pre><span class="c-cmd">logistic</span> lbw <span class="c-opt">ib2.race</span> smoke age wt_lmp hyper urirr   <span class="c-cmt">// แสดง AOR + 95% CI</span>
+<span class="c-cmd">logit</span>    lbw <span class="c-opt">ib2.race</span> smoke age wt_lmp hyper urirr   <span class="c-cmt">// แสดง β (log-odds)</span>
 <span class="c-cmd">estimates store</span> full
-<span class="c-cmd">logit</span> lbw i.race smoke wt_lmp hyper urirr            <span class="c-cmt">// ตัด age ออก</span>
+<span class="c-cmd">logit</span>    lbw <span class="c-opt">ib2.race</span> smoke wt_lmp hyper urirr
 <span class="c-cmd">estimates store</span> reduced
-<span class="c-cmd">lrtest</span> full reduced                                  <span class="c-cmt">// ถ้า p &gt;= 0.05 ตัด age ออกได้</span>
-
-<span class="c-cmt">* 3. Goodness-of-Fit, Classification Table &amp; ROC Curve</span>
+<span class="c-cmd">lrtest</span> full reduced                                  <span class="c-cmt">// Likelihood Ratio Test</span>
 <span class="c-cmd">estat gof</span>, <span class="c-opt">group(10)</span>                                 <span class="c-cmt">// Hosmer-Lemeshow (p &gt;= 0.05 = ฟิตดี)</span>
-<span class="c-cmd">estat classification</span>                                  <span class="c-cmt">// Sensitivity, Specificity, Accuracy</span>
-<span class="c-cmd">lroc</span>                                                  <span class="c-cmt">// Area Under ROC Curve (AUC)</span></pre>
+<span class="c-cmd">estat classification</span>                                  <span class="c-cmt">// Sens / Spec / Accuracy</span>
+<span class="c-cmd">lroc</span>                                                  <span class="c-cmt">// ROC Curve &amp; AUC</span></pre>
       </div>
     </section>
 
@@ -1252,23 +1352,23 @@
     <section class="guide-section" id="copy-templates">
       <div class="section-head">
         <span class="section-num">10</span>
-        <h2>📋 คลังประโยคแปลผลพร้อมก๊อป &amp; Checklist 30 วินาทีก่อนส่งข้อสอบ</h2>
+        <h2>📋 คลังประโยคแปลผลพร้อม Copy &amp; Checklist 30 วินาทีก่อนส่งข้อสอบ</h2>
       </div>
 
       <div class="tpl-card">
         <div class="tpl-head">
-          <strong>1. ประโยคแปลผล Multiple Linear Regression (Categorical &amp; Continuous)</strong>
+          <strong>1. ประโยคแปลผล Multiple Linear Regression</strong>
           <button class="copy-btn tpl-copy">Copy ประโยค</button>
         </div>
-        <div class="tpl-text">เมื่อควบคุมปัจจัยอื่นๆ ในแบบจำลองให้คงที่ (Adjusted for ...): (1) กลุ่ม [X=1] มีค่าเฉลี่ยของ [Y] [สูงกว่า/ต่ำกว่า] กลุ่มอ้างอิง [X=0] อยู่ [|β|] [หน่วย] อย่างมีนัยสำคัญทางสถิติ (95% CI: [L] ถึง [U], p = [...]); (2) ทุกๆ 1 [หน่วย] ที่เพิ่มขึ้นของ [X_cont] สัมพันธ์กับค่า [Y] ที่ [เพิ่มขึ้น/ลดลง] เฉลี่ย [|β|] [หน่วย] อย่างมีนัยสำคัญทางสถิติ (95% CI: [L] ถึง [U], p = [...])</div>
+        <div class="tpl-text">เมื่อควบคุมปัจจัยอื่นๆ ในแบบจำลองให้คงที่: (1) กลุ่ม [X=1] มีค่าเฉลี่ยของ [Y] [สูงกว่า/ต่ำกว่า] กลุ่มอ้างอิง [X=0] อยู่ [|β|] [หน่วย] อย่างมีนัยสำคัญทางสถิติ (95% CI: [L] ถึง [U], p = [...]); (2) ทุกๆ 1 [หน่วย] ที่เพิ่มขึ้นของ [X_cont] สัมพันธ์กับค่า [Y] ที่ [เพิ่มขึ้น/ลดลง] เฉลี่ย [|β|] [หน่วย] อย่างมีนัยสำคัญทางสถิติ (95% CI: [L] ถึง [U], p = [...])</div>
       </div>
 
       <div class="tpl-card">
         <div class="tpl-head">
-          <strong>2. ประโยคแปลผล Multiple Logistic Regression (AOR — Categorical &amp; Continuous)</strong>
+          <strong>2. ประโยคแปลผล Multiple Logistic Regression (AOR)</strong>
           <button class="copy-btn tpl-copy">Copy ประโยค</button>
         </div>
-        <div class="tpl-text">เมื่อควบคุมปัจจัยอื่นๆ ในแบบจำลองให้คงที่: (1) ผู้ที่มีปัจจัย [X=1] มีโอกาส (Odds) ในการเกิด [Outcome] เป็น [AOR] เท่า ของผู้ที่ไม่มีปัจจัย [X=0] อย่างมีนัยสำคัญทางสถิติ (95% CI: [L] ถึง [U], p = [...]); (2) ทุกๆ [1 หรือ ΔX] [หน่วย] ที่เพิ่มขึ้นของ [X_cont] ทำให้โอกาส (Odds) ในการเกิด [Outcome] เปลี่ยนไปเป็น [AOR] เท่า (หรือ [เพิ่มขึ้น/ลดลง] [|AOR-1|×100]%) อย่างมีนัยสำคัญทางสถิติ (95% CI: [L] ถึง [U], p = [...])</div>
+        <div class="tpl-text">เมื่อควบคุมปัจจัยอื่นๆ ในแบบจำลองให้คงที่: (1) ผู้ที่มีปัจจัย [X=1] มีโอกาส (Odds) ในการเกิด [Outcome] เป็น [AOR] เท่า ของผู้ที่ไม่มีปัจจัย [X=0] อย่างมีนัยสำคัญทางสถิติ (95% CI: [L] ถึง [U], p = [...]); (2) ทุกๆ [1 หรือ ΔX] [หน่วย] ที่เพิ่มขึ้นของ [X_cont] สัมพันธ์กับโอกาส (Odds) ในการเกิด [Outcome] ที่เปลี่ยนไปเป็น [AOR] เท่า (หรือ [เพิ่มขึ้น/ลดลง] [|AOR-1|×100]%) อย่างมีนัยสำคัญทางสถิติ (95% CI: [L] ถึง [U], p = [...])</div>
       </div>
 
       <div class="tpl-card">
@@ -1279,22 +1379,139 @@
         <div class="tpl-text">จากการทดสอบ Bartlett's test พบว่าความแปรปรวนของทุกกลุ่มไม่แตกต่างกัน (p = [...] ≥ 0.05) ผ่านข้อตกลงของ One-way ANOVA ผลการวิเคราะห์พบว่าค่าเฉลี่ยของ [Y] ระหว่างกลุ่ม [X] มีความแตกต่างกันอย่างมีนัยสำคัญทางสถิติ (F([df1], [df2]) = [...], p = [...]) เมื่อเปรียบเทียบรายคู่ด้วยวิธี Bonferroni พบว่ากลุ่ม [A] แตกต่างจากกลุ่ม [B] อย่างมีนัยสำคัญ (mean diff = [...], p = [...])</div>
       </div>
 
-      <h3 class="sub-title">🚨 Emergency Checklist 30 วินาที (เช็คก่อนส่งข้อสอบ ป้องกันพลาดคะแนนฟรี!)</h3>
       <div class="callout callout-rose">
-        <ul style="padding-left:20px; line-height:1.85;">
-          <li>✅ <strong>เช็คตัวแปรตาม (Y) ก่อนเลือกคำสั่ง:</strong> Continuous $\to$ <code>reg</code> | Binary (0/1) $\to$ <code>logistic</code> / <code>logit</code> (อย่าสลับ!)</li>
-          <li>✅ <strong>ตัวแปรกลุ่ม ≥3 กลุ่มใน Regression:</strong> ใส่ <strong><code>i.</code></strong> (หรือ <code>ib#.</code>) แล้วหรือยัง? (จำนวน dummy = $k-1$)</li>
+        <strong>🚨 Emergency Checklist 30 วินาทีก่อนส่งข้อสอบ (จุดที่คนพลาดบ่อยที่สุด):</strong>
+        <ul style="padding-left:20px; margin-top:4px; line-height:1.8;">
+          <li>✅ <strong>ตัวแปรตาม (Y):</strong> Continuous $\to$ <code>reg</code> | Binary 0/1 $\to$ <code>logistic</code> / <code>logit</code></li>
+          <li>✅ <strong>Dummy coding:</strong> มี $k$ กลุ่ม ใช้ $k-1$ ตัวแปรดัมมี่ และใน STATA ต้องใส่ <strong><code>i.</code></strong> เสมอ</li>
           <li>✅ <strong>95% CI:</strong> ผลต่าง ($\beta$, Mean diff, RD) เช็ค <strong>คร่อม 0</strong> | อัตราส่วน (OR, RR, IRR) เช็ค <strong>คร่อม 1</strong></li>
-          <li>✅ <strong>คำว่า "เมื่อควบคุมปัจจัยอื่นๆ ให้คงที่":</strong> ใน Multiple Regression ห้ามลืมเขียนคำนี้เด็ดขาด!</li>
-          <li>✅ <strong>Non-response Adjustment:</strong> ใช้ <strong>$n / (1 - r)$</strong> และปัดขึ้นเป็นจำนวนเต็มเสมอ!</li>
-          <li>✅ <strong>Bartlett's / Hosmer-Lemeshow / Shapiro-Wilk:</strong> ค่า $p \ge 0.05$ แปลว่า <strong>ผ่านเกณฑ์</strong> (อย่าเผลอแปลว่าตกเกณฑ์!)</li>
-          <li>✅ <strong>STATA `cs` / `cc`:</strong> ลำดับตัวแปรคือ <code>cc outcome exposure</code> (เอาโรคขึ้นก่อนปัจจัยเสี่ยงเสมอ!)</li>
+          <li>✅ <strong>Non-response:</strong> ต้องใช้ <strong>$n / (1 - r)$</strong> และปัดขึ้นเป็นจำนวนเต็มเสมอ!</li>
+          <li>✅ <strong>Assumption tests:</strong> Bartlett's / Shapiro-Wilk / <code>sdtest</code> / <code>hettest</code> / Hosmer-Lemeshow → <strong>$p \ge 0.05$ = ผ่านเกณฑ์!</strong></li>
+          <li>✅ <strong>STATA `cs` / `cc`:</strong> เอา <strong>Outcome (โรค) ขึ้นก่อน Exposure (ปัจจัยเสี่ยง)</strong> เสมอ!</li>
         </ul>
       </div>
     </section>
+    <!-- ===================================================== -->
+    <!-- SECTION 11: INTERACTIVE MOCK EXAM (20 MCQ + 5 WRITTEN)-->
+    <!-- ===================================================== -->
+    <section class="guide-section" id="mock-exam">
+      <div class="section-head">
+        <span class="section-num section-num-rose">MOCK EXAM</span>
+        <h2>🔥 โจทย์ Mock Exam ที่ควรรู้ก่อนเข้าห้องสอบ (20 ปรนัย Interactive + 5 อัตนัยคำนวณ)</h2>
+      </div>
+      <p class="section-sub">คัดเฉพาะแนวข้อสอบที่ออกจริงและออกซ้ำทุกปีจากทั้ง 3014710 และ 3014831 — กดเลือกคำตอบเพื่อตรวจทันทีพร้อมคำอธิบายละเอียด</p>
+
+      <!-- Scoreboard -->
+      <div class="exam-scoreboard">
+        <div>
+          <div style="font-size:12px;color:#fecdd3;font-weight:700;text-transform:uppercase;">Part A • Interactive Multiple-Choice Quiz</div>
+          <div class="exam-score-val" id="examScoreText">คะแนนของคุณ: 0 / 20 (ตอบแล้ว 0 ข้อ)</div>
+        </div>
+        <button class="exam-reset-btn" id="examResetBtn">🔄 เริ่มทำใหม่ทั้งหมด</button>
+      </div>
+
+      <!-- MCQ Container (Populated by JS) -->
+      <div id="mcqContainer"></div>
+
+      <!-- Part B: 5 Full Written / Calculation Problems -->
+      <h3 class="sub-title" style="margin-top:26px;border-left-color:var(--rose);color:#9f1239;">📝 Part B: โจทย์อัตนัยคำนวณ &amp; อ่านผล STATA Output (5 ข้อสำคัญ พร้อมเฉลยละเอียด)</h3>
+
+      <!-- Problem 1 -->
+      <details class="written-prob">
+        <summary>อัตนัยข้อ 1: ตาราง 2×2 (Cross-Sectional) — คำนวณ Expected Count, Chi-square, ความชุก และ Prevalence Ratio</summary>
+        <div class="written-body">
+          <p><strong>โจทย์:</strong> การสำรวจแบบภาคตัดขวางในผู้ใหญ่วัยทำงาน 200 คน ศึกษาความสัมพันธ์ระหว่าง Physical Activity กับ Hypertension:<br>
+          • <strong>Active (120 คน):</strong> HT Yes = 24, HT No = 96<br>
+          • <strong>Inactive (80 คน):</strong> HT Yes = 32, HT No = 48 (รวม HT Yes = 56, HT No = 144)<br>
+          จง (1) ตั้ง $H_0, H_a$, (2) คำนวณ Expected count และเช็คเงื่อนไข Chi-square, (3) คำนวณ $\chi^2, df$ และเทียบ Critical value ($3.841$), (4) หาความชุกและ Prevalence Ratio (Inactive vs Active)</p>
+          <div class="sol-box">
+            <strong>✅ เฉลยละเอียด:</strong><br>
+            1) $H_0$: การมีกิจกรรมทางกาย <em>ไม่มีความสัมพันธ์</em> กับโรคความดันโลหิตสูง ($p_1 = p_2$) | $H_a$: <em>มีความสัมพันธ์</em> ($p_1 \neq p_2$)<br>
+            2) <strong>Expected counts ($E = \text{Row}\times\text{Col}/N$):</strong><br>
+            &nbsp;&nbsp;• Active+HT: $\frac{120\times 56}{200} = \mathbf{33.6}$ | Active+NoHT: $\frac{120\times 144}{200} = \mathbf{86.4}$<br>
+            &nbsp;&nbsp;• Inactive+HT: $\frac{80\times 56}{200} = \mathbf{22.4}$ | Inactive+NoHT: $\frac{80\times 144}{200} = \mathbf{57.6}$<br>
+            &nbsp;&nbsp;→ ทุกช่องมี $E \ge 5$ (ต่ำสุด $22.4$) <strong>ผ่านเงื่อนไข Chi-square!</strong><br>
+            3) <strong>คำนวณ $\chi^2$:</strong> $\frac{(24-33.6)^2}{33.6} + \frac{(96-86.4)^2}{86.4} + \frac{(32-22.4)^2}{22.4} + \frac{(48-57.6)^2}{57.6} = 2.743 + 1.067 + 4.114 + 1.600 = \mathbf{9.524}$, $df = (2-1)(2-1) = \mathbf{1}$, Critical value $= 3.841$<br>
+            4) เนื่องจาก $9.524 &gt; 3.841$ → <strong>Reject $H_0$</strong> ($p &lt; 0.05$)<br>
+            &nbsp;&nbsp;• ความชุก Active $= 24/120 = \mathbf{20\%}$ | ความชุก Inactive $= 32/80 = \mathbf{40\%}$<br>
+            &nbsp;&nbsp;• <strong>Prevalence Ratio (Inactive vs Active)</strong> $= 40\% / 20\% = \mathbf{2.00}$ (กลุ่ม Inactive มีความชุกเป็น 2 เท่าของกลุ่ม Active)
+          </div>
+        </div>
+      </details>
+
+      <!-- Problem 2 -->
+      <details class="written-prob">
+        <summary>อัตนัยข้อ 2: คำนวณ Sample Size — ประมาณค่าเฉลี่ย + เผื่อ Non-response 10% + เปลี่ยน Precision ครึ่งหนึ่ง</summary>
+        <div class="written-body">
+          <p><strong>โจทย์:</strong> ต้องการประมาณค่าเฉลี่ยการบริโภคโซเดียมของผู้ใหญ่ใน กทม. จาก Pilot study ได้ $\sigma = 900\text{ mg/day}$:<br>
+          (2.1) ต้องใช้กลุ่มตัวอย่างกี่คนเพื่อให้คลาดเคลื่อนไม่เกิน $\pm 100\text{ mg/day}$ ที่ 95% confidence เผื่อ Non-response 10%?<br>
+          (2.2) ถ้าเปลี่ยน Precision เป็น $\pm 50\text{ mg/day}$ (ก่อนปรับ Non-response) ขนาดตัวอย่างจะเปลี่ยนไปอย่างไร เพราะเหตุใด?</p>
+          <div class="sol-box">
+            <strong>✅ เฉลยละเอียด:</strong><br>
+            (2.1) $n = \frac{Z^2 \sigma^2}{d^2} = \frac{1.96^2 \times 900^2}{100^2} = 3.8416 \times 81 = 311.17 \to \mathbf{312}$ คน<br>
+            ปรับ Non-response 10%: $n_{\text{final}} = \frac{312}{1 - 0.10} = \frac{312}{0.90} = 346.67 \to \mathbf{347}$ คน<br>
+            (2.2) ขนาดตัวอย่างจะ <strong>เพิ่มขึ้นเป็น 4 เท่า</strong> ($4 \times 312 = \mathbf{1,248}$ คน) เพราะจากสูตร $n \propto \frac{1}{d^2}$ เมื่อลด $d$ ลงเหลือ $\frac{1}{2}$ ตัวส่วนจะลดลงเป็น $(1/2)^2 = 1/4$ จึงทำให้ $n$ เพิ่มขึ้น 4 เท่า
+          </div>
+        </div>
+      </details>
+
+      <!-- Problem 3 -->
+      <details class="written-prob">
+        <summary>อัตนัยข้อ 3: Matched Case-Control (McNemar) &amp; Mantel-Haenszel (แยก Confounding vs Effect Modification)</summary>
+        <div class="written-body">
+          <p><strong>โจทย์:</strong> (A) การศึกษาแบบ Matched Case-Control 100 คู่ ได้คู่ที่ Case+/Ctrl+ ($a$) = 10, Case+/Ctrl− ($b$) = 28, Case−/Ctrl+ ($c$) = 12, Case−/Ctrl− ($d$) = 50 จงคำนวณ Matched OR และ McNemar $\chi^2$<br>
+          (B) ในการศึกษาดื่มกาแฟกับโรคหัวใจ (MI) พบ Crude OR $= 2.40$ เมื่อแบ่งชั้นตามการสูบบุหรี่ (`cc mi coffee, by(smoke)`) ได้ OR ในคนสูบ $= 1.95$ (95% CI: 1.38–2.77), OR ในคนไม่สูบ $= 1.98$ (95% CI: 1.20–3.25), M-H Combined OR $= 1.96$, Test of homogeneity $p = 0.92$ จงสรุปว่า `smoke` เป็น Confounder หรือ Effect Modifier?</p>
+          <div class="sol-box">
+            <strong>✅ เฉลยละเอียด:</strong><br>
+            (A) <strong>Matched OR</strong> $= \frac{b}{c} = \frac{28}{12} = \mathbf{2.33}$<br>
+            <strong>McNemar $\chi^2$</strong> $= \frac{(b-c)^2}{b+c} = \frac{(28-12)^2}{28+12} = \frac{256}{40} = \mathbf{6.40} &gt; 3.841$ ($df=1$) → <strong>Reject $H_0$</strong> (มีนัยสำคัญทางสถิติที่ $\alpha = 0.05$)<br>
+            (B) 1) เช็ค <strong>Test of homogeneity</strong> ได้ $p = 0.92 \ge 0.05$ (OR ทั้ง 2 ชั้นเท่ากัน $\approx 1.96$) → <strong>ไม่ใช่ Effect Modifier</strong><br>
+            2) เช็ค <strong>Confounding (กฎ 10%):</strong> $\left|\frac{2.40 - 1.96}{1.96}\right| = 22.4\% \ge 10\%$ → สรุปว่า `smoke` เป็น <strong>Confounder</strong> ต้องรายงานค่า <strong>M-H Adjusted OR = 1.96</strong>
+          </div>
+        </div>
+      </details>
+
+      <!-- Problem 4 -->
+      <details class="written-prob">
+        <summary>อัตนัยข้อ 4: อ่านตาราง One-Way ANOVA, Bartlett's Test และ Bonferroni Post-hoc</summary>
+        <div class="written-body">
+          <p><strong>โจทย์:</strong> ผลการรัน <code>oneway change trt, bonferroni</code> ในผู้ป่วย 310 คน แบ่งเป็น 3 กลุ่ม (Placebo, Low-dose, High-dose) ได้ $SS_{\text{Between}} = 0.001579$, $SS_{\text{Within}} = 0.046259$, Bartlett's test `Prob>chi2 = 0.759`:<br>
+          (1) หา $df_B, df_W, MS_B, MS_W$ และค่า $F$ | (2) อธิบายความหมาย Bartlett's $p = 0.759$ | (3) ถ้าต้องการเทียบรายคู่ทุกคู่ด้วย Bonferroni ที่ $\alpha = 0.05$ เกณฑ์ $\alpha^*$ ต่อคู่คือเท่าไร?</p>
+          <div class="sol-box">
+            <strong>✅ เฉลยละเอียด:</strong><br>
+            (1) $df_B = 3 - 1 = \mathbf{2}$, $df_W = 310 - 3 = \mathbf{307}$<br>
+            $MS_B = 0.001579 / 2 = 0.0007895$, $MS_W = 0.046259 / 307 = 0.0001507$<br>
+            $F = MS_B / MS_W = 0.0007895 / 0.0001507 = \mathbf{5.24}$ ($p = 0.0058 &lt; 0.05 \to$ มีอย่างน้อย 1 คู่แตกต่างกัน)<br>
+            (2) Bartlett's $p = 0.759 \ge 0.05 \to$ ยอมรับ $H_0$ ความแปรปรวนของทั้ง 3 กลุ่ม <strong>เท่ากัน (ผ่านเกณฑ์ Homoscedasticity)</strong> เชื่อผล ANOVA ได้<br>
+            (3) 3 กลุ่มมี $c = \frac{3\times 2}{2} = 3$ คู่ $\implies \alpha^* = \frac{0.05}{3} = \mathbf{0.0167}$ ต่อคู่
+          </div>
+        </div>
+      </details>
+
+      <!-- Problem 5 -->
+      <details class="written-prob">
+        <summary>อัตนัยข้อ 5: Multiple Logistic Regression (`logit dm age bmi male famhx`) — AOR ต่อ 5 หน่วย และ Predicted Probability</summary>
+        <div class="written-body">
+          <p><strong>โจทย์:</strong> จากผล STATA <code>logit dm age bmi male famhx</code> ($N=500$, LR $\chi^2(4)=58.42, p&lt;0.0001$):<br>
+          • <code>age</code>: coef $= 0.045$ ($p=0.000$) | <code>bmi</code>: coef $= 0.120$ ($p=0.000$) | <code>male</code>: coef $= 0.250$ ($p=0.234$, 95% CI: $-0.162$ ถึง $0.662$) | <code>famhx</code>: coef $= 0.920$ ($p=0.000$) | <code>_cons</code> $= -8.100$<br>
+          จง (1) เขียนสมการ Logit, (2) หาและแปลผล AOR ของ `famhx` และของ `bmi` ที่เพิ่มขึ้น $5\text{ kg/m}^2$, (3) แปลผล `male`, (4) คำนวณ Predicted probability สำหรับผู้หญิงอายุ 50 ปี BMI 30 มีประวัติครอบครัว</p>
+          <div class="sol-box">
+            <strong>✅ เฉลยละเอียด:</strong><br>
+            (1) $\text{logit}(P) = -8.100 + 0.045(\text{age}) + 0.120(\text{bmi}) + 0.250(\text{male}) + 0.920(\text{famhx})$<br>
+            (2) • <strong>AOR ของ <code>famhx</code>:</strong> $e^{0.920} \approx \mathbf{2.51}$ — เมื่อควบคุมอายุ, BMI และเพศให้คงที่ ผู้มีประวัติครอบครัวมีโอกาสเป็นเบาหวานเป็น 2.51 เท่าของผู้ไม่มีประวัติ ($p &lt; 0.001$)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;• <strong>AOR ของ <code>bmi</code> เพิ่ม 5 หน่วย:</strong> $e^{0.120 \times 5} = e^{0.60} \approx \mathbf{1.82}$ — เมื่อควบคุมปัจจัยอื่นคงที่ ทุกๆ BMI ที่เพิ่มขึ้น $5\text{ kg/m}^2$ โอกาสเป็นเบาหวานเพิ่มขึ้น 1.82 เท่า ($p &lt; 0.001$)<br>
+            (3) <strong>แปลผล <code>male</code>:</strong> $p = 0.234 \ge 0.05$ (95% CI ของ $\beta$ คร่อม 0) → เมื่อควบคุมปัจจัยอื่นคงที่ เพศชาย <strong>ไม่มีความสัมพันธ์กับโรคเบาหวานอย่างมีนัยสำคัญทางสถิติ</strong><br>
+            (4) <strong>Predicted Probability:</strong> หญิง ($\text{male}=0$), $\text{age}=50$, $\text{bmi}=30$, $\text{famhx}=1$:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;$z = -8.100 + 0.045(50) + 0.120(30) + 0.250(0) + 0.920(1) = \mathbf{-1.330}$<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;$\hat{P} = \frac{1}{1 + e^{-(-1.330)}} = \frac{1}{1 + e^{1.330}} = \frac{1}{1 + 3.781} = \mathbf{0.209}$ (<strong>20.9%</strong>)
+          </div>
+        </div>
+      </details>
+
+    </section>
 
     <footer>
-      <strong>Master Study Guide &amp; Cheat Sheet (3014710 + 3014831)</strong> • Suvinon Pluckwattanachai, M.D.<br>
+      <strong>Master Study Guide &amp; Mock Exam (3014710 + 3014831)</strong> • Suvinon Pluckwattanachai, M.D.<br>
       Department of Preventive and Social Medicine, Faculty of Medicine, Chulalongkorn University • Hosted on GitHub Pages
     </footer>
   </main>
@@ -1309,22 +1526,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const backdrop = document.getElementById('sidebarBackdrop');
   const menuToggle = document.getElementById('menuToggle');
   function toggleSidebar(forceClose) {
-    if (forceClose) {
-      sidebar.classList.remove('open');
-      backdrop.classList.remove('open');
-    } else {
-      sidebar.classList.toggle('open');
-      backdrop.classList.toggle('open');
-    }
+    if (forceClose) { sidebar.classList.remove('open'); backdrop.classList.remove('open'); }
+    else { sidebar.classList.toggle('open'); backdrop.classList.toggle('open'); }
   }
   if (menuToggle) menuToggle.addEventListener('click', () => toggleSidebar(false));
   if (backdrop) backdrop.addEventListener('click', () => toggleSidebar(true));
 
-  // 2. Active Nav Highlight on Scroll
+  // 2. ScrollSpy
   const navItems = document.querySelectorAll('.nav-item');
   const sections = document.querySelectorAll('section.guide-section');
   navItems.forEach(item => item.addEventListener('click', () => toggleSidebar(true)));
-
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1336,23 +1547,21 @@ document.addEventListener('DOMContentLoaded', () => {
   sections.forEach(sec => observer.observe(sec));
 
   // 3. Live Sidebar Search
-  const searchInput = document.getElementById('navSearch');
-  searchInput.addEventListener('input', () => {
-    const q = searchInput.value.trim().toLowerCase();
+  document.getElementById('navSearch').addEventListener('input', e => {
+    const q = e.target.value.trim().toLowerCase();
     navItems.forEach(a => {
       const text = (a.textContent + ' ' + (a.dataset.kw || '')).toLowerCase();
       a.classList.toggle('hidden', q !== '' && !text.includes(q));
     });
   });
 
-  // 4. Copy Buttons (Code & Templates)
+  // 4. Copy Buttons
   document.querySelectorAll('.code-box .copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const code = btn.closest('.code-box').querySelector('pre').innerText;
       navigator.clipboard.writeText(code).then(() => {
         const old = btn.textContent;
-        btn.textContent = '✓ Copied!';
-        btn.classList.add('copied');
+        btn.textContent = '✓ Copied!'; btn.classList.add('copied');
         setTimeout(() => { btn.textContent = old; btn.classList.remove('copied'); }, 1500);
       });
     });
@@ -1362,14 +1571,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const txt = btn.closest('.tpl-card').querySelector('.tpl-text').innerText;
       navigator.clipboard.writeText(txt).then(() => {
         const old = btn.textContent;
-        btn.textContent = '✓ Copied!';
-        btn.classList.add('copied');
+        btn.textContent = '✓ Copied!'; btn.classList.add('copied');
         setTimeout(() => { btn.textContent = old; btn.classList.remove('copied'); }, 1500);
       });
     });
   });
 
-  // 5. Interactive 10-Second Statistical Finder
+  // 5. Interactive 10-Second Finder
   const state = { s1: 'cont', s2: '2ind', s3: 'param' };
   function bindGroup(id, key) {
     document.querySelectorAll(`#${id} .f-btn`).forEach(btn => {
@@ -1381,9 +1589,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-  bindGroup('fStep1', 's1');
-  bindGroup('fStep2', 's2');
-  bindGroup('fStep3', 's3');
+  bindGroup('fStep1', 's1'); bindGroup('fStep2', 's2'); bindGroup('fStep3', 's3');
 
   function renderFinder() {
     const box = document.getElementById('finderResult');
@@ -1393,7 +1599,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (s1 === 'rate') {
       title = 'Incidence Rate Ratio (Person-Time Analysis)';
       cmd = 'ir cases exposed person_time   /* หรือ iri a b PT1 PT0 */';
-      pcol = 'Two-sided exact / Mid-P p-value และ 95% CI ของ IRR (เช็คคร่อม 1)';
+      pcol = 'Two-sided exact p-value และ 95% CI ของ IRR (เช็คคร่อม 1)';
       note = 'ใช้เมื่อข้อมูลมีระยะเวลาติดตาม (Person-years / Person-months)';
       link = '#categorical-epi';
     } else if (s1 === 'cont') {
@@ -1415,23 +1621,23 @@ document.addEventListener('DOMContentLoaded', () => {
           title = 'Paired t-test';
           cmd = 'ttest y_after == y_before';
           pcol = 'Pr(|T| > |t|) และ 95% CI ของ Mean difference (เช็คคร่อม 0)';
-          note = 'เช็ค Normality ที่ค่าผลต่าง (d = y_after - y_before)';
+          note = 'เช็ค Normality ที่ผลต่าง d = y_after - y_before';
         } else {
-          title = 'Wilcoxon Signed-Rank Test';
-          cmd = 'signrank y_after = y_before';
+          title = 'Wilcoxon Signed-Rank Test (หรือ Sign Test)';
+          cmd = 'signrank y_after = y_before   /* หรือ signtest */';
           pcol = 'Prob > |z|';
-          note = 'ใช้กับข้อมูลจับคู่/ก่อน-หลัง ที่ผลต่างไม่เป็น Normal หรือเป็น Ordinal';
+          note = 'Wilcoxon มี Power สูงกว่า Sign test เพราะใช้ทั้งเครื่องหมายและขนาดอันดับ';
         }
         link = '#two-sample-binomial';
       } else if (s2 === '3plus') {
         if (s3 === 'param') {
           title = 'One-Way ANOVA + Bonferroni Post-hoc';
           cmd = 'oneway y x, tabulate bonferroni';
-          pcol = 'เช็ค Bartlett\'s Prob>chi2 ≥ 0.05 ก่อน → อ่าน Prob > F → อ่านตาราง Bonferroni รายคู่';
-          note = 'ถ้า ANOVA ซิก ต้องดู Post-hoc เพื่อระบุว่าคู่ไหนต่างกัน';
+          pcol = 'เช็ค Bartlett\'s Prob>chi2 ≥ 0.05 ก่อน → อ่าน Prob > F → ตาราง Bonferroni';
+          note = 'Bonferroni เข้มงวดที่สุด (Most conservative), Fisher LSD น้อยสุด';
         } else {
-          title = 'Kruskal-Wallis Test';
-          cmd = 'tabstat y, by(x) stat(n p50 p25 p75)\nkwallis y, by(x)';
+          title = 'Kruskal-Wallis Test + Post-hoc kwallis2';
+          cmd = 'kwallis y, by(x)\nkwallis2 y, by(x)   /* สำหรับเทียบรายคู่ */';
           pcol = 'probability with ties';
           note = 'ใช้เมื่อข้อมูลเบ้มาก, เป็น Ordinal หรือ Bartlett\'s p < 0.05';
         }
@@ -1440,33 +1646,33 @@ document.addEventListener('DOMContentLoaded', () => {
         if (s3 === 'param') {
           title = 'Pearson Correlation (r)';
           cmd = 'pwcorr y x, sig obs';
-          pcol = 'บรรทัดใต้ค่า r (ค่า p-value) และ R² = r²';
-          note = 'ใช้เมื่อทั้งสองตัวแปรเป็น Continuous, เส้นตรง และไม่มี Outlier';
+          pcol = 'p-value ใต้ค่า r และ R² = r² (% ความผันแปรที่อธิบายได้)';
+          note = 'ต้องเป็นเส้นตรง ไม่มี Outlier และจำไว้ว่า Association ≠ Causation';
         } else {
           title = 'Spearman Rank Correlation (ρ)';
           cmd = 'spearman y x, stats(rho p)';
           pcol = 'Prob > |t|';
-          note = 'ใช้เมื่อข้อมูลเบ้ มี Outlier หรือเป็นลำดับ (Ordinal)';
+          note = 'ใช้เมื่อข้อมูลเบ้ มี Outlier หรือเป็น Ordinal';
         }
         link = '#correlation-linear';
       } else {
         title = 'Multiple Linear Regression / ANCOVA';
-        cmd = 'reg y i.cat_var cont_var\nvif\nestat hettest';
+        cmd = 'reg y i.cat_var cont_var\nvif\nestat hettest\npredict r, resid\nswilk r';
         pcol = 'Prob > F (ภาพรวม), P>|t| (รายตัว), 95% CI เช็คคร่อม 0';
-        note = 'อย่าลืมใส่ i. หน้าตัวแปรกลุ่ม และเช็ค VIF < 10 + Normality ของ Residuals';
+        note = 'ต้องใส่ i. หน้าตัวแปรกลุ่ม และเช็ค LINE + VIF < 10';
         link = '#correlation-linear';
       }
-    } else if (s1 === 'bin' || s1 === 'cat') {
+    } else {
       if (s2 === '2pair') {
-        title = 'McNemar\'s Test (Matched / Paired Binary)';
+        title = 'McNemar\'s Test (Matched / Paired / Crossover Binary)';
         cmd = 'mcc case_exp ctrl_exp   /* หรือ mcci a b c d */';
-        pcol = 'Prob > chi2 (หรือ Exact McNemar ถ้า b + c < 25) และ Matched OR = b/c';
+        pcol = 'Prob > chi2 (หรือ Exact McNemar ถ้า b+c < 25) และ Matched OR = b/c';
         note = 'ใช้เฉพาะ Discordant pairs (b และ c) เท่านั้น';
         link = '#categorical-epi';
       } else if (s2 === 'multi' || s2 === 'corr') {
-        title = 'Multiple Logistic Regression (สำหรับ Binary 0/1)';
+        title = 'Multiple Logistic Regression (Binary 0/1)';
         cmd = 'logistic y i.cat_var cont_var\nestat gof, group(10)\nlroc';
-        pcol = 'Prob > chi2 (ภาพรวม), P>|z| (รายตัว), 95% CI ของ AOR (เช็คคร่อม 1)';
+        pcol = 'Prob > chi2 (ภาพรวม), P>|z| (รายตัว), 95% CI ของ AOR เช็คคร่อม 1';
         note = 'ใช้ logit เมื่อต้องการค่า β ไปเขียนสมการ/คำนวณ Predicted Probability';
         link = '#logistic-regression';
       } else {
@@ -1474,17 +1680,16 @@ document.addEventListener('DOMContentLoaded', () => {
           title = 'Pearson\'s Chi-Square / Epidemiologic Table (cs / cc)';
           cmd = 'tab x y, row col chi2 expected\ncs y x   /* Cohort: RR */   |   cc y x   /* Case-Control: OR */';
           pcol = 'Pr = ... (Chi-square) และ 95% CI ของ RR / OR (เช็คคร่อม 1)';
-          note = 'ผ่านเกณฑ์เมื่อทุกช่องในตาราง 2×2 มี Expected count ≥ 5';
+          note = 'เช็ค Cochran\'s Rule: ไม่มีช่อง E < 1 และ >80% ของช่องมี E ≥ 5';
         } else {
           title = 'Fisher\'s Exact Test';
           cmd = 'tab x y, row col exact expected';
-          pcol = 'Fisher\'s exact (อ่านบรรทัดนี้แทน Pearson chi2)';
-          note = 'ใช้เมื่อตาราง 2×2 มีช่องใดช่องหนึ่ง Expected count < 5';
+          pcol = 'Fisher\'s exact';
+          note = 'ใช้เมื่อ 2×2 มี n ≤ 20 หรือมีช่อง Expected count < 5';
         }
         link = '#categorical-epi';
       }
     }
-
     box.innerHTML = `
       <h4>✅ แนะนำ: ${title}</h4>
       <div style="font-family:'Fira Code',monospace;background:#0f172a;color:#38bdf8;padding:9px 12px;border-radius:6px;font-size:12.5px;white-space:pre-wrap;margin:8px 0;">${cmd}</div>
@@ -1493,6 +1698,79 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
   }
   renderFinder();
+
+  // 6. Interactive 20-MCQ Mock Exam Engine
+  const mcqs = [
+    { tag: 'L6-1', q: '1. วัดระดับ HbA1c ก่อนและหลังเข้าโปรแกรมควบคุมอาหาร 3 เดือน ในผู้ป่วยกลุ่มเดิม 25 คน โดยผลต่าง (after − before) แจกแจงปกติ ควรใช้สถิติใด?', opts: ['A. Independent two-sample t-test', 'B. Paired t-test', 'C. One-way ANOVA', 'D. Mann-Whitney U test'], ans: 1, exp: 'วัดซ้ำก่อน-หลังในคนเดียวกัน (Paired/Dependent data) และผลต่างแจกแจงปกติ จึงใช้ Paired t-test (ttest after == before)' },
+    { tag: 'L6-1', q: '2. ก่อนรัน Unpaired t-test ได้สั่ง sdtest LastSBP, by(Group) แล้วได้ค่า p-value = 0.008 (< 0.05) ควรทำอย่างไรต่อ?', opts: ['A. ใช้ ttest LastSBP, by(Group) ตามปกติ', 'B. ใช้ ttest LastSBP, by(Group) unequal (Welch t-test)', 'C. เปลี่ยนไปใช้ Chi-square test', 'D. ใช้ Paired t-test แทน'], ans: 1, exp: 'sdtest p < 0.05 แปลว่าความแปรปรวนของ 2 กลุ่มไม่เท่ากัน (Unequal variances) ต้องเติม option , unequal เพื่อใช้ Welch t-test' },
+    { tag: 'L6-2', q: '3. การแจกแจงความน่าจะเป็นแบบใดที่มีคุณสมบัติเด่นคือ Mean = Variance (E(Y) = Var(Y) = λ) และใช้กับ Count data?', opts: ['A. Normal distribution', 'B. Binomial distribution', 'C. Poisson distribution', 'D. Chi-square distribution'], ans: 2, exp: 'Poisson distribution ใช้กับข้อมูลจำนวนนับ (Count data) และมีคุณสมบัติเฉพาะคือ Mean = Variance = λ' },
+    { tag: 'L6-2', q: '4. ข้อใดอธิบายความแตกต่างระหว่าง Sign test กับ Wilcoxon signed-rank test ได้ถูกต้องที่สุด?', opts: ['A. Sign test ใช้กับ 2 กลุ่มอิสระ ส่วน Wilcoxon ใช้กับกลุ่มจับคู่', 'B. Sign test ดูเฉพาะทิศทาง (+/−) ไม่สนใจขนาดผลต่าง ส่วน Wilcoxon ใช้ทั้งเครื่องหมายและอันดับของขนาดผลต่าง', 'C. Sign test มี Power สูงกว่า Wilcoxon เสมอ', 'D. ทั้งสองวิธีต้องผ่านข้อตกลง Normality'], ans: 1, exp: 'Sign test ดูเฉพาะเครื่องหมาย (+/−) ของผลต่าง (Y ~ Binomial(n, 0.5)) จึงทิ้งข้อมูลขนาดไป ทำให้ Power ต่ำกว่า Wilcoxon signed-rank' },
+    { tag: 'Nonparam', q: '5. เปรียบเทียบคะแนนความปวด (Pain score 0–10, Ordinal, เบ้มาก) ระหว่างผู้ป่วยที่สุ่มได้รับยาแก้ปวด 4 ชนิด ควรใช้สถิติใด?', opts: ['A. One-way ANOVA', 'B. Wilcoxon signed-rank test', 'C. McNemar\'s test', 'D. Kruskal-Wallis test'], ans: 3, exp: 'เปรียบเทียบ ≥3 กลุ่มอิสระ และตัวแปรเป็น Ordinal / เบ้มาก ต้องใช้ Kruskal-Wallis test (kwallis / kwallis2)' },
+    { tag: 'L9', q: '6. ตามกฎของ Cochran สำหรับตาราง 2×2 ถ้าขนาดตัวอย่างรวม n = 18 คน ควรเลือกใช้การทดสอบใด?', opts: ['A. Pearson\'s Chi-square test เสมอ', 'B. Fisher\'s exact test เสมอ', 'C. McNemar\'s test เสมอ', 'D. Independent t-test'], ans: 1, exp: 'ตามกฎ Cochran สำหรับตาราง 2×2: เมื่อ n ≤ 20 ต้องใช้ Fisher\'s exact test เสมอ!' },
+    { tag: 'L10', q: '7. ข้อใดเป็น "ข้อเสีย (Disadvantage)" ที่สำคัญที่สุดของ Crossover Randomized Controlled Trial?', opts: ['A. ต้องใช้จำนวนผู้เข้าร่วมวิจัยมากกว่า Parallel RCT', 'B. ไม่สามารถลด Confounding จากปัจจัยส่วนบุคคลได้', 'C. อาจเกิด Carryover effect (ฤทธิ์ยาจากช่วงแรกตกค้างมาช่วงที่สอง)', 'D. มี Statistical power ต่ำกว่า Parallel design'], ans: 2, exp: 'Crossover RCT ช่วยลด Confounding และใช้คนน้อยลง แต่มีจุดอ่อนสำคัญคือ Carryover effect (ต้องมี Washout period) และ Period effect' },
+    { tag: 'L10', q: '8. ในการศึกษา Matched Case-Control ได้คู่ discordant pairs คือ b = 24 (Case+/Ctrl−) และ c = 8 (Case−/Ctrl+) ค่า Matched Odds Ratio เท่ากับเท่าใด?', opts: ['A. 0.33', 'B. 2.00', 'C. 3.00', 'D. 4.00'], ans: 2, exp: 'Matched OR = b / c = 24 / 8 = 3.00 (ไม่ใช้ช่อง concordant a และ d ในการคำนวณ!)' },
+    { tag: 'Epitab', q: '9. การศึกษา Case-Control ของมะเร็งปอดกับควันฟืน: Cases (Exposed=30, Unexposed=70), Controls (Exposed=15, Unexposed=85) ค่า Odds Ratio เท่ากับเท่าใด?', opts: ['A. 0.41', 'B. 1.50', 'C. 2.00', 'D. 2.43'], ans: 3, exp: 'OR = (a × d) / (b × c) = (30 × 85) / (70 × 15) = 2550 / 1050 = 2.43' },
+    { tag: 'MH', q: '10. เมื่อรัน cc mi coffee, by(smoke) พบว่า Test of homogeneity ได้ p = 0.012 (< 0.05) โดย OR ในคนสูบ = 3.20 และ OR ในคนไม่สูบ = 1.10 ควรสรุปและรายงานผลอย่างไร?', opts: ['A. รายงาน M-H Combined OR ค่าเดียวได้เลย', 'B. เกิด Effect Modification (Interaction) ห้ามรวมเป็นค่าเดียว ต้องรายงาน OR แยกตามแต่ละชั้นของ smoke', 'C. แปลว่า smoke ไม่ใช่ทั้ง Confounder และ Effect Modifier', 'D. ตัดตัวแปร smoke ออกจากโมเดลทันที'], ans: 1, exp: 'Test of homogeneity p < 0.05 แสดงว่า OR ในแต่ละชั้นแตกต่างกันจริง (Effect Modification / Interaction) ห้ามรวมเป็นค่า M-H เดียว ต้องรายงานแยกชั้น!' },
+    { tag: 'L11', q: '11. One-way ANOVA เปรียบเทียบ 4 กลุ่ม พบว่าซิก จึงทำ Post-hoc ทุกคู่ด้วย Bonferroni เพื่อคุม overall α = 0.05 ต้องใช้ระดับนัยสำคัญต่อคู่ (α*) เท่ากับเท่าใด?', opts: ['A. 0.05', 'B. 0.0125', 'C. 0.0083', 'D. 0.0167'], ans: 2, exp: '4 กลุ่มมีจำนวนคู่ c = 4(3)/2 = 6 คู่ ดังนั้น α* = 0.05 / 6 = 0.0083' },
+    { tag: 'L11', q: '12. ในบรรดาวิธี Post-hoc comparison ต่อไปนี้ วิธีใด "เข้มงวดที่สุด (Most conservative)" และวิธีใด "เข้มงวดน้อยที่สุด (Least conservative)" ตามลำดับ?', opts: ['A. Fisher\'s LSD และ Bonferroni', 'B. Bonferroni และ Fisher\'s LSD', 'C. Tukey และ Scheffé', 'D. Duncan และ Bonferroni'], ans: 1, exp: 'ตามสไลด์ L11: Bonferroni เข้มงวดที่สุด (Most conservative) → Scheffé → Tukey → Duncan → Fisher\'s LSD เข้มงวดน้อยที่สุด' },
+    { tag: 'L11', q: '13. ผลการรัน oneway y trt ใน STATA ได้ Bartlett\'s test Prob>chi2 = 0.721 หมายความว่าอย่างไร?', opts: ['A. ความแปรปรวนทั้ง 3 กลุ่มไม่เท่ากัน ต้องเปลี่ยนไปใช้ Kruskal-Wallis', 'B. ความแปรปรวนทั้ง 3 กลุ่มเท่ากัน ผ่านข้อตกลงเบื้องต้นของ One-way ANOVA', 'C. ค่าเฉลี่ยทั้ง 3 กลุ่มไม่แตกต่างกัน', 'D. ข้อมูลมีการแจกแจงเบ้ขวาอย่างรุนแรง'], ans: 1, exp: 'Bartlett\'s test ทดสอบ H0: ความแปรปรวนทุกกลุ่มเท่ากัน เมื่อ p = 0.721 ≥ 0.05 จึงไม่ปฏิเสธ H0 แปลว่าผ่านเกณฑ์ Equal variances!' },
+    { tag: 'L12', q: '14. หากต้องการเพิ่มความแม่นยำในการประมาณค่าเฉลี่ยโดยลด Margin of error (d) ลงครึ่งหนึ่ง (เช่นจาก ±100 เหลือ ±50) ขนาดตัวอย่างที่ต้องใช้จะเปลี่ยนแปลงอย่างไร?', opts: ['A. เพิ่มขึ้น 2 เท่า', 'B. เพิ่มขึ้น 4 เท่า', 'C. ลดลงครึ่งหนึ่ง', 'D. ลดลงเหลือ 1 ใน 4'], ans: 1, exp: 'จากสูตร n = Z²σ²/d² ค่า n แปรผกผันกับ d² เมื่อลด d ลงเหลือ 1/2 ค่า n จะเพิ่มขึ้นเป็น 2² = 4 เท่าเสมอ' },
+    { tag: 'L13', q: '15. ใน Simple Linear Regression ระหว่าง SBP กับ Age ได้ Pearson r = 0.60 สัดส่วนความผันแปรของ SBP ที่อธิบายได้ด้วย Age คือเท่าใด?', opts: ['A. 6%', 'B. 36%', 'C. 60%', 'D. 77%'], ans: 1, exp: 'สัดส่วนความผันแปรที่อธิบายได้คือ R² = r² = (0.60)² = 0.36 = 36%' },
+    { tag: 'L13', q: '16. พบ Pearson r = −0.82 (p < 0.001) ระหว่างชั่วโมงออกกำลังกายต่อสัปดาห์กับอัตราการเต้นหัวใจขณะพัก ข้อใดกล่าวถูกต้องที่สุด?', opts: ['A. การออกกำลังกายมากขึ้นเป็นสาเหตุทำให้หัวใจเต้นช้าลง', 'B. ออกกำลังกายอธิบายความผันแปรของอัตราการเต้นหัวใจได้ 82%', 'C. มีความสัมพันธ์เชิงเส้นทางลบในระดับสูงมาก: ออกกำลังกายมากสัมพันธ์กับอัตราการเต้นหัวใจขณะพักที่ต่ำกว่า', 'D. ไม่มีความสัมพันธ์กันเพราะค่า r ติดลบ'], ans: 2, exp: 'r = −0.82 คือ Strong negative linear association (ห้ามสรุป Causation และ R² = 0.82² = 67.2% ไม่ใช่ 82%)' },
+    { tag: 'L14', q: '17. ใส่ตัวแปร "ภูมิภาคที่อยู่อาศัย" (เหนือ, อีสาน, กลาง, ตะวันออก, ใต้ = 5 กลุ่ม) เป็นตัวแปรต้นใน Multiple Linear Regression ต้องสร้าง Dummy variables กี่ตัว?', opts: ['A. 1 ตัว', 'B. 4 ตัว', 'C. 5 ตัว', 'D. 10 ตัว'], ans: 1, exp: 'กฎตัวแปรดัมมี่คือ k − 1 = 5 − 1 = 4 ตัว (เว้น 1 กลุ่มไว้เป็น Reference group)' },
+    { tag: 'L14', q: '18. กราฟ Diagnostic ใดใช้ตรวจสอบข้อตกลง Homoscedasticity (Constant variance) ใน Linear Regression?', opts: ['A. Histogram ของตัวแปรตาม Y', 'B. Plot of residuals versus fitted values (rvfplot)', 'C. Box plot ของตัวแปรต้นแต่ละตัว', 'D. ROC curve (lroc)'], ans: 1, exp: 'Homoscedasticity ใน Linear Regression ตรวจสอบด้วย rvfplot (Residuals vs Fitted values) และ estat hettest' },
+    { tag: 'Logistic', q: '19. ใน Logistic Regression ทำนายโรคกล้ามเนื้อหัวใจขาดเลือด (yes/no) ค่า coefficient (β) ของการสูบบุหรี่เท่ากับ 0.693 ค่า Adjusted Odds Ratio เท่ากับเท่าใด?', opts: ['A. 0.50', 'B. 0.693', 'C. 1.69', 'D. 2.00'], ans: 3, exp: 'AOR = e^β = e^0.693 ≈ 2.00 (จำแม่นๆ: ln(2) ≈ 0.693!)' },
+    { tag: 'Logistic', q: '20. ผล Logistic Regression รายงาน AOR ของการออกกำลังกาย = 0.71 (95% CI: 0.45–1.12) ข้อใดแปลผลถูกต้อง?', opts: ['A. การออกกำลังกายลดความเสี่ยงโรคได้ 29% อย่างมีนัยสำคัญ', 'B. ไม่มีนัยสำคัญทางสถิติที่ α = 0.05 เพราะ 95% CI คร่อม 1', 'C. มีนัยสำคัญทางสถิติเพราะ 95% CI ไม่คร่อม 0', 'D. แปลผลไม่ได้หากไม่มีค่า p-value'], ans: 1, exp: 'Odds Ratio เป็นสถิติแบบอัตราส่วน (Ratio) ค่า Null คือ 1 เมื่อ 95% CI (0.45–1.12) คร่อม 1 จึงไม่ซิกที่ α = 0.05' }
+  ];
+
+  const mcqContainer = document.getElementById('mcqContainer');
+  const scoreText = document.getElementById('examScoreText');
+  let answered = 0, correct = 0;
+
+  function renderQuiz() {
+    answered = 0; correct = 0;
+    updateScore();
+    mcqContainer.innerHTML = '';
+    mcqs.forEach((item, idx) => {
+      const card = document.createElement('div');
+      card.className = 'mcq-card';
+      card.innerHTML = `
+        <div class="mcq-q"><span class="mcq-tag">${item.tag}</span>${item.q}</div>
+        <div class="mcq-opts">
+          ${item.opts.map((opt, oi) => `<button class="mcq-opt" data-idx="${idx}" data-oi="${oi}">${opt}</button>`).join('')}
+        </div>
+        <div class="mcq-exp" id="exp-${idx}"><strong>💡 เฉลย:</strong> ${item.exp}</div>
+      `;
+      mcqContainer.appendChild(card);
+    });
+    mcqContainer.querySelectorAll('.mcq-opt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.dataset.idx, 10);
+        const oi = parseInt(btn.dataset.oi, 10);
+        const card = btn.closest('.mcq-card');
+        const allBtns = card.querySelectorAll('.mcq-opt');
+        allBtns.forEach(b => b.disabled = true);
+        answered++;
+        if (oi === mcqs[idx].ans) {
+          btn.classList.add('correct');
+          correct++;
+        } else {
+          btn.classList.add('wrong');
+          allBtns[mcqs[idx].ans].classList.add('correct');
+        }
+        document.getElementById(`exp-${idx}`).classList.add('show');
+        updateScore();
+      });
+    });
+  }
+
+  function updateScore() {
+    const pct = answered ? Math.round((correct / answered) * 100) : 0;
+    scoreText.textContent = `คะแนนของคุณ: ${correct} / ${mcqs.length} (ตอบแล้ว ${answered} ข้อ • ถูก ${pct}%)`;
+  }
+
+  document.getElementById('examResetBtn').addEventListener('click', renderQuiz);
+  renderQuiz();
 });
 </script>
 </body>
