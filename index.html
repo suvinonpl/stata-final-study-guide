@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="th" data-theme="dark-pastel">
+<html lang="th" data-theme="clean-light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -661,6 +661,213 @@
       .main-content { padding: 18px 14px 56px; }
       .grid-2, .grid-3 { grid-template-columns: 1fr; }
     }
+
+    /* =========================================================
+       THEME 1: CLEAN ACADEMIC LIGHT (ขาว-ฟ้าคลีน ไม่มีดำตัดพาสเทล)
+       ========================================================= */
+    html[data-theme="clean-light"] {
+      --bg: #f4f6f9;
+      --surface: #ffffff;
+      --surface-alt: #f8fafc;
+      --surface-elevated: #eef2f6;
+      --primary: #1e293b;
+      --primary-light: #334155;
+      --text: #1e293b;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --border-dark: #cbd5e1;
+      --accent: #1d4ed8;
+      --accent-strong: #1e40af;
+      --accent-light: #eff6ff;
+      --accent-border: #bfdbfe;
+      --emerald: #047857;
+      --emerald-light: #f0fdf4;
+      --emerald-border: #bbf7d0;
+      --amber: #b45309;
+      --amber-light: #fffbeb;
+      --amber-border: #fde68a;
+      --rose: #be123c;
+      --rose-light: #fff1f2;
+      --rose-border: #fecdd3;
+      --purple: #4338ca;
+      --purple-light: #eef2ff;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+    html[data-theme="clean-light"] .sidebar { background: #ffffff; }
+    html[data-theme="clean-light"] .sidebar-header { background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); }
+    html[data-theme="clean-light"] .sidebar-header h1 { background: none; -webkit-text-fill-color: #ffffff; color: #ffffff; }
+    html[data-theme="clean-light"] .sidebar-header p { color: #dbeafe; }
+    html[data-theme="clean-light"] .sidebar-header .badge-top { background: rgba(255,255,255,0.2); color: #fff; border-color: transparent; }
+    html[data-theme="clean-light"] .sidebar-search { background: #f8fafc; }
+    html[data-theme="clean-light"] .sidebar-search input { background: #ffffff; color: #0f172a; }
+    html[data-theme="clean-light"] .nav-group-label { color: #64748b; }
+    html[data-theme="clean-light"] .nav-item { color: #334155; }
+    html[data-theme="clean-light"] .nav-item.active { background: #eff6ff; color: #1d4ed8; border-left-color: #1d4ed8; }
+    html[data-theme="clean-light"] .nav-item.nav-exam { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+    html[data-theme="clean-light"] .hero { background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); border-color: #1d4ed8; }
+    html[data-theme="clean-light"] .hero::before { display: none; }
+    html[data-theme="clean-light"] .hero h2 { background: none; -webkit-text-fill-color: #ffffff; color: #ffffff; }
+    html[data-theme="clean-light"] .hero p { color: #e0f2fe; }
+    html[data-theme="clean-light"] .hero-badge { background: rgba(255,255,255,0.18); color: #ffffff; border-color: rgba(255,255,255,0.3); }
+    html[data-theme="clean-light"] .pill { background: rgba(255,255,255,0.16); color: #ffffff; border-color: rgba(255,255,255,0.3); }
+    html[data-theme="clean-light"] .pill-hot { background: #ffffff; color: #1e3a8a; border-color: #ffffff; }
+    html[data-theme="clean-light"] .section-head h2, html[data-theme="clean-light"] strong { color: #0f172a; }
+    html[data-theme="clean-light"] h3.sub-title { color: #1e3a8a; border-left-color: #2563eb; }
+    html[data-theme="clean-light"] code { background: #f1f5f9; color: #1e3a8a; border-color: #cbd5e1; }
+    html[data-theme="clean-light"] thead th { background: #eff6ff; color: #1e3a8a; border-bottom: 2px solid #bfdbfe; }
+    html[data-theme="clean-light"] tbody tr:nth-child(even) { background: #f8fafc; }
+    html[data-theme="clean-light"] tbody tr:hover { background: #eff6ff; }
+    html[data-theme="clean-light"] .code-box { background: #f8fafc; color: #0f172a; border-color: #cbd5e1; }
+    html[data-theme="clean-light"] .code-bar { background: #e2e8f0; color: #334155; border-bottom-color: #cbd5e1; }
+    html[data-theme="clean-light"] .copy-btn { background: #2563eb; color: #ffffff; border-color: #2563eb; }
+    html[data-theme="clean-light"] .c-cmt { color: #64748b; }
+    html[data-theme="clean-light"] .c-cmd { color: #1d4ed8; }
+    html[data-theme="clean-light"] .c-opt { color: #b45309; }
+    html[data-theme="clean-light"] .mini-card h4 { color: #1e3a8a; }
+    html[data-theme="clean-light"] .formula-box { background: #f8fafc; color: #0f172a; border-color: #bfdbfe; }
+    html[data-theme="clean-light"] .example-card { background: #f8fafc; border-color: #cbd5e1; border-top-color: #2563eb; }
+    html[data-theme="clean-light"] .example-card .ex-badge { background: #dbeafe; color: #1e40af; border-color: #93c5fd; }
+    html[data-theme="clean-light"] .example-card h4 { color: #0f172a; }
+    html[data-theme="clean-light"] .example-card p, html[data-theme="clean-light"] .example-card li { color: #334155; }
+    html[data-theme="clean-light"] .callout-blue, html[data-theme="clean-light"] .callout-purple { background: #f8fafc; border-left-color: #2563eb; color: #1e293b; }
+    html[data-theme="clean-light"] .callout-green { background: #f8fafc; border-left-color: #059669; color: #1e293b; }
+    html[data-theme="clean-light"] .callout-amber { background: #f8fafc; border-left-color: #d97706; color: #1e293b; }
+    html[data-theme="clean-light"] .callout-rose { background: #f8fafc; border-left-color: #e11d48; color: #1e293b; }
+    html[data-theme="clean-light"] .finder-panel { background: #f8fafc; border-color: #bfdbfe; }
+    html[data-theme="clean-light"] .finder-label { color: #1e3a8a; }
+    html[data-theme="clean-light"] .f-btn { background: #ffffff; color: #334155; border-color: #cbd5e1; }
+    html[data-theme="clean-light"] .f-btn.selected { background: #2563eb; color: #ffffff; border-color: #2563eb; }
+    html[data-theme="clean-light"] .finder-result { background: #ffffff; border-color: #93c5fd; }
+    html[data-theme="clean-light"] .finder-result h4 { color: #1e3a8a; }
+    html[data-theme="clean-light"] .finder-result p { color: #334155 !important; }
+    html[data-theme="clean-light"] .finder-result a { color: #2563eb !important; }
+    html[data-theme="clean-light"] .tpl-head { color: #1e3a8a; }
+    html[data-theme="clean-light"] .tpl-text { background: #ffffff; color: #1e293b; }
+    html[data-theme="clean-light"] .exam-scoreboard { background: #1e3a8a; border-color: #1d4ed8; }
+    html[data-theme="clean-light"] .exam-score-val { color: #ffffff; }
+    html[data-theme="clean-light"] .exam-reset-btn { background: #ffffff; color: #1e3a8a; border-color: #ffffff; }
+    html[data-theme="clean-light"] .mcq-card { background: #ffffff; }
+    html[data-theme="clean-light"] .mcq-q { color: #0f172a; }
+    html[data-theme="clean-light"] .mcq-tag { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+    html[data-theme="clean-light"] .mcq-opt { background: #f8fafc; color: #1e293b; }
+    html[data-theme="clean-light"] .mcq-opt.correct { background: #dcfce7 !important; border-color: #16a34a !important; color: #14532d !important; }
+    html[data-theme="clean-light"] .mcq-opt.wrong { background: #ffe4e6 !important; border-color: #e11d48 !important; color: #881337 !important; }
+    html[data-theme="clean-light"] .mcq-exp { background: #eff6ff; color: #1e3a8a; border-left-color: #2563eb; }
+    html[data-theme="clean-light"] details.written-prob { background: #ffffff; }
+    html[data-theme="clean-light"] details.written-prob summary { background: #f8fafc; color: #0f172a; }
+    html[data-theme="clean-light"] .sol-box { background: #f0fdf4; border-color: #bbf7d0; border-left-color: #16a34a; color: #14532d; }
+    html[data-theme="clean-light"] .tag-blue { background: #dbeafe; color: #1e40af; }
+    html[data-theme="clean-light"] .tag-green { background: #dcfce7; color: #166534; }
+    html[data-theme="clean-light"] .tag-amber { background: #fef3c7; color: #92400e; }
+    html[data-theme="clean-light"] .tag-rose { background: #ffe4e6; color: #9f1239; }
+    html[data-theme="clean-light"] .tag-purple { background: #e0e7ff; color: #3730a3; }
+
+    /* =========================================================
+       THEME 2: WARM PAPER & FOREST SAGE (ครีมถนอมสายตา)
+       ========================================================= */
+    html[data-theme="warm-paper"] {
+      --bg: #f6f4ef;
+      --surface: #fdfcf9;
+      --surface-alt: #f3f0e8;
+      --primary: #1c2826;
+      --text: #1c2826;
+      --text-body: #2f3e3b;
+      --text-muted: #6b7b77;
+      --border: #e2ddd2;
+      --border-dark: #cbc4b5;
+      --accent: #0f766e;
+      --accent-light: #f0fdfa;
+      --accent-border: #99f6e4;
+    }
+    html[data-theme="warm-paper"] .sidebar { background: #fbf9f4; }
+    html[data-theme="warm-paper"] .sidebar-header { background: linear-gradient(135deg, #134e4a 0%, #0f766e 100%); }
+    html[data-theme="warm-paper"] .sidebar-header h1 { background: none; -webkit-text-fill-color: #ffffff; color: #ffffff; }
+    html[data-theme="warm-paper"] .sidebar-header p { color: #ccfbf1; }
+    html[data-theme="warm-paper"] .sidebar-search { background: #f3f0e8; }
+    html[data-theme="warm-paper"] .sidebar-search input { background: #ffffff; color: #1c2826; }
+    html[data-theme="warm-paper"] .nav-group-label { color: #0f766e; }
+    html[data-theme="warm-paper"] .nav-item { color: #2f3e3b; }
+    html[data-theme="warm-paper"] .nav-item.active { background: #ccfbf1; color: #115e59; border-left-color: #0f766e; }
+    html[data-theme="warm-paper"] .nav-item.nav-exam { background: #fef3c7; color: #92400e; border-color: #fcd34d; }
+    html[data-theme="warm-paper"] .hero { background: linear-gradient(135deg, #134e4a 0%, #0f766e 100%); border-color: #0f766e; }
+    html[data-theme="warm-paper"] .hero::before { display: none; }
+    html[data-theme="warm-paper"] .hero h2 { background: none; -webkit-text-fill-color: #ffffff; color: #ffffff; }
+    html[data-theme="warm-paper"] .hero p { color: #ccfbf1; }
+    html[data-theme="warm-paper"] .pill { background: rgba(255,255,255,0.16); color: #ffffff; border-color: rgba(255,255,255,0.3); }
+    html[data-theme="warm-paper"] .pill-hot { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+    html[data-theme="warm-paper"] .section-head h2, html[data-theme="warm-paper"] strong { color: #134e4a; }
+    html[data-theme="warm-paper"] h3.sub-title { color: #0f766e; border-left-color: #0f766e; }
+    html[data-theme="warm-paper"] code { background: #ece8de; color: #115e59; border-color: #d6cfc0; }
+    html[data-theme="warm-paper"] thead th { background: #e6f4f1; color: #134e4a; border-bottom: 2px solid #99f6e4; }
+    html[data-theme="warm-paper"] tbody tr:nth-child(even) { background: #f8f6f0; }
+    html[data-theme="warm-paper"] .code-box { background: #f3f0e8; color: #1c2826; border-color: #d6cfc0; }
+    html[data-theme="warm-paper"] .code-bar { background: #e5e0d4; color: #2f3e3b; }
+    html[data-theme="warm-paper"] .copy-btn { background: #0f766e; color: #ffffff; border-color: #0f766e; }
+    html[data-theme="warm-paper"] .c-cmt { color: #78716c; }
+    html[data-theme="warm-paper"] .c-cmd { color: #0f766e; }
+    html[data-theme="warm-paper"] .c-opt { color: #b45309; }
+    html[data-theme="warm-paper"] .mini-card h4 { color: #134e4a; }
+    html[data-theme="warm-paper"] .formula-box { background: #f8f6f0; color: #1c2826; border-color: #cbc4b5; }
+    html[data-theme="warm-paper"] .example-card { background: #f8f6f0; border-color: #cbc4b5; border-top-color: #0f766e; }
+    html[data-theme="warm-paper"] .example-card .ex-badge { background: #ccfbf1; color: #115e59; }
+    html[data-theme="warm-paper"] .example-card h4, html[data-theme="warm-paper"] .example-card p { color: #1c2826; }
+    html[data-theme="warm-paper"] .callout { background: #f8f6f0; color: #1c2826; }
+    html[data-theme="warm-paper"] .finder-panel { background: #f8f6f0; border-color: #99f6e4; }
+    html[data-theme="warm-paper"] .finder-label { color: #134e4a; }
+    html[data-theme="warm-paper"] .f-btn { background: #ffffff; color: #2f3e3b; border-color: #cbc4b5; }
+    html[data-theme="warm-paper"] .f-btn.selected { background: #0f766e; color: #ffffff; border-color: #0f766e; }
+    html[data-theme="warm-paper"] .finder-result { background: #ffffff; border-color: #0f766e; }
+    html[data-theme="warm-paper"] .finder-result h4 { color: #134e4a; }
+    html[data-theme="warm-paper"] .finder-result p { color: #2f3e3b !important; }
+    html[data-theme="warm-paper"] .tpl-head { color: #134e4a; }
+    html[data-theme="warm-paper"] .tpl-text { background: #ffffff; color: #1c2826; }
+    html[data-theme="warm-paper"] .exam-scoreboard { background: #134e4a; border-color: #0f766e; }
+    html[data-theme="warm-paper"] .exam-score-val { color: #ffffff; }
+    html[data-theme="warm-paper"] .exam-reset-btn { background: #ffffff; color: #134e4a; }
+    html[data-theme="warm-paper"] .mcq-card, html[data-theme="warm-paper"] details.written-prob { background: #ffffff; }
+    html[data-theme="warm-paper"] .mcq-q, html[data-theme="warm-paper"] details.written-prob summary { color: #1c2826; background: #f8f6f0; }
+    html[data-theme="warm-paper"] .mcq-opt { background: #f8f6f0; color: #1c2826; }
+    html[data-theme="warm-paper"] .mcq-opt.correct { background: #dcfce7 !important; border-color: #16a34a !important; color: #14532d !important; }
+    html[data-theme="warm-paper"] .mcq-opt.wrong { background: #ffe4e6 !important; border-color: #e11d48 !important; color: #881337 !important; }
+    html[data-theme="warm-paper"] .mcq-exp, html[data-theme="warm-paper"] .sol-box { background: #f0fdfa; color: #134e4a; border-left-color: #0f766e; }
+
+    /* Theme Switcher Bar */
+    .theme-switcher {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: var(--surface);
+      border: 1.5px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 10px 16px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .theme-switcher-label { font-size: 13px; font-weight: 800; color: var(--text); }
+    .theme-btns { display: flex; flex-wrap: wrap; gap: 6px; }
+    .t-btn {
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border-dark);
+      background: var(--surface-alt);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .t-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    html[data-theme="dark-pastel"] .t-btn.active { color: #0b0e14; }
+
   </style>
 </head>
 <body id="top">
@@ -706,6 +913,16 @@
 
   <!-- Main Content -->
   <main class="main-content" id="main-content">
+
+    <!-- Theme Switcher Bar -->
+    <div class="theme-switcher">
+      <span class="theme-switcher-label">🎨 เลือกโทนสีหน้าเว็บ (กดสลับได้ทันที):</span>
+      <div class="theme-btns" id="themeSwitcherBtns">
+        <button class="t-btn active" data-theme="clean-light">🌤️ ขาว-น้ำเงินคลีน (ไม่มีดำตัดพาสเทล)</button>
+        <button class="t-btn" data-theme="warm-paper">🌿 ครีม-เขียวมินต์ (ถนอมสายตา)</button>
+        <button class="t-btn" data-theme="dark-pastel">🖤 ดำตัดพาสเทล (Dark Mode)</button>
+      </div>
+    </div>
 
     <!-- Hero -->
     <div class="hero">
@@ -2140,6 +2357,21 @@ Estimated sample sizes:
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+
+  // 0. Theme Switcher
+  const savedTheme = localStorage.getItem('stata_guide_theme') || 'clean-light';
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('stata_guide_theme', t);
+    document.querySelectorAll('#themeSwitcherBtns .t-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.theme === t);
+    });
+  }
+  applyTheme(savedTheme);
+  document.querySelectorAll('#themeSwitcherBtns .t-btn').forEach(b => {
+    b.addEventListener('click', () => applyTheme(b.dataset.theme));
+  });
+
   // 1. Mobile Sidebar Drawer
   const sidebar = document.getElementById('sidebar');
   const backdrop = document.getElementById('sidebarBackdrop');
@@ -2311,7 +2543,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     box.innerHTML = `
       <h4>✅ แนะนำ: ${title}</h4>
-      <div style="font-family:'Fira Code',monospace;background:#0f172a;color:#38bdf8;padding:9px 12px;border-radius:6px;font-size:12.5px;white-space:pre-wrap;margin:8px 0;">${cmd}</div>
+      <div style="font-family:'Fira Code',monospace;background:var(--surface-alt);color:var(--accent);border:1px solid var(--border-dark);padding:9px 12px;border-radius:6px;font-size:12.5px;white-space:pre-wrap;margin:8px 0;">${cmd}</div>
       <p style="font-size:13.5px;"><strong>🎯 จุดดู p-value / CI:</strong> ${pcol}</p>
       <p style="font-size:13px;color:#cbd5e1;margin-top:4px;">💡 ${note} — <a href="${link}" style="color:#7dd3fc;font-weight:700;">ข้ามไปอ่านบทนี้ &rarr;</a></p>
     `;
