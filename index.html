@@ -603,7 +603,7 @@
 
       <div class="nav-group-label">📋 Playbook &amp; ฝึกทำข้อสอบ</div>
       <a class="nav-item" href="#copy-templates" data-kw="template ประโยคแปลผล checklist กับดัก ข้อสอบ">📋 7. คลังประโยคแปลผล &amp; Checklist 30 วิ</a>
-      <a class="nav-item nav-exam" href="#mock-exam" data-kw="mock exam quiz test โจทย์ ข้อสอบจำลอง ปรนัย อัตนัย คำนวณ">🔥 8. MOCK EXAM (20 ปรนัย + 5 อัตนัย)</a>
+      <a class="nav-item nav-exam" href="#mock-exam" data-kw="mock exam quiz test โจทย์ ข้อสอบจำลอง ปรนัย อัตนัย คำนวณ">🔥 8. MOCK EXAM (35 ปรนัย + 12 ข้อสอบ STATA)</a>
     </nav>
   </aside>
 
@@ -618,7 +618,7 @@
         <span class="hero-badge">Deep Exam Notes + Interactive Mock Test</span>
       </div>
       <h2>สรุปเข้มระดับ Slide + คู่มือ STATA + Mock Exam ฉบับพิชิตข้อสอบ Final</h2>
-      <p>สรุปเนื้อหาละเอียดจากทุกสไลด์ของอาจารย์ (รศ.นพ.ธนันท์, รศ.สมรัตน์, ศ.ดร.นพ.วิฑูรย์, ผศ.ดร.นพ.ธนภูมิ) ทั้งสูตรคำนวณมือ ตัวอย่างโจทย์จริงในห้องเรียน (Enalapril, Cotinine, CPAP/MAS, Coffee-MI, Business Executives, LBW, DM) คำสั่ง STATA พร้อมปุ่ม Copy และ <strong>ข้อสอบ Mock Exam ออนไลน์ 20 ปรนัย + 5 อัตนัย</strong></p>
+      <p>สรุปเนื้อหาละเอียดจากทุกสไลด์ของอาจารย์ (รศ.นพ.ธนันท์, รศ.สมรัตน์, ศ.ดร.นพ.วิฑูรย์, ผศ.ดร.นพ.ธนภูมิ) ทั้งสูตรคำนวณมือ ตัวอย่างโจทย์จริงในห้องเรียน (Enalapril, Cotinine, CPAP/MAS, Coffee-MI, Business Executives, LBW, DM) คำสั่ง STATA พร้อมปุ่ม Copy และ <strong>คลังข้อสอบ Mock Exam ออนไลน์ 35 ปรนัย + 12 ข้อสอบแปลผล STATA Output</strong></p>
       <div class="quick-pills">
         <a class="pill" href="#master-cheat-sheet">⚡ Finder 10 วิ</a>
         <a class="pill" href="#assumption-matrix">🧪 Assumptions</a>
@@ -1392,118 +1392,640 @@
       </div>
     </section>
     <!-- ===================================================== -->
-    <!-- SECTION 11: INTERACTIVE MOCK EXAM (20 MCQ + 5 WRITTEN)-->
+    <!-- SECTION 11: MASSIVE MOCK EXAM & STATA OUTPUT LAB      -->
     <!-- ===================================================== -->
     <section class="guide-section" id="mock-exam">
       <div class="section-head">
         <span class="section-num section-num-rose">MOCK EXAM</span>
-        <h2>🔥 โจทย์ Mock Exam ที่ควรรู้ก่อนเข้าห้องสอบ (20 ปรนัย Interactive + 5 อัตนัยคำนวณ)</h2>
+        <h2>🔥 คลังข้อสอบ Mock Exam &amp; STATA Output Interpretation Lab (35 ปรนัย + 12 ข้อสอบอ่านผล STATA)</h2>
       </div>
-      <p class="section-sub">คัดเฉพาะแนวข้อสอบที่ออกจริงและออกซ้ำทุกปีจากทั้ง 3014710 และ 3014831 — กดเลือกคำตอบเพื่อตรวจทันทีพร้อมคำอธิบายละเอียด</p>
+      <p class="section-sub">ออกแบบตามแนวข้อสอบจริงของภาควิชาเวชศาสตร์ป้องกันและสังคม จุฬาฯ — เน้น <strong>การอ่านและแปลผลจากตาราง STATA Output</strong> การคำนวณค่าที่หายไป และการเขียนประโยคแปลผลให้ได้คะแนนเต็ม</p>
 
-      <!-- Scoreboard -->
+      <div class="callout callout-amber">
+        <strong>📌 ตารางค่าวิกฤตที่ใช้ในห้องสอบ (Critical Values Given on Exam Cover):</strong><br>
+        • $z$ (two-sided $\alpha = 0.05$) $= \mathbf{1.96}$ &nbsp;|&nbsp; $z$ (two-sided $\alpha = 0.01$) $= \mathbf{2.576}$ &nbsp;|&nbsp; Power $80\% \to Z_{1-\beta} = \mathbf{0.84}$ &nbsp;|&nbsp; Power $90\% \to Z_{1-\beta} = \mathbf{1.28}$<br>
+        • $\chi^2, df = 1, \alpha = 0.05 \implies \mathbf{3.841}$ &nbsp;|&nbsp; $\chi^2, df = 2, \alpha = 0.05 \implies \mathbf{5.991}$ &nbsp;|&nbsp; $e \text{ (Euler's number)} \approx \mathbf{2.718}$ (จำเพิ่ม: $\ln(2) \approx 0.693 \implies e^{0.693} = 2.00$)
+      </div>
+
+      <!-- Scoreboard & Category Filter -->
       <div class="exam-scoreboard">
         <div>
-          <div style="font-size:12px;color:#fecdd3;font-weight:700;text-transform:uppercase;">Part A • Interactive Multiple-Choice Quiz</div>
-          <div class="exam-score-val" id="examScoreText">คะแนนของคุณ: 0 / 20 (ตอบแล้ว 0 ข้อ)</div>
+          <div style="font-size:12px;color:#fecdd3;font-weight:700;text-transform:uppercase;">Part A • Interactive Multiple-Choice Question Bank (35 ข้อ)</div>
+          <div class="exam-score-val" id="examScoreText">คะแนนของคุณ: 0 / 35 (ตอบแล้ว 0 ข้อ)</div>
         </div>
-        <button class="exam-reset-btn" id="examResetBtn">🔄 เริ่มทำใหม่ทั้งหมด</button>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="exam-reset-btn" id="examShowAllBtn" style="background:#fde68a;color:#78350f;">👁️ เฉลยทั้งหมด</button>
+          <button class="exam-reset-btn" id="examResetBtn">🔄 เริ่มทำใหม่</button>
+        </div>
       </div>
 
-      <!-- MCQ Container (Populated by JS) -->
+      <div class="finder-btns" id="mcqFilterBar" style="margin-bottom:14px;">
+        <button class="f-btn selected" data-cat="all">ทั้งหมด (35 ข้อ)</button>
+        <button class="f-btn" data-cat="choose">เลือกสถิติ &amp; Assumption</button>
+        <button class="f-btn" data-cat="stata">อ่านผล STATA &amp; 95% CI</button>
+        <button class="f-btn" data-cat="reg">Linear &amp; Logistic Regression</button>
+        <button class="f-btn" data-cat="epi">Sample Size &amp; Epi 2×2</button>
+      </div>
+
+      <!-- MCQ Container -->
       <div id="mcqContainer"></div>
 
-      <!-- Part B: 5 Full Written / Calculation Problems -->
-      <h3 class="sub-title" style="margin-top:26px;border-left-color:var(--rose);color:#9f1239;">📝 Part B: โจทย์อัตนัยคำนวณ &amp; อ่านผล STATA Output (5 ข้อสำคัญ พร้อมเฉลยละเอียด)</h3>
+      <!-- ===================================================== -->
+      <!-- PART B: 12 STATA OUTPUT INTERPRETATION EXAM CASES     -->
+      <!-- ===================================================== -->
+      <h3 class="sub-title" style="margin-top:32px;border-left-color:var(--rose);color:#9f1239;font-size:17px;">
+        🖥️ Part B: คลังโจทย์อัตนัย "อ่านและแปลผล STATA Output" 12 ชุดครบทุกคำสั่ง (รูปแบบเดียวกับข้อสอบจริงส่วนที่ 2–3)
+      </h3>
+      <p class="body-p">คลิกที่แต่ละชุดเพื่อเปิดดู <strong>ตาราง STATA Output จำลองข้อสอบจริง + คำถามย่อย 4–5 ข้อ + เฉลยวิธีเขียนตอบทีละบรรทัด</strong> และจุดที่นิสิตมักเขียนผิดในห้องสอบ</p>
 
-      <!-- Problem 1 -->
-      <details class="written-prob">
-        <summary>อัตนัยข้อ 1: ตาราง 2×2 (Cross-Sectional) — คำนวณ Expected Count, Chi-square, ความชุก และ Prevalence Ratio</summary>
+      <!-- CASE 1 -->
+      <details class="written-prob" open>
+        <summary>Case 1 [ข้อสอบจำลองส่วนที่ 3]: Multiple Logistic Regression (คำสั่ง logit) — โรคเบาหวานชนิดที่ 2 (n = 500)</summary>
         <div class="written-body">
-          <p><strong>โจทย์:</strong> การสำรวจแบบภาคตัดขวางในผู้ใหญ่วัยทำงาน 200 คน ศึกษาความสัมพันธ์ระหว่าง Physical Activity กับ Hypertension:<br>
-          • <strong>Active (120 คน):</strong> HT Yes = 24, HT No = 96<br>
-          • <strong>Inactive (80 คน):</strong> HT Yes = 32, HT No = 48 (รวม HT Yes = 56, HT No = 144)<br>
-          จง (1) ตั้ง $H_0, H_a$, (2) คำนวณ Expected count และเช็คเงื่อนไข Chi-square, (3) คำนวณ $\chi^2, df$ และเทียบ Critical value ($3.841$), (4) หาความชุกและ Prevalence Ratio (Inactive vs Active)</p>
+          <p><strong>โจทย์:</strong> การศึกษาในผู้มาตรวจสุขภาพประจำปี 500 คน เพื่อหาปัจจัยที่สัมพันธ์กับโรคเบาหวานชนิดที่ 2 (<code>dm</code>: 1=yes, 0=no; <code>age</code>=ปี; <code>bmi</code>=kg/m²; <code>male</code>: 1=ชาย, 0=หญิง; <code>famhx</code>: 1=มีประวัติครอบครัว, 0=ไม่มี) ได้ผลจาก STATA ดังนี้:</p>
+          <div class="code-box"><pre>. logit dm age bmi male famhx
+
+Logistic regression                                     Number of obs =    500
+                                                        LR chi2(4)    =  58.42
+                                                        Prob > chi2   = 0.0000
+Log likelihood = -287.60                                Pseudo R2     = 0.0922
+------------------------------------------------------------------------------
+          dm |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         age |      0.045      0.012     3.75   0.000       0.0215      0.0685
+         bmi |      0.120      0.030     4.00   0.000       0.0612      0.1788
+        male |      0.250      0.210     1.19   0.234      -0.1616      0.6616
+       famhx |      0.920      0.230     4.00   0.000       0.4692      1.3708
+       _cons |     -8.100      1.050    -7.71   0.000     -10.1580     -6.0420
+------------------------------------------------------------------------------</pre></div>
+          <p><strong>คำถาม:</strong><br>
+          1.1) ใช้สถิติอะไร และทำไมจึงเหมาะสมกับข้อมูลนี้? (1 คะแนน)<br>
+          1.2) เขียนสมการ logit (log odds) ของการเป็นโรคเบาหวาน (1 คะแนน)<br>
+          1.3) คำนวณและแปลผล Adjusted Odds Ratio (a) ของ <code>famhx</code> และ (b) ของ <code>bmi</code> ที่เพิ่มขึ้น $5\text{ kg/m}^2$ (2 คะแนน)<br>
+          1.4) ตัวแปรใดสัมพันธ์กับโรคเบาหวานอย่างมีนัยสำคัญที่ $\alpha = 0.05$ และจงแปลผลตัวแปร <code>male</code> (1 คะแนน)<br>
+          1.5) จงคำนวณความน่าจะเป็น (Predicted probability) ที่จะเป็นโรคเบาหวาน สำหรับผู้หญิงอายุ 50 ปี BMI $30\text{ kg/m}^2$ และมีประวัติครอบครัวเป็นเบาหวาน (2 คะแนน)</p>
           <div class="sol-box">
-            <strong>✅ เฉลยละเอียด:</strong><br>
-            1) $H_0$: การมีกิจกรรมทางกาย <em>ไม่มีความสัมพันธ์</em> กับโรคความดันโลหิตสูง ($p_1 = p_2$) | $H_a$: <em>มีความสัมพันธ์</em> ($p_1 \neq p_2$)<br>
-            2) <strong>Expected counts ($E = \text{Row}\times\text{Col}/N$):</strong><br>
-            &nbsp;&nbsp;• Active+HT: $\frac{120\times 56}{200} = \mathbf{33.6}$ | Active+NoHT: $\frac{120\times 144}{200} = \mathbf{86.4}$<br>
-            &nbsp;&nbsp;• Inactive+HT: $\frac{80\times 56}{200} = \mathbf{22.4}$ | Inactive+NoHT: $\frac{80\times 144}{200} = \mathbf{57.6}$<br>
-            &nbsp;&nbsp;→ ทุกช่องมี $E \ge 5$ (ต่ำสุด $22.4$) <strong>ผ่านเงื่อนไข Chi-square!</strong><br>
-            3) <strong>คำนวณ $\chi^2$:</strong> $\frac{(24-33.6)^2}{33.6} + \frac{(96-86.4)^2}{86.4} + \frac{(32-22.4)^2}{22.4} + \frac{(48-57.6)^2}{57.6} = 2.743 + 1.067 + 4.114 + 1.600 = \mathbf{9.524}$, $df = (2-1)(2-1) = \mathbf{1}$, Critical value $= 3.841$<br>
-            4) เนื่องจาก $9.524 &gt; 3.841$ → <strong>Reject $H_0$</strong> ($p &lt; 0.05$)<br>
-            &nbsp;&nbsp;• ความชุก Active $= 24/120 = \mathbf{20\%}$ | ความชุก Inactive $= 32/80 = \mathbf{40\%}$<br>
-            &nbsp;&nbsp;• <strong>Prevalence Ratio (Inactive vs Active)</strong> $= 40\% / 20\% = \mathbf{2.00}$ (กลุ่ม Inactive มีความชุกเป็น 2 เท่าของกลุ่ม Active)
+            <strong>✅ แนวคำตอบได้คะแนนเต็ม (พร้อมจุดระวัง):</strong><br>
+            <strong>1.1) สถิติที่ใช้:</strong> <strong>Multiple (Multivariable) Logistic Regression</strong> เหมาะสมเพราะตัวแปรตาม (<code>dm</code>) เป็นตัวแปรกลุ่ม 2 ค่า (Binary outcome: 1=เป็น, 0=ไม่เป็น) และต้องการศึกษาความสัมพันธ์ของหลายปัจจัยไปพร้อมกันโดยควบคุมอิทธิพลของตัวแปรกวน (Adjusting for confounders)<br>
+            <strong>1.2) สมการ Logit:</strong><br>
+            $$\text{logit}(P) = \ln\!\left(\frac{P}{1-P}\right) = -8.100 + 0.045(\text{age}) + 0.120(\text{bmi}) + 0.250(\text{male}) + 0.920(\text{famhx})$$
+            <span style="color:#be123c;font-weight:700;">⚠️ จุดที่คนเขียนผิดบ่อย:</span> ระวังเขียนค่าคงที่ <code>-8.100</code> ผิดเป็น <code>-0.81</code>!<br>
+            <strong>1.3) คำนวณและแปลผล AOR:</strong><br>
+            • <strong>(a) Family history (<code>famhx</code>):</strong> $\text{AOR} = e^{0.920} = 2.718^{0.920} \approx \mathbf{2.51}$<br>
+            &nbsp;&nbsp;<em>แปลผล:</em> <strong>เมื่อควบคุมอายุ, BMI และเพศให้คงที่</strong> ผู้ที่มีประวัติครอบครัวเป็นเบาหวาน มีโอกาส (Odds) ที่จะเป็นโรคเบาหวานเป็น <strong>2.51 เท่า</strong> ของผู้ที่ไม่มีประวัติครอบครัว อย่างมีนัยสำคัญทางสถิติ ($p &lt; 0.001$)<br>
+            • <strong>(b) BMI เพิ่มขึ้น $5\text{ kg/m}^2$:</strong> $\text{AOR}_{5\text{ units}} = e^{\beta \times 5} = e^{0.120 \times 5} = e^{0.60} \approx \mathbf{1.82}$<br>
+            &nbsp;&nbsp;<em>แปลผล:</em> <strong>เมื่อควบคุมอายุ, เพศ และประวัติครอบครัวให้คงที่</strong> ทุกๆ ค่า BMI ที่เพิ่มขึ้น $5\text{ kg/m}^2$ ผู้รับการตรวจจะมีโอกาส (Odds) เป็นโรคเบาหวานเพิ่มขึ้นเป็น <strong>1.82 เท่า</strong> (หรือเพิ่มขึ้น 82%) อย่างมีนัยสำคัญทางสถิติ ($p &lt; 0.001$)<br>
+            <strong>1.4) ตัวแปรที่ซิกที่ $\alpha = 0.05$:</strong> ได้แก่ <strong><code>age</code>, <code>bmi</code>, และ <code>famhx</code></strong> (เพราะ $p &lt; 0.05$ และ 95% CI ของ Coef ไม่คร่อม 0)<br>
+            • <em>แปลผล <code>male</code>:</em> เมื่อควบคุมอายุ, BMI และประวัติครอบครัวให้คงที่ เพศชายมีโอกาส (Odds) เป็นเบาหวานเป็น $e^{0.250} \approx 1.28$ เท่าของเพศหญิง <strong>แต่ไม่มีนัยสำคัญทางสถิติ</strong> ($p = 0.234 \ge 0.05$ และ 95% CI ของ Coef $[-0.1616, 0.6616]$ คร่อม 0)<br>
+            <strong>1.5) คำนวณ Predicted Probability ($\hat{P}$):</strong> แทนค่า หญิง ($\text{male}=0$), $\text{age}=50$, $\text{bmi}=30$, $\text{famhx}=1$:<br>
+            • ขั้นที่ 1 หา $z$: $z = -8.100 + 0.045(50) + 0.120(30) + 0.250(0) + 0.920(1) = -8.100 + 2.250 + 3.600 + 0 + 0.920 = \mathbf{-1.330}$<br>
+            • ขั้นที่ 2 แปลงเป็นความน่าจะเป็น: $\hat{P} = \frac{1}{1 + e^{-z}} = \frac{1}{1 + e^{1.330}} = \frac{1}{1 + 3.781} = \frac{1}{4.781} \approx \mathbf{0.209}$ (หรือ <strong>20.9%</strong>)
           </div>
         </div>
       </details>
 
-      <!-- Problem 2 -->
+      <!-- CASE 2 -->
       <details class="written-prob">
-        <summary>อัตนัยข้อ 2: คำนวณ Sample Size — ประมาณค่าเฉลี่ย + เผื่อ Non-response 10% + เปลี่ยน Precision ครึ่งหนึ่ง</summary>
+        <summary>Case 2: Multiple Logistic Regression (คำสั่ง logistic แสดง OR + ib2.race) — ทารกน้ำหนักแรกเกิดน้อย (lbw)</summary>
         <div class="written-body">
-          <p><strong>โจทย์:</strong> ต้องการประมาณค่าเฉลี่ยการบริโภคโซเดียมของผู้ใหญ่ใน กทม. จาก Pilot study ได้ $\sigma = 900\text{ mg/day}$:<br>
-          (2.1) ต้องใช้กลุ่มตัวอย่างกี่คนเพื่อให้คลาดเคลื่อนไม่เกิน $\pm 100\text{ mg/day}$ ที่ 95% confidence เผื่อ Non-response 10%?<br>
-          (2.2) ถ้าเปลี่ยน Precision เป็น $\pm 50\text{ mg/day}$ (ก่อนปรับ Non-response) ขนาดตัวอย่างจะเปลี่ยนไปอย่างไร เพราะเหตุใด?</p>
+          <p><strong>โจทย์:</strong> วิเคราะห์ปัจจัยเสี่ยงของภาวะทารกน้ำหนักแรกเกิดน้อยกว่า 2,500 กรัม (<code>lbw</code>: 1=yes, 0=no) ในมารดา 189 ราย โดยใช้คำสั่ง <code>logistic lbw ib2.race smoke age wt_lmp hyper urirr</code> (เมื่อ <code>race</code>: 1=White, 2=Asia, 3=Black; <code>wt_lmp</code>=น้ำหนักแม่ก่อนตั้งครรภ์เป็นปอนด์; <code>hyper</code>=ความดันสูง; <code>urirr</code>=มดลูกบีบตัวไว):</p>
+          <div class="code-box"><pre>. logistic lbw ib2.race smoke age wt_lmp hyper urirr
+
+Logistic regression                                     Number of obs =    189
+                                                        LR chi2(7)    =  30.72
+                                                        Prob > chi2   = 0.0001
+Log likelihood = -101.97403                             Pseudo R2     = 0.1309
+------------------------------------------------------------------------------
+         lbw | Odds ratio   Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        race |
+      White  |    .405806   .1762688    -2.08   0.038     .1732146    .9507195
+      Black  |   1.460473   .7845208     0.71   0.481     .5096295    4.185358
+       smoke |   2.794269   1.100761     2.61   0.009     1.291071    6.047646
+         age |    .9819096  .0347149    -0.52   0.606     .9161736    1.052362
+      wt_lmp |    .9648071   .014558    -2.37   0.018     .9366917    .9937664
+       hyper |   6.408447   4.414475     2.70   0.007     1.661118    24.72323
+       urirr |   2.448283   1.098045     2.00   0.046     1.016485    5.896877
+       _cons |   3.815685   4.178353     1.22   0.221     .446136     32.63457
+------------------------------------------------------------------------------</pre></div>
+          <p><strong>คำถาม:</strong><br>
+          2.1) ทำไมในคำสั่งถึงพิมพ์ <code>ib2.race</code> และกลุ่มใดคือกลุ่มอ้างอิง (Reference group)?<br>
+          2.2) จงแปลผลตัวแปร <code>White</code> และ <code>Black</code> ให้ถูกต้อง<br>
+          2.3) จงแปลผลตัวแปรต่อเนื่อง <code>wt_lmp</code> (ที่มีค่า OR &lt; 1) และ <code>age</code><br>
+          2.4) ถ้าน้ำหนักมารดาก่อนตั้งครรภ์ (<code>wt_lmp</code>) เพิ่มขึ้น <strong>10 ปอนด์</strong> จะมีค่า Adjusted OR เท่ากับเท่าใด?</p>
           <div class="sol-box">
             <strong>✅ เฉลยละเอียด:</strong><br>
-            (2.1) $n = \frac{Z^2 \sigma^2}{d^2} = \frac{1.96^2 \times 900^2}{100^2} = 3.8416 \times 81 = 311.17 \to \mathbf{312}$ คน<br>
-            ปรับ Non-response 10%: $n_{\text{final}} = \frac{312}{1 - 0.10} = \frac{312}{0.90} = 346.67 \to \mathbf{347}$ คน<br>
-            (2.2) ขนาดตัวอย่างจะ <strong>เพิ่มขึ้นเป็น 4 เท่า</strong> ($4 \times 312 = \mathbf{1,248}$ คน) เพราะจากสูตร $n \propto \frac{1}{d^2}$ เมื่อลด $d$ ลงเหลือ $\frac{1}{2}$ ตัวส่วนจะลดลงเป็น $(1/2)^2 = 1/4$ จึงทำให้ $n$ เพิ่มขึ้น 4 เท่า
+            <strong>2.1) ความหมายของ <code>ib2.race</code>:</strong> <code>i.</code> บอกให้ STATA สร้าง Dummy variables สำหรับตัวแปรกลุ่ม และ <code>b2</code> (Base level = 2) กำหนดให้ <strong>กลุ่มที่ 2 (เชื้อชาติ Asia) เป็นกลุ่มอ้างอิง (Reference group)</strong> จึงไม่แสดงแถว Asia ในตาราง<br>
+            <strong>2.2) แปลผลเชื้อชาติ (เทียบกับ Asia):</strong><br>
+            • <strong><code>White</code> (AOR = 0.41, 95% CI: 0.17–0.95, p = 0.038):</strong> เมื่อควบคุมปัจจัยอื่นๆ ให้คงที่ มารดาเชื้อชาติ White มีโอกาส (Odds) คลอดทารกน้ำหนักน้อยเป็น <strong>0.41 เท่า</strong> ของมารดาเชื้อชาติ Asia (หรือ <strong>ลดลง 59.4%</strong>, คิดจาก $(1 - 0.4058)\times 100\%$) อย่างมีนัยสำคัญทางสถิติ<br>
+            • <strong><code>Black</code> (AOR = 1.46, 95% CI: 0.51–4.19, p = 0.481):</strong> เมื่อควบคุมปัจจัยอื่นๆ ให้คงที่ มารดาเชื้อชาติ Black มีโอกาสคลอดทารกน้ำหนักน้อยไม่แตกต่างจากมารดาเชื้อชาติ Asia อย่างมีนัยสำคัญทางสถิติ (เพราะ $p \ge 0.05$ และ 95% CI คร่อม 1)<br>
+            <strong>2.3) แปลผลตัวแปรต่อเนื่อง:</strong><br>
+            • <strong><code>wt_lmp</code> (AOR = 0.9648, 95% CI: 0.937–0.994, p = 0.018):</strong> เมื่อควบคุมปัจจัยอื่นๆ ให้คงที่ <strong>ทุกๆ 1 ปอนด์ที่เพิ่มขึ้น</strong> ของน้ำหนักมารดาก่อนตั้งครรภ์ สัมพันธ์กับโอกาส (Odds) ในการคลอดทารกน้ำหนักน้อยที่ <strong>ลดลง 3.52%</strong> ($(1 - 0.9648)\times 100\%$) อย่างมีนัยสำคัญทางสถิติ (95% CI ไม่คร่อม 1)<br>
+            • <strong><code>age</code> (AOR = 0.9819, 95% CI: 0.916–1.052, p = 0.606):</strong> เมื่อควบคุมปัจจัยอื่นๆ ให้คงที่ อายุมารดาที่เพิ่มขึ้นทุกๆ 1 ปี ไม่มีความสัมพันธ์กับการคลอดทารกน้ำหนักน้อยอย่างมีนัยสำคัญทางสถิติ (95% CI คร่อม 1)<br>
+            <strong>2.4) คำนวณ AOR เมื่อ <code>wt_lmp</code> เพิ่มขึ้น 10 ปอนด์:</strong><br>
+            เนื่องจาก $\text{OR}_{1\text{ unit}} = e^\beta = 0.9648 \implies \text{OR}_{10\text{ units}} = (\text{OR}_{1\text{ unit}})^{10} = (0.9648)^{10} \approx \mathbf{0.699}$ (หรือโอกาสคลอดลูกน้ำหนักน้อยลดลงประมาณ <strong>30.1%</strong> ต่อน้ำหนักแม่ที่เพิ่มขึ้น 10 ปอนด์)
           </div>
         </div>
       </details>
 
-      <!-- Problem 3 -->
+      <!-- CASE 3 -->
       <details class="written-prob">
-        <summary>อัตนัยข้อ 3: Matched Case-Control (McNemar) &amp; Mantel-Haenszel (แยก Confounding vs Effect Modification)</summary>
+        <summary>Case 3: Multiple Linear Regression (คำสั่ง reg) — ทำนายน้ำหนักแรกเกิดทารกเป็นกรัม (bwt)</summary>
         <div class="written-body">
-          <p><strong>โจทย์:</strong> (A) การศึกษาแบบ Matched Case-Control 100 คู่ ได้คู่ที่ Case+/Ctrl+ ($a$) = 10, Case+/Ctrl− ($b$) = 28, Case−/Ctrl+ ($c$) = 12, Case−/Ctrl− ($d$) = 50 จงคำนวณ Matched OR และ McNemar $\chi^2$<br>
-          (B) ในการศึกษาดื่มกาแฟกับโรคหัวใจ (MI) พบ Crude OR $= 2.40$ เมื่อแบ่งชั้นตามการสูบบุหรี่ (`cc mi coffee, by(smoke)`) ได้ OR ในคนสูบ $= 1.95$ (95% CI: 1.38–2.77), OR ในคนไม่สูบ $= 1.98$ (95% CI: 1.20–3.25), M-H Combined OR $= 1.96$, Test of homogeneity $p = 0.92$ จงสรุปว่า `smoke` เป็น Confounder หรือ Effect Modifier?</p>
+          <p><strong>โจทย์:</strong> ผลการรัน <code>reg bwt i.race smoke age hyper wt_lmp</code> (เมื่อ <code>bwt</code> = น้ำหนักทารกแรกเกิด หน่วยเป็นกรัม, <code>race</code> กลุ่ม 1 = White เป็น Reference):</p>
+          <div class="code-box"><pre>. reg bwt i.race smoke age hyper wt_lmp
+
+      Source |       SS           df       MS      Number of obs   =       189
+-------------+----------------------------------   F(6, 182)       =      6.54
+       Model |  17725613.9         6  2954268.99   Prob > F        =    0.0000
+    Residual |  82191438.7       182  451601.312   R-squared       =    0.1774
+-------------+----------------------------------   Adj R-squared   =    0.1503
+       Total |  99917052.6       188  531473.684   Root MSE        =    672.01
+------------------------------------------------------------------------------
+         bwt | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        race |
+      Black  |  -495.1479   154.8875    -3.20   0.002     -800.754   -189.5418
+       Asia  |  -381.5121   118.0505    -3.23   0.001    -614.4356   -148.5886
+       smoke |  -388.2947   107.7289    -3.60   0.000     -600.853   -175.7365
+         age |  -3.134737   9.684506    -0.32   0.747    -22.24308    15.97361
+       hyper |  -525.1057    207.227    -2.53   0.012    -933.9819   -116.2294
+      wt_lmp |   11.14159   3.878927     2.87   0.005     3.488141    18.79504
+       _cons |   2748.804   318.8048     8.62   0.000     2119.775    3377.833
+------------------------------------------------------------------------------</pre></div>
+          <p><strong>คำถาม:</strong><br>
+          3.1) ทำไมข้อนี้จึงใช้คำสั่ง <code>reg</code> แทนที่จะใช้ <code>logistic</code>?<br>
+          3.2) จงตั้งสมมติฐาน $H_0$ และ $H_a$ ในรูปสัญลักษณ์ทางสถิติสำหรับทดสอบว่า "เชื้อชาติมีผลต่อน้ำหนักแรกเกิดหรือไม่"<br>
+          3.3) จงแปลความหมายของค่า <code>R-squared = 0.1774</code> และบอกที่มาของการคำนวณจากตาราง ANOVA ด้านบน<br>
+          3.4) จงแปลผลค่าสัมประสิทธิ์ของ <code>Black</code>, <code>smoke</code>, <code>wt_lmp</code> และ <code>age</code><br>
+          3.5) จงคำนวณน้ำหนักแรกเกิดที่คาดการณ์ ($\widehat{\text{bwt}}$) ของทารกที่เกิดจากมารดาเชื้อชาติ Black, สูบบุหรี่, อายุ 25 ปี, เป็นโรคความดันโลหิตสูง และมีน้ำหนักก่อนตั้งครรภ์ 120 ปอนด์</p>
           <div class="sol-box">
             <strong>✅ เฉลยละเอียด:</strong><br>
-            (A) <strong>Matched OR</strong> $= \frac{b}{c} = \frac{28}{12} = \mathbf{2.33}$<br>
-            <strong>McNemar $\chi^2$</strong> $= \frac{(b-c)^2}{b+c} = \frac{(28-12)^2}{28+12} = \frac{256}{40} = \mathbf{6.40} &gt; 3.841$ ($df=1$) → <strong>Reject $H_0$</strong> (มีนัยสำคัญทางสถิติที่ $\alpha = 0.05$)<br>
-            (B) 1) เช็ค <strong>Test of homogeneity</strong> ได้ $p = 0.92 \ge 0.05$ (OR ทั้ง 2 ชั้นเท่ากัน $\approx 1.96$) → <strong>ไม่ใช่ Effect Modifier</strong><br>
-            2) เช็ค <strong>Confounding (กฎ 10%):</strong> $\left|\frac{2.40 - 1.96}{1.96}\right| = 22.4\% \ge 10\%$ → สรุปว่า `smoke` เป็น <strong>Confounder</strong> ต้องรายงานค่า <strong>M-H Adjusted OR = 1.96</strong>
+            <strong>3.1)</strong> ใช้ <code>reg</code> (Multiple Linear Regression) เพราะตัวแปรตามคือ <code>bwt</code> (น้ำหนักแรกเกิด หน่วยเป็นกรัม) เป็น <strong>ข้อมูลเชิงปริมาณต่อเนื่อง (Continuous outcome)</strong><br>
+            <strong>3.2) สมมติฐานสำหรับตัวแปรเชื้อชาติในสมการ Regression:</strong><br>
+            • $H_0: \beta_{\text{Black}} = \beta_{\text{Asia}} = 0$ (เชื้อชาติไม่มีผลต่อน้ำหนักแรกเกิดของทารก)<br>
+            • $H_a:$ มีอย่างน้อยหนึ่งค่าของ $\beta_j \neq 0$ (เชื้อชาติมีผลต่อน้ำหนักแรกเกิดของทารก)<br>
+            <strong>3.3) ความหมายของ $R^2 = 0.1774$:</strong><br>
+            • คำนวณจาก $R^2 = \frac{SS_{\text{Model}}}{SS_{\text{Total}}} = \frac{17,725,613.9}{99,917,052.6} = 0.1774$<br>
+            • <em>แปลผล:</em> ตัวแปรต้นทั้งหมดในสมการ (เชื้อชาติ, การสูบบุหรี่, อายุ, ความดันโลหิตสูง และน้ำหนักตัวก่อนตั้งครรภ์ของมารดา) ร่วมกันอธิบายความผันแปรของน้ำหนักแรกเกิดทารกได้ <strong>ร้อยละ 17.74</strong> (อีก 82.26% เกิดจากปัจจัยอื่นที่ไม่ได้อยู่ในแบบจำลอง)<br>
+            <strong>3.4) แปลผลรายตัวแปร (ต้องมีคำว่า "เมื่อควบคุมปัจจัยอื่นให้คงที่"):</strong><br>
+            • <strong><code>Black</code> ($\beta = -495.15$):</strong> เมื่อควบคุมปัจจัยอื่นให้คงที่ ทารกที่เกิดจากมารดาเชื้อชาติ Black มีน้ำหนักแรกเกิดเฉลี่ย <strong>น้อยกว่า</strong> มารดาเชื้อชาติ White อยู่ <strong>495.15 กรัม</strong> อย่างมีนัยสำคัญทางสถิติ (95% CI: $-800.75$ ถึง $-189.54$, $p = 0.002$)<br>
+            • <strong><code>smoke</code> ($\beta = -388.29$):</strong> เมื่อควบคุมปัจจัยอื่นให้คงที่ ทารกของมารดาที่สูบบุหรี่มีน้ำหนักแรกเกิดเฉลี่ย <strong>น้อยกว่า</strong> มารดาที่ไม่สูบอยู่ <strong>388.29 กรัม</strong> อย่างมีนัยสำคัญทางสถิติ (95% CI: $-600.85$ ถึง $-175.74$, $p &lt; 0.001$)<br>
+            • <strong><code>wt_lmp</code> ($\beta = +11.14$):</strong> เมื่อควบคุมปัจจัยอื่นให้คงที่ ทุกๆ 1 ปอนด์ที่เพิ่มขึ้นของน้ำหนักแม่ก่อนตั้งครรภ์ ทารกจะมีน้ำหนักแรกเกิด <strong>เพิ่มขึ้นเฉลี่ย 11.14 กรัม</strong> อย่างมีนัยสำคัญทางสถิติ (95% CI: $3.49$ ถึง $18.80$, $p = 0.005$)<br>
+            • <strong><code>age</code> ($\beta = -3.13$):</strong> เมื่อควบคุมปัจจัยอื่นให้คงที่ อายุมารดาไม่มีความสัมพันธ์กับน้ำหนักแรกเกิดทารกอย่างมีนัยสำคัญทางสถิติ ($p = 0.747$, 95% CI $[-22.24, 15.97]$ <strong>คร่อม 0</strong>)<br>
+            <strong>3.5) คำนวณค่าน้ำหนักพยากรณ์ ($\widehat{\text{bwt}}$):</strong><br>
+            $$\widehat{\text{bwt}} = 2748.804 - 495.148(1) - 381.512(0) - 388.295(1) - 3.135(25) - 525.106(1) + 11.142(120)$$
+            $$\widehat{\text{bwt}} = 2748.804 - 495.148 - 388.295 - 78.368 - 525.106 + 1337.040 = \mathbf{2,598.93\text{ กรัม}}$$
           </div>
         </div>
       </details>
 
-      <!-- Problem 4 -->
+      <!-- CASE 4 -->
       <details class="written-prob">
-        <summary>อัตนัยข้อ 4: อ่านตาราง One-Way ANOVA, Bartlett's Test และ Bonferroni Post-hoc</summary>
+        <summary>Case 4: One-Way ANOVA + Bartlett's Test + Bonferroni Post-hoc (คำสั่ง oneway)</summary>
         <div class="written-body">
-          <p><strong>โจทย์:</strong> ผลการรัน <code>oneway change trt, bonferroni</code> ในผู้ป่วย 310 คน แบ่งเป็น 3 กลุ่ม (Placebo, Low-dose, High-dose) ได้ $SS_{\text{Between}} = 0.001579$, $SS_{\text{Within}} = 0.046259$, Bartlett's test `Prob>chi2 = 0.759`:<br>
-          (1) หา $df_B, df_W, MS_B, MS_W$ และค่า $F$ | (2) อธิบายความหมาย Bartlett's $p = 0.759$ | (3) ถ้าต้องการเทียบรายคู่ทุกคู่ด้วย Bonferroni ที่ $\alpha = 0.05$ เกณฑ์ $\alpha^*$ ต่อคู่คือเท่าไร?</p>
+          <p><strong>โจทย์:</strong> การทดลองเปรียบเทียบค่าการเปลี่ยนแปลงความหนาแน่นมวลกระดูกสะโพก (<code>change</code>) ระหว่างกลุ่มยา 3 กลุ่ม (1=Placebo, 2=Low dose, 3=High dose) ในผู้เข้าร่วมวิจัย 310 คน:</p>
+          <div class="code-box"><pre>. oneway change trt, tabulate bonferroni
+
+            |             Summary of change
+        trt |        Mean   Std. dev.       Freq.
+------------+------------------------------------
+          1 |   -.0022115   .0127984         104
+          2 |    .0021538   .0121305         104
+          3 |    .0029020   .0119102         102
+------------+------------------------------------
+      Total |    .0009355   .0124422         310
+
+                        Analysis of variance
+    Source              SS         df      MS            F     Prob > F
+------------------------------------------------------------------------
+Between groups      .0015788      [A]   [   B   ]     [ C ]     0.0058
+ Within groups      .0462594      [D]   .0001507
+------------------------------------------------------------------------
+    Total           .0478382      309   .0001548
+
+Bartlett's equal-variances test: chi2(2) =   0.5521    Prob>chi2 = 0.759
+
+                     Comparison of change by trt
+                             (Bonferroni)
+Row Mean-|
+Col Mean |          1          2
+---------+----------------------
+       2 |    .004365
+         |      0.031
+         |
+       3 |    .005113    .000748
+         |      0.008      1.000</pre></div>
+          <p><strong>คำถาม:</strong><br>
+          4.1) จงคำนวณค่าที่หายไปในช่อง <strong>[A], [B], [C], [D]</strong><br>
+          4.2) แปลผลบรรทัด <code>Bartlett's equal-variances test: Prob>chi2 = 0.759</code> ถ้าหากค่านี้ได้ <code>0.002</code> และข้อมูลเบ้มากจะต้องเปลี่ยนไปใช้สถิติและคำสั่งใด?<br>
+          4.3) จงแปลผลตาราง ANOVA ภาพรวม และตารางเปรียบเทียบรายคู่ (Bonferroni) ด้านล่างให้ครบทุกคู่</p>
           <div class="sol-box">
             <strong>✅ เฉลยละเอียด:</strong><br>
-            (1) $df_B = 3 - 1 = \mathbf{2}$, $df_W = 310 - 3 = \mathbf{307}$<br>
-            $MS_B = 0.001579 / 2 = 0.0007895$, $MS_W = 0.046259 / 307 = 0.0001507$<br>
-            $F = MS_B / MS_W = 0.0007895 / 0.0001507 = \mathbf{5.24}$ ($p = 0.0058 &lt; 0.05 \to$ มีอย่างน้อย 1 คู่แตกต่างกัน)<br>
-            (2) Bartlett's $p = 0.759 \ge 0.05 \to$ ยอมรับ $H_0$ ความแปรปรวนของทั้ง 3 กลุ่ม <strong>เท่ากัน (ผ่านเกณฑ์ Homoscedasticity)</strong> เชื่อผล ANOVA ได้<br>
-            (3) 3 กลุ่มมี $c = \frac{3\times 2}{2} = 3$ คู่ $\implies \alpha^* = \frac{0.05}{3} = \mathbf{0.0167}$ ต่อคู่
+            <strong>4.1) คำนวณค่าในตาราง ANOVA:</strong><br>
+            • <strong>[A] $df_{\text{Between}}$</strong> $= k - 1 = 3 - 1 = \mathbf{2}$<br>
+            • <strong>[D] $df_{\text{Within}}$</strong> $= N - k = 310 - 3 = \mathbf{307}$<br>
+            • <strong>[B] $MS_{\text{Between}}$</strong> $= \frac{SS_B}{df_B} = \frac{0.0015788}{2} = \mathbf{0.0007894}$<br>
+            • <strong>[C] $F$-statistic</strong> $= \frac{MS_B}{MS_W} = \frac{0.0007894}{0.0001507} = \mathbf{5.24}$<br>
+            <strong>4.2) แปลผล Bartlett's test:</strong><br>
+            • <code>Prob>chi2 = 0.759</code> ($\ge 0.05$) แปลว่า <strong>ไม่ปฏิเสธ $H_0$ ความแปรปรวนของทั้ง 3 กลุ่มไม่แตกต่างกัน (Equal variances)</strong> ผ่านข้อตกลงเบื้องต้นของ One-way ANOVA<br>
+            • แต่ถ้าได้ $p = 0.002 (&lt; 0.05)$ ร่วมกับข้อมูลเบ้มาก แปลว่าตกเกณฑ์ ANOVA ต้องเปลี่ยนไปใช้สถิตินอนพาราเมตริกคือ <strong>Kruskal-Wallis test</strong> (คำสั่ง <code>kwallis change, by(trt)</code> และทำ Post-hoc ด้วย <code>kwallis2</code>)<br>
+            <strong>4.3) แปลผล ANOVA และ Bonferroni รายคู่:</strong><br>
+            • <strong>ภาพรวม (Omnibus):</strong> ค่าเฉลี่ยการเปลี่ยนแปลงมวลกระดูกสะโพกของทั้ง 3 กลุ่มมีความแตกต่างกันอย่างมีนัยสำคัญทางสถิติ ($F(2, 307) = 5.24, p = 0.0058 &lt; 0.05$) คือมีอย่างน้อย 1 คู่ที่ต่างกัน<br>
+            • <strong>รายคู่ (Bonferroni):</strong><br>
+            &nbsp;&nbsp;— <strong>กลุ่ม 2 (Low dose) vs กลุ่ม 1 (Placebo):</strong> กลุ่ม Low dose มีค่าเฉลี่ยการเปลี่ยนแปลงมวลกระดูกสูงกว่า Placebo อยู่ $+0.004365\text{ g/cm}^2$ อย่างมีนัยสำคัญทางสถิติ ($p = 0.031 &lt; 0.05$)<br>
+            &nbsp;&nbsp;— <strong>กลุ่ม 3 (High dose) vs กลุ่ม 1 (Placebo):</strong> กลุ่ม High dose มีค่าเฉลี่ยการเปลี่ยนแปลงมวลกระดูกสูงกว่า Placebo อยู่ $+0.005113\text{ g/cm}^2$ อย่างมีนัยสำคัญทางสถิติ ($p = 0.008 &lt; 0.05$)<br>
+            &nbsp;&nbsp;— <strong>กลุ่ม 3 (High dose) vs กลุ่ม 2 (Low dose):</strong> ต่างกันเพียง $+0.000748\text{ g/cm}^2$ ซึ่ง <strong>ไม่แตกต่างกันอย่างมีนัยสำคัญทางสถิติ</strong> ($p = 1.000 \ge 0.05$)
           </div>
         </div>
       </details>
 
-      <!-- Problem 5 -->
+      <!-- CASE 5 -->
       <details class="written-prob">
-        <summary>อัตนัยข้อ 5: Multiple Logistic Regression (`logit dm age bmi male famhx`) — AOR ต่อ 5 หน่วย และ Predicted Probability</summary>
+        <summary>Case 5: การตรวจสอบความแปรปรวน (sdtest) &amp; การเลือกอ่านตาราง Unpaired t-test (Equal vs Unequal Variances)</summary>
         <div class="written-body">
-          <p><strong>โจทย์:</strong> จากผล STATA <code>logit dm age bmi male famhx</code> ($N=500$, LR $\chi^2(4)=58.42, p&lt;0.0001$):<br>
-          • <code>age</code>: coef $= 0.045$ ($p=0.000$) | <code>bmi</code>: coef $= 0.120$ ($p=0.000$) | <code>male</code>: coef $= 0.250$ ($p=0.234$, 95% CI: $-0.162$ ถึง $0.662$) | <code>famhx</code>: coef $= 0.920$ ($p=0.000$) | <code>_cons</code> $= -8.100$<br>
-          จง (1) เขียนสมการ Logit, (2) หาและแปลผล AOR ของ `famhx` และของ `bmi` ที่เพิ่มขึ้น $5\text{ kg/m}^2$, (3) แปลผล `male`, (4) คำนวณ Predicted probability สำหรับผู้หญิงอายุ 50 ปี BMI 30 มีประวัติครอบครัว</p>
+          <p><strong>โจทย์:</strong> นักวิจัยเปรียบเทียบความดันโลหิตซิสโตลิกหลังการรักษา (<code>LastSBP</code>, mmHg) ระหว่างยาลดความดันชนิดใหม่ (Group 1, $n=50$) กับยามาตรฐาน Enalapril (Group 2, $n=50$) ได้ผลรัน STATA ดังนี้:</p>
+          <div class="code-box"><pre>. sdtest LastSBP, by(Group)
+Variance ratio test
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       1 |      50       124.0    1.414214          10    121.158     126.842
+       2 |      50       131.0    2.545584          18    125.884     136.116
+---------+--------------------------------------------------------------------
+    ratio = sd(1) / sd(2)                                         f =   0.3086
+Ho: ratio = 1                                    degrees of freedom =   49, 49
+    Ha: ratio < 1               Ha: ratio != 1                 Ha: ratio > 1
+  Pr(F < f) = 0.0001         2*Pr(F < f) = 0.0001           Pr(F > f) = 0.9999
+
+. ttest LastSBP, by(Group) unequal
+Two-sample t test with unequal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       1 |      50       124.0    1.414214          10    121.158     126.842
+       2 |      50       131.0    2.545584          18    125.884     136.116
+---------+--------------------------------------------------------------------
+    diff |                -7.0    2.912044               -12.7965    -1.2035
+------------------------------------------------------------------------------
+    diff = mean(1) - mean(2)                                      t =  -2.4038
+H0: diff = 0                     Satterthwaite's degrees of freedom =  76.6258
+    Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = 0.0093         Pr(|T| > |t|) = 0.0186          Pr(T > t) = 0.9907</pre></div>
+          <p><strong>คำถาม:</strong><br>
+          5.1) จากตาราง <code>sdtest</code> จงระบุสมมติฐาน $H_0$, ค่า $p$-value ที่ต้องอ่าน และสรุปว่าความแปรปรวนของสองกลุ่มเท่ากันหรือไม่?<br>
+          5.2) ทำไมจึงต้องใช้คำสั่ง <code>ttest LastSBP, by(Group) unequal</code>?<br>
+          5.3) จงแปลผลความแตกต่างของความดันโลหิตระหว่างยาทั้ง 2 กลุ่ม พร้อมระบุค่า Mean diff, 95% CI และ $p$-value (two-sided)</p>
           <div class="sol-box">
             <strong>✅ เฉลยละเอียด:</strong><br>
-            (1) $\text{logit}(P) = -8.100 + 0.045(\text{age}) + 0.120(\text{bmi}) + 0.250(\text{male}) + 0.920(\text{famhx})$<br>
-            (2) • <strong>AOR ของ <code>famhx</code>:</strong> $e^{0.920} \approx \mathbf{2.51}$ — เมื่อควบคุมอายุ, BMI และเพศให้คงที่ ผู้มีประวัติครอบครัวมีโอกาสเป็นเบาหวานเป็น 2.51 เท่าของผู้ไม่มีประวัติ ($p &lt; 0.001$)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;• <strong>AOR ของ <code>bmi</code> เพิ่ม 5 หน่วย:</strong> $e^{0.120 \times 5} = e^{0.60} \approx \mathbf{1.82}$ — เมื่อควบคุมปัจจัยอื่นคงที่ ทุกๆ BMI ที่เพิ่มขึ้น $5\text{ kg/m}^2$ โอกาสเป็นเบาหวานเพิ่มขึ้น 1.82 เท่า ($p &lt; 0.001$)<br>
-            (3) <strong>แปลผล <code>male</code>:</strong> $p = 0.234 \ge 0.05$ (95% CI ของ $\beta$ คร่อม 0) → เมื่อควบคุมปัจจัยอื่นคงที่ เพศชาย <strong>ไม่มีความสัมพันธ์กับโรคเบาหวานอย่างมีนัยสำคัญทางสถิติ</strong><br>
-            (4) <strong>Predicted Probability:</strong> หญิง ($\text{male}=0$), $\text{age}=50$, $\text{bmi}=30$, $\text{famhx}=1$:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;$z = -8.100 + 0.045(50) + 0.120(30) + 0.250(0) + 0.920(1) = \mathbf{-1.330}$<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;$\hat{P} = \frac{1}{1 + e^{-(-1.330)}} = \frac{1}{1 + e^{1.330}} = \frac{1}{1 + 3.781} = \mathbf{0.209}$ (<strong>20.9%</strong>)
+            <strong>5.1) แปลผล <code>sdtest</code>:</strong><br>
+            • $H_0: \sigma_1^2 / \sigma_2^2 = 1$ (ความแปรปรวนของ 2 กลุ่มเท่ากัน)<br>
+            • อ่านค่า two-sided ตรงกลาง: <code>2*Pr(F &lt; f) = 0.0001</code> ($&lt; 0.05$) → <strong>ปฏิเสธ $H_0$</strong> สรุปว่าความแปรปรวนของทั้งสองกลุ่ม <strong>ไม่เท่ากันอย่างมีนัยสำคัญทางสถิติ</strong> ($SD_1 = 10$ vs $SD_2 = 18$)<br>
+            <strong>5.2)</strong> เพราะเมื่อความแปรปรวนไม่เท่ากัน การใช้ Pooled variance t-test ปกติจะไม่เหมาะสม ต้องเติม option <strong><code>unequal</code></strong> เพื่อใช้ <strong>Welch's (Satterthwaite's) t-test</strong> ซึ่งปรับลด degrees of freedom ลงเหลือ $76.63$<br>
+            <strong>5.3) ประโยคแปลผลมาตรฐาน:</strong><br>
+            • ดูค่า $p$-value แบบ two-sided ตรงกลาง: <code>Pr(|T| &gt; |t|) = 0.0186</code><br>
+            • <em>แปลผล:</em> กลุ่มที่ได้รับยาชนิดใหม่ (Group 1) มีค่าความดันโลหิตซิสโตลิกเฉลี่ยหลังการรักษา ($124.0 \pm 10.0\text{ mmHg}$) <strong>ต่ำกว่า</strong> กลุ่มยามาตรฐาน Enalapril ($131.0 \pm 18.0\text{ mmHg}$) อยู่เฉลี่ย <strong>$7.0\text{ mmHg}$</strong> อย่างมีนัยสำคัญทางสถิติ ($\text{Mean diff} = -7.0\text{ mmHg}, 95\%\text{ CI: } -12.80 \text{ ถึง } -1.20, t = -2.40, p = 0.0186$) (สังเกต 95% CI เป็นลบทั้งคู่ ไม่คร่อม 0)
+          </div>
+        </div>
+      </details>
+
+      <!-- CASE 6 -->
+      <details class="written-prob">
+        <summary>Case 6: Nonparametric — Mann-Whitney U (ranksum), Wilcoxon Signed-Rank (signrank) &amp; Kruskal-Wallis (kwallis2)</summary>
+        <div class="written-body">
+          <p><strong>โจทย์:</strong> พิจารณาผลลัพธ์ STATA 2 ชุดต่อไปนี้จากสไลด์ Nonparametric Statistics:<br>
+          <strong>ชุด ก:</strong> เปรียบเทียบระดับ Saliva Cotinine (nmol/L) ที่ 12 ชม. และ 24 ชม. หลังเลิกบุหรี่ในคนกลุ่มเดิม 10 คน<br>
+          <strong>ชุด ข:</strong> เปรียบเทียบคะแนนผลการสอน 3 วิธี (Method 1, 2, 3) ในนักเรียน 14 คน</p>
+          <div class="code-box"><pre>* --- ชุด ก ---
+. signrank After24 = After12
+Wilcoxon signed-rank test
+        sign |      obs   sum ranks    expected
+-------------+---------------------------------
+    positive |        2           4        27.5
+    negative |        8          51        27.5
+        zero |        0           0           0
+-------------+---------------------------------
+         all |       10          55          55
+z = -2.395      Prob > |z| = 0.0166
+
+* --- ชุด ข ---
+. kwallis2 Scores, by(Method)
+One-way analysis of variance by ranks (Kruskal-Wallis Test)
+Method     Obs     RankSum    RankMean
+--------------------------------------
+     1       5       22.00        4.40
+     2       5       37.00        7.40
+     3       4       46.00       11.50
+Chi-squared (uncorrected for ties) =   6.458 with 2 d.f. (p = 0.0396)
+Chi-squared (corrected for ties)   =   6.458 with 2 d.f. (p = 0.0396)
+
+Multiple comparisons between groups
+-----------------------------------
+(Adjusted p-value for significance is 0.008333)
+Ho: Scores(Method==1) = Scores(Method==2)  RankMeans diff = 3.00   p = 0.1412
+Ho: Scores(Method==1) = Scores(Method==3)  RankMeans diff = 7.10   p = 0.0062
+Ho: Scores(Method==2) = Scores(Method==3)  RankMeans diff = 4.10   p = 0.0734</pre></div>
+          <p><strong>คำถาม:</strong><br>
+          6.1) ในชุด ก ทำไมจึงเลือกใช้ <code>signrank</code> แทน Paired t-test และจากตารางมีกี่คนที่ค่า Cotinine ลดลงที่ 24 ชม.? จงแปลผล<br>
+          6.2) ในชุด ข เวลา báo cáoสถิติเชิงพรรณนาคู่กับ Kruskal-Wallis ควรรายงานด้วยค่าใด (Mean±SD หรือ Median/IQR)?<br>
+          6.3) จากผล <code>kwallis2</code> ในชุด ข คู่ใดบ้างที่แตกต่างกันอย่างมีนัยสำคัญทางสถิติ? เพราะเหตุใด?</p>
+          <div class="sol-box">
+            <strong>✅ เฉลยละเอียด:</strong><br>
+            <strong>6.1) ชุด ก (Wilcoxon signed-rank):</strong><br>
+            • ใช้เพราะเป็นข้อมูลจับคู่ (วัดซ้ำ 12 ชม. และ 24 ชม. ในคนเดียวกัน) ที่มีขนาดตัวอย่างเล็ก ($n=10$) และผลต่างไม่แจกแจงปกติ<br>
+            • เนื่องจากทดสอบ <code>After24 - After12</code> บรรทัด <code>negative | 8</code> แปลว่ามี <strong>8 คนจาก 10 คน</strong> ที่ระดับ Cotinine ที่ 24 ชม. ต่ำกว่าที่ 12 ชม. (ผลรวมอันดับทางลบ $= 51$ vs ทางบวก $= 4$)<br>
+            • <em>แปลผล:</em> ระดับ Saliva Cotinine ที่ 24 ชม. แตกต่างจาก (ลดลงจาก) ที่ 12 ชม. อย่างมีนัยสำคัญทางสถิติ ($z = -2.395, p = 0.0166 &lt; 0.05$)<br>
+            <strong>6.2) สถิติเชิงพรรณนาสำหรับ Nonparametric:</strong> ต้องรายงานด้วย <strong>ค่ามัธยฐาน (Median) และพิสัยควอร์ไทล์ (Interquartile Range: IQR หรือ $P_{25} - P_{75}$)</strong> เสมอ (หาได้จาก <code>tabstat Scores, by(Method) stat(n p50 p25 p75)</code>)<br>
+            <strong>6.3) แปลผลชุด ข (Kruskal-Wallis + <code>kwallis2</code>):</strong><br>
+            • ภาพรวม: คะแนนผลการสอนทั้ง 3 วิธีแตกต่างกันอย่างมีนัยสำคัญทางสถิติ ($\chi^2(2) = 6.458, p = 0.0396 &lt; 0.05$)<br>
+            • รายคู่: โปรแกรมกำหนดเกณฑ์ Adjusted p-value สำหรับนัยสำคัญไว้ที่ <strong>$0.008333$</strong>:
+            <br>&nbsp;&nbsp;— <strong>Method 1 vs Method 3:</strong> ได้ $p = 0.0062 &lt; 0.008333$ → <strong>แตกต่างกันอย่างมีนัยสำคัญทางสถิติ</strong> (Method 3 มี RankMean สูงกว่า Method 1)
+            <br>&nbsp;&nbsp;— คู่อื่นๆ (1 vs 2 ได้ $p=0.1412$; 2 vs 3 ได้ $p=0.0734$) มีค่า $p \ge 0.008333$ จึงไม่แตกต่างกันอย่างมีนัยสำคัญ
+          </div>
+        </div>
+      </details>
+
+      <!-- CASE 7 -->
+      <details class="written-prob">
+        <summary>Case 7: Case-Control Study (คำสั่ง cc) — การแปลผล Odds Ratio, AFe และ PAF</summary>
+        <div class="written-body">
+          <p><strong>โจทย์:</strong> ผลการรันคำสั่ง <code>cc lbw smoke</code> ในชุดข้อมูลทารกแรกเกิด 189 ราย:</p>
+          <div class="code-box"><pre>. cc lbw smoke
+                                                         Proportion
+                 |   Exposed   Unexposed  |      Total     exposed
+-----------------+------------------------+------------------------
+           Cases |        30          29  |         59       0.5085
+        Controls |        44          86  |        130       0.3385
+-----------------+------------------------+------------------------
+           Total |        74         115  |        189       0.3915
+                 |      Point estimate    |    [95% conf. interval]
+                 +------------------------+------------------------
+      Odds ratio |         2.021944       |    1.029092    3.965864 (exact)
+ Attr. frac. ex. |         .5054264       |    .0282695    .7478481 (exact)
+ Attr. frac. pop |         .2569965       |
+-------------------------------------------------------------------
+                               chi2(1) =     4.92  Pr>chi2 = 0.0265</pre></div>
+          <p><strong>คำถาม:</strong><br>
+          7.1) จงแสดงวิธีคำนวณมือเพื่อให้ได้ค่า <code>Proportion exposed</code> ในกลุ่ม Cases ($0.5085$) และค่า <code>Odds ratio</code> ($2.02$)<br>
+          7.2) จงแปลผลค่า Odds ratio พร้อม 95% CI และ $p$-value<br>
+          7.3) จงแปลความหมายของค่า <code>Attr. frac. ex. = .5054</code> และ <code>Attr. frac. pop = .2570</code> ในทางสาธารณสุข</p>
+          <div class="sol-box">
+            <strong>✅ เฉลยละเอียด:</strong><br>
+            <strong>7.1) แสดงวิธีคำนวณมือ:</strong><br>
+            • สัดส่วนผู้สัมผัสปัจจัย (สูบบุหรี่) ในกลุ่ม Cases $= \frac{a}{a+b} = \frac{30}{59} = \mathbf{0.5085}$ ($50.85\%$)<br>
+            • $\text{Odds Ratio (OR)} = \frac{a \times d}{b \times c} = \frac{30 \times 86}{29 \times 44} = \frac{2,580}{1,276} = \mathbf{2.0219}$<br>
+            <strong>7.2) แปลผล Odds Ratio:</strong><br>
+            • มารดาที่สูบบุหรี่ขณะตั้งครรภ์มีโอกาส (Odds) ที่จะคลอดทารกน้ำหนักแรกเกิดน้อยเป็น <strong>2.02 เท่า</strong> ของมารดาที่ไม่สูบบุหรี่ อย่างมีนัยสำคัญทางสถิติ ($95\%\text{ CI: } 1.03 \text{ ถึง } 3.97, \chi^2 = 4.92, p = 0.0265$) (95% CI เกิน 1 ทั้งคู่ ไม่คร่อม 1)<br>
+            <strong>7.3) แปลผล Attributable Fraction:</strong><br>
+            • <strong><code>Attr. frac. ex.</code> ($AF_e = \frac{OR-1}{OR} = \frac{1.0219}{2.0219} = 50.54\%$):</strong> ในกลุ่มมารดาที่สูบบุหรี่ การคลอดทารกน้ำหนักน้อยมีสาเหตุมาจากการสูบบุหรี่ร้อยละ <strong>50.54%</strong> (หากมารดากลุ่มนี้เลิกสูบบุหรี่ จะป้องกันการเกิดทารกน้ำหนักน้อยในกลุ่มนี้ได้ 50.54%)<br>
+            • <strong><code>Attr. frac. pop</code> ($PAF = 25.70\%$):</strong> ในประชากรมารดาทั้งหมด หากสามารถกำจัดการสูบบุหรี่ขณะตั้งครรภ์ให้หมดไปได้ จะสามารถลดอุบัติการณ์ของทารกแรกเกิดน้ำหนักน้อยในประชากรลงได้ร้อยละ <strong>25.70%</strong>
+          </div>
+        </div>
+      </details>
+
+      <!-- CASE 8 -->
+      <details class="written-prob">
+        <summary>Case 8: Cohort Study (คำสั่ง cs) &amp; Person-Time Incidence Rate (คำสั่ง ir / iri)</summary>
+        <div class="written-body">
+          <p><strong>โจทย์:</strong> พิจารณาผลลัพธ์ STATA 2 ตารางจากสไลด์ Tables for Epidemiologists:<br>
+          <strong>ตาราง ก (Cohort study):</strong> ติดตามผู้ป่วยสูบบุหรี่ 100 คน (เกิดโรคหลอดเลือดสมอง 20 คน) เทียบกับไม่สูบ 200 คน (เกิดโรค 16 คน) ด้วยคำสั่ง <code>csi 20 16 80 184</code><br>
+          <strong>ตาราง ข (Person-time study):</strong> ติดตามคนงานสัมผัสสารเคมี 365 person-years (เกิดโรค 26 ราย) เทียบกับไม่สัมผัส 400 person-years (เกิดโรค 14 ราย) ด้วยคำสั่ง <code>iri 26 14 365 400</code></p>
+          <div class="code-box"><pre>* --- ตาราง ก ---
+. csi 20 16 80 184
+                 |   Exposed   Unexposed  |      Total
+-----------------+------------------------+------------
+           Cases |        20          16  |         36
+        Noncases |        80         184  |        264
+-----------------+------------------------+------------
+           Total |       100         200  |        300
+            Risk |        .2         .08  |        .12
+                 |      Point estimate    |    [95% conf. interval]
+                 +------------------------+------------------------
+       Risk diff.|                 .12    |    .033241     .206759
+       Risk ratio|                 2.5    |   1.353345    4.618185
+ Attr. frac. ex. |                  .6    |   .2610903    .7834647
+-------------------------------------------------------------------
+                               chi2(1) =     9.09  Pr>chi2 = 0.0026
+
+* --- ตาราง ข ---
+. iri 26 14 365 400
+                 |   Exposed   Unexposed  |      Total
+-----------------+------------------------+------------
+           Cases |        26          14  |         40
+     Person-time |       365         400  |        765
+  Incidence rate |  .0712329       .035   |   .0522876
+                 |      Point estimate    |    [95% conf. interval]
+                 +------------------------+------------------------
+   Inc. rate diff|            .0362329    |   .0033821    .0690837
+   Inc. rate rat.|            2.035225    |   1.024189    4.222634 (exact)
+                                           midp   p = 0.0301</pre></div>
+          <p><strong>คำถาม:</strong><br>
+          8.1) จากตาราง ก จงแสดงวิธีคำนวณค่า <code>Risk</code> ในแต่ละกลุ่ม, <code>Risk diff.</code> และ <code>Risk ratio</code> พร้อมแปลผล<br>
+          8.2) จากตาราง ข ทำไมจึงต้องใช้คำสั่ง <code>iri</code> แทน <code>csi</code> และจงแปลผลค่า <code>Inc. rate rat. = 2.04</code></p>
+          <div class="sol-box">
+            <strong>✅ เฉลยละเอียด:</strong><br>
+            <strong>8.1) ตาราง ก (Cohort Study):</strong><br>
+            • ความเสี่ยง (Cumulative Incidence / Risk) ในกลุ่มสูบบุหรี่ $R_1 = 20 / 100 = \mathbf{0.20}$ ($20\%$); ในกลุ่มไม่สูบ $R_0 = 16 / 200 = \mathbf{0.08}$ ($8\%$)<br>
+            • <strong>Risk Difference (RD)</strong> $= 0.20 - 0.08 = \mathbf{0.12}$ ($12\%$, 95% CI: $3.3\%$ ถึง $20.7\%$, ไม่คร่อม 0 → ซิก): ผู้ที่สูบบุหรี่มีความเสี่ยงสัมบูรณ์ในการเกิดโรคหลอดเลือดสมองสูงกว่าผู้ไม่สูบอยู่ร้อยละ 12<br>
+            • <strong>Risk Ratio (RR)</strong> $= 0.20 / 0.08 = \mathbf{2.50}$ (95% CI: $1.35$ ถึง $4.62$, $p = 0.0026$, ไม่คร่อม 1 → ซิก): ผู้ที่สูบบุหรี่มีความเสี่ยงในการเกิดโรคหลอดเลือดสมองเป็น <strong>2.50 เท่า</strong> ของผู้ที่ไม่สูบบุหรี่ อย่างมีนัยสำคัญทางสถิติ<br>
+            <strong>8.2) ตาราง ข (Person-Time / Incidence Rate):</strong><br>
+            • ใช้ <code>iri</code> เพราะแต่ละคนอาจมีระยะเวลาติดตามไม่เท่ากัน (Dynamic cohort) จึงวัดตัวส่วนเป็น <strong>Person-time</strong> (365 vs 400 person-years)<br>
+            • อุบัติการณ์ในกลุ่มสัมผัส $I_1 = 26 / 365 = 0.0712$ รายต่อ person-year; กลุ่มไม่สัมผัส $I_0 = 14 / 400 = 0.0350$ รายต่อ person-year<br>
+            • <strong>Incidence Rate Ratio (IRR)</strong> $= 0.07123 / 0.0350 = \mathbf{2.04}$ (95% CI: $1.02$ ถึง $4.22, p = 0.0301$): คนงานที่สัมผัสสารเคมีมีอัตราอุบัติการณ์ของการเกิดโรคเป็น <strong>2.04 เท่า</strong> ของคนงานที่ไม่สัมผัส อย่างมีนัยสำคัญทางสถิติ
+          </div>
+        </div>
+      </details>
+
+      <!-- CASE 9 -->
+      <details class="written-prob">
+        <summary>Case 9: Matched Case-Control / Crossover Study (คำสั่ง mcci) — การอ่านตาราง McNemar</summary>
+        <div class="written-body">
+          <p><strong>โจทย์:</strong> การศึกษา Crossover RCT เปรียบเทียบผลสำเร็จของการรักษาภาวะหยุดหายใจขณะหลับด้วยเครื่อง CPAP กับอุปกรณ์ทางทันตกรรม MAS ในผู้ป่วย 100 คน (แต่ละคนทดลองทั้ง 2 วิธี) ได้ผลคำสั่ง <code>mcci 48 12 28 12</code> ดังนี้:</p>
+          <div class="code-box"><pre>. mcci 48 12 28 12
+
+                 | Controls (MAS)
+Cases (CPAP)     |   Exposed   Unexposed  |      Total
+-----------------+------------------------+------------
+         Exposed |        48          12  |         60
+       Unexposed |        28          12  |         40
+-----------------+------------------------+------------
+           Total |        76          24  |        100
+
+McNemar's chi2(1) =      6.40    Prob > chi2 = 0.0114
+Exact McNemar significance probability       = 0.0166
+
+odds ratio        .4285714        [95% conf. interval]   .19874   .87251 (exact)</pre></div>
+          <p><strong>คำถาม:</strong><br>
+          9.1) ตัวเลข 48, 12, 28, 12 ในตารางนี้รวมกันได้ 100 หมายถึงผู้ป่วยกี่คน และช่องใดคือ Discordant pairs?<br>
+          9.2) จงแสดงวิธีคำนวณค่า <code>McNemar's chi2(1) = 6.40</code> และค่า <code>odds ratio = .4286</code> จากตัวเลขในตาราง<br>
+          9.3) จงแปลผลการทดสอบนี้ว่าวิธีใดให้ผลสำเร็จดีกว่ากันอย่างมีนัยสำคัญหรือไม่?</p>
+          <div class="sol-box">
+            <strong>✅ เฉลยละเอียด:</strong><br>
+            <strong>9.1)</strong> หมายถึงผู้ป่วย <strong>100 คน (100 คู่ของการวัดในคนเดียวกัน)</strong> โดย:<br>
+            • ช่อง Concordant pairs (ผลเหมือนกันทั้ง 2 วิธี): $a = 48$ (สำเร็จทั้งคู่) และ $d = 12$ (ล้มเหลวทั้งคู่)<br>
+            • <strong>ช่อง Discordant pairs (ผลต่างกัน):</strong> คือ <strong>$b = 12$</strong> (CPAP สำเร็จ แต่ MAS ล้มเหลว) และ <strong>$c = 28$</strong> (CPAP ล้มเหลว แต่ MAS สำเร็จ) รวม $b + c = 40$ คู่<br>
+            <strong>9.2) แสดงวิธีคำนวณมือ:</strong><br>
+            • $\chi^2_{\text{McNemar}} = \frac{(b - c)^2}{b + c} = \frac{(12 - 28)^2}{12 + 28} = \frac{(-16)^2}{40} = \frac{256}{40} = \mathbf{6.40}$<br>
+            • $\text{Matched OR} = \frac{b}{c} = \frac{12}{28} = \mathbf{0.4286}$ (หรือถ้าตั้ง MAS เทียบกับ CPAP จะได้ $c / b = 28 / 12 = \mathbf{2.33}$)<br>
+            <strong>9.3) แปลผล:</strong><br>
+            • เนื่องจาก $\chi^2 = 6.40 &gt; 3.841$ ($p = 0.0114 &lt; 0.05$, Exact $p = 0.0166$) จึง <strong>ปฏิเสธ $H_0$</strong><br>
+            • สรุปว่า อัตราความสำเร็จของการรักษาด้วย CPAP ($60\%$) และ MAS ($76\%$) แตกต่างกันอย่างมีนัยสำคัญทางสถิติ โดย MAS ให้ผลสำเร็จสูงกว่า CPAP ($c = 28 &gt; b = 12$, Matched OR $= 0.43, 95\%\text{ CI: } 0.20 - 0.87$)
+          </div>
+        </div>
+      </details>
+
+      <!-- CASE 10 -->
+      <details class="written-prob">
+        <summary>Case 10: Mantel-Haenszel Stratified Analysis (`cc y x, by(z)`) — แยก Confounding vs Effect Modification</summary>
+        <div class="written-body">
+          <p><strong>โจทย์:</strong> ในการศึกษาความสัมพันธ์ระหว่างการดื่มกาแฟ (<code>coffee</code>) กับโรคกล้ามเนื้อหัวใจตาย (<code>mi</code>) พบว่า <strong>Crude OR = 2.45</strong> เมื่อทำการวิเคราะห์แยกชั้นตามการสูบบุหรี่ (<code>smoke</code>: 0=ไม่สูบ, 1=สูบ) ได้ผล STATA ดังนี้ (เปรียบเทียบ 2 สถานการณ์):</p>
+          <div class="code-box"><pre>* === สถานการณ์ที่ 1 ===
+. cc mi coffee, by(smoke)
+smoke            |       OR      [95% Conf. Interval]   M-H Weight
+-----------------+-------------------------------------------------
+               0 |   1.955542      1.387234   2.769425     25.70971
+               1 |   1.981204      1.201450   3.251120     14.12030
+-----------------+-------------------------------------------------
+           Crude |   2.451020      1.851200   3.245100
+    M-H combined |   1.964631      1.489210   2.591820
+-------------------------------------------------------------------
+Test of homogeneity (M-H)      chi2(1) =    0.01  Pr>chi2 = 0.9203
+Test that combined OR = 1:     Mantel-Haenszel chi2(1) =  23.41  Pr>chi2 = 0.0000
+
+* === สถานการณ์ที่ 2 (สมมติอีกงานวิจัยหนึ่ง) ===
+smoke            |       OR      [95% Conf. Interval]
+-----------------+-----------------------------------
+               0 |   1.120000      0.750000   1.670000
+               1 |   3.850000      2.400000   6.180000
+-----------------+-----------------------------------
+    M-H combined |   2.150000      1.580000   2.920000
+Test of homogeneity (M-H)      chi2(1) =   14.82  Pr>chi2 = 0.0001</pre></div>
+          <p><strong>คำถาม:</strong><br>
+          10.1) ใน <strong>สถานการณ์ที่ 1</strong> ตัวแปร <code>smoke</code> เป็น Confounder หรือ Effect Modifier? เพราะเหตุใด และต้องรายงานค่า OR ตัวไหน?<br>
+          10.2) ใน <strong>สถานการณ์ที่ 2</strong> ตัวแปร <code>smoke</code> เป็น Confounder หรือ Effect Modifier? เพราะเหตุใด และต้องรายงานค่า OR อย่างไร?</p>
+          <div class="sol-box">
+            <strong>✅ เฉลยละเอียด (สูตรสำเร็จ 2 ขั้นตอนในการตอบข้อสอบ):</strong><br>
+            <strong>10.1) สถานการณ์ที่ 1 — `smoke` เป็น Confounder (ตัวแปรกวน):</strong><br>
+            • <strong>ขั้นที่ 1 ดู Test of homogeneity:</strong> ได้ `Pr>chi2 = 0.9203` ($\ge 0.05$) แปลว่า OR ในกลุ่มไม่สูบบุหรี่ ($1.96$) และกลุ่มสูบบุหรี่ ($1.98$) <strong>ไม่แตกต่างกัน</strong> จึง <em>ไม่มี Effect Modification (ไม่มี Interaction)</em><br>
+            • <strong>ขั้นที่ 2 เทียบ Crude OR กับ M-H Combined OR:</strong> Crude OR $= 2.45$ แต่พอปรับด้วย `smoke` แล้ว M-H Combined OR ลดลงเหลือ $1.96$ (เปลี่ยนแปลง $\frac{|2.45 - 1.96|}{1.96} = 25.0\% \ge 10\%$) แสดงว่า `smoke` เป็น <strong>Confounder</strong><br>
+            • <strong>การรายงานผล:</strong> ให้รายงานค่า <strong>Mantel-Haenszel Adjusted OR = 1.96</strong> (95% CI: $1.49 - 2.59, p &lt; 0.001$)<br><br>
+            <strong>10.2) สถานการณ์ที่ 2 — `smoke` เป็น Effect Modifier (ตัวแปรปรับเปลี่ยนผล / Interaction):</strong><br>
+            • <strong>ดู Test of homogeneity:</strong> ได้ `Pr>chi2 = 0.0001` ($&lt; 0.05$) แปลว่า OR ในคนไม่สูบบุหรี่ ($1.12$) กับคนสูบบุหรี่ ($3.85$) <strong>แตกต่างกันอย่างมีนัยสำคัญทางสถิติ</strong><br>
+            • <strong>การรายงานผล:</strong> <strong>ห้ามใช้ค่า M-H combined ($2.15$) เด็ดขาด!</strong> ต้องรายงานแยกตามชั้นของ `smoke` (Stratum-specific OR): ในกลุ่มไม่สูบบุหรี่ การดื่มกาแฟไม่สัมพันธ์กับโรคหัวใจ ($\text{OR} = 1.12, 95\%\text{ CI: } 0.75-1.67$) แต่ในกลุ่มสูบบุหรี่ การดื่มกาแฟเพิ่มความเสี่ยงเป็น $3.85$ เท่า ($95\%\text{ CI: } 2.40-6.18$)
+          </div>
+        </div>
+      </details>
+
+      <!-- CASE 11 -->
+      <details class="written-prob">
+        <summary>Case 11: Regression &amp; Logistic Diagnostics (`vif`, `estat hettest`, `swilk r`, `estat gof`, `lroc`)</summary>
+        <div class="written-body">
+          <p><strong>โจทย์:</strong> หลังรัน Regression และ Logistic Regression นักวิจัยได้รันคำสั่งตรวจสอบความเหมาะสมของโมเดล (Diagnostics) ได้ผลดังนี้:</p>
+          <div class="code-box"><pre>* --- 1. หลังรัน Linear Regression (reg bwt i.race smoke age wt_lmp) ---
+. vif
+    Variable |       VIF       1/VIF
+-------------+----------------------
+      2.race |      1.18    0.847458
+      3.race |      1.22    0.819672
+       smoke |      1.15    0.869565
+         age |      1.09    0.917431
+      wt_lmp |      1.08    0.925926
+-------------+----------------------
+    Mean VIF |      1.14
+
+. estat hettest
+Breusch–Pagan/Cook–Weisberg test for heteroskedasticity
+Assumption: Normal error terms
+Variable: Fitted values of bwt
+H0: Constant variance
+    chi2(1) =   0.84
+Prob > chi2 = 0.3594
+
+. predict r, resid
+. swilk r
+                   Shapiro–Wilk W test for normal data
+    Variable |        Obs       W           V         z       Prob>z
+-------------+------------------------------------------------------
+           r |        189    0.99124     1.241     0.495      0.3103
+
+* --- 2. หลังรัน Logistic Regression (logistic lbw i.race smoke age wt_lmp hyper urirr) ---
+. estat gof, group(10)
+Goodness-of-fit test after logistic model
+Variable: lbw
+Number of observations =     189
+Number of groups       =      10
+Hosmer–Lemeshow chi2(8) =    6.28
+            Prob > chi2 =  0.6159</pre></div>
+          <p><strong>คำถาม:</strong><br>
+          11.1) จงแปลผลตาราง <code>vif</code> ว่ามีปัญหา Multicollinearity หรือไม่? เกณฑ์ตัดสินคือเท่าไร?<br>
+          11.2) จงแปลผล <code>estat hettest</code> และ <code>swilk r</code> ว่าโมเดล Linear Regression ผ่านข้อตกลงเบื้องต้นหรือไม่?<br>
+          11.3) จงแปลผล <code>estat gof, group(10)</code> (Hosmer-Lemeshow test) ของโมเดล Logistic Regression</p>
+          <div class="sol-box">
+            <strong>✅ เฉลยละเอียด:</strong><br>
+            <strong>11.1) แปลผล <code>vif</code> (Variance Inflation Factor):</strong><br>
+            • ค่า VIF ของตัวแปรทุกตัวมีค่าระหว่าง $1.08 - 1.22$ (Mean VIF $= 1.14$) ซึ่ง <strong>น้อยกว่าเกณฑ์ 10</strong> (และ $1/\text{VIF} &gt; 0.10$) สรุปว่า <strong>ไม่มีปัญหา Multicollinearity</strong> (ตัวแปรต้นไม่มีความสัมพันธ์ซ้ำซ้อนกันเอง)<br>
+            <strong>11.2) แปลผล <code>estat hettest</code> และ <code>swilk r</code>:</strong><br>
+            • <strong><code>estat hettest</code>:</strong> ทดสอบ $H_0:$ ความแปรปรวนของความคลาดเคลื่อนคงที่ (Constant variance / Homoscedasticity) ได้ $p = 0.3594 \ge 0.05$ → ยอมรับ $H_0$ <strong>ผ่านเกณฑ์ Homoscedasticity</strong><br>
+            • <strong><code>swilk r</code>:</strong> ทดสอบ $H_0:$ ค่าความคลาดเคลื่อน (Residuals $r$) แจกแจงแบบปกติ ได้ $p = 0.3103 \ge 0.05$ → ยอมรับ $H_0$ <strong>ผ่านเกณฑ์ Normality of residuals</strong><br>
+            <strong>11.3) แปลผล <code>estat gof, group(10)</code> (Hosmer-Lemeshow Goodness-of-Fit):</strong><br>
+            • ทดสอบ $H_0:$ ค่าที่สังเกตได้จริง (Observed) ไม่แตกต่างจากค่าที่คาดการณ์จากโมเดล (Expected) (คือโมเดลมีความเหมาะสม/ฟิตดี)<br>
+            • ได้ค่า $\chi^2(8) = 6.28, \mathbf{p = 0.6159 \ge 0.05}$ → ไม่ปฏิเสธ $H_0$ สรุปว่า <strong>โมเดล Logistic Regression นี้มีความเหมาะสมกับข้อมูลดี (Good fit)</strong>
+          </div>
+        </div>
+      </details>
+
+      <!-- CASE 12 -->
+      <details class="written-prob">
+        <summary>Case 12: การอ่านผล STATA Sample Size (`power twoproportions` &amp; `power twomeans`) + การปรับ Drop-out</summary>
+        <div class="written-body">
+          <p><strong>โจทย์:</strong> นักวิจัยคำนวณขนาดตัวอย่างใน STATA สำหรับการศึกษาระบาดวิทยา 2 เรื่อง ได้ Output ดังนี้:</p>
+          <div class="code-box"><pre>* --- เรื่องที่ 1: Cohort study ---
+. power twoproportions 0.35, test(chi2) rrisk(0.5) power(0.9)
+
+Estimated sample sizes for a two-sample proportions test
+Pearson's chi-squared test
+H0: p2 = p1  versus  Ha: p2 != p1
+
+Study parameters:
+        alpha =    0.0500
+        power =    0.9000
+        delta =    0.5000  (relative risk)
+           p1 =    0.3500
+           p2 =    0.1750
+
+Estimated sample sizes:
+            N =       262
+  N per group =       131
+
+* --- เรื่องที่ 2: Case-Control study ---
+. power twoproportions 0.30, test(chi2) oratio(3) power(0.9)
+
+Study parameters:
+        alpha =    0.0500
+        power =    0.9000
+        delta =    3.0000  (odds ratio)
+           p1 =    0.3000
+           p2 =    0.5625
+
+Estimated sample sizes:
+            N =       148
+  N per group =        74</pre></div>
+          <p><strong>คำถาม:</strong><br>
+          12.1) ในเรื่องที่ 1 ทำไมเมื่อกำหนด $p_1 = 0.35$ และ <code>rrisk(0.5)</code> โปรแกรมจึงคำนวณ $p_2 = 0.1750$ ออกมา? และต้องใช้กลุ่มตัวอย่างกลุ่มละกี่คน?<br>
+          12.2) ในเรื่องที่ 2 ทำไมเมื่อกำหนดสัดส่วนการได้รับปัจจัยเสี่ยงในกลุ่ม Control ($p_1 = 0.30$) และ <code>oratio(3)</code> โปรแกรมจึงได้สัดส่วนในกลุ่ม Case ($p_2 = 0.5625$)? จงแสดงวิธีคำนวณ<br>
+          12.3) หากในเรื่องที่ 1 คาดว่าจะมีผู้ติดตามไม่ครบ (Loss to follow-up / Drop-out) ร้อยละ <strong>15%</strong> จะต้องเก็บตัวอย่างจริงกลุ่มละกี่คน และรวมทั้งหมดกี่คน?</p>
+          <div class="sol-box">
+            <strong>✅ เฉลยละเอียด:</strong><br>
+            <strong>12.1) เรื่องที่ 1 (Cohort Study):</strong><br>
+            • จากนิยาม $\text{RR} = \frac{p_2}{p_1} \implies p_2 = \text{RR} \times p_1 = 0.50 \times 0.35 = \mathbf{0.1750}$ ($17.5\%$)<br>
+            • ต้องใช้กลุ่มตัวอย่าง <strong>กลุ่มละ 131 คน</strong> (รวม 2 กลุ่ม $= 262$ คน) เพื่อให้มีอำนาจการทดสอบ (Power) 90% ที่ $\alpha = 0.05$<br>
+            <strong>12.2) เรื่องที่ 2 (Case-Control Study):</strong><br>
+            • จากสูตรความสัมพันธ์ระหว่าง Odds กับ Proportion: $\text{Odds}_{\text{control}} = \frac{p_{\text{ctrl}}}{1 - p_{\text{ctrl}}} = \frac{0.30}{0.70}$<br>
+            • เมื่อ $\text{OR} = 3 \implies \text{Odds}_{\text{case}} = 3 \times \frac{0.30}{0.70} = \frac{0.90}{0.70}$<br>
+            • แปลงกลับเป็นสัดส่วนในกลุ่ม Case: $p_{\text{case}} = \frac{\text{Odds}}{1 + \text{Odds}} = \frac{0.90/0.70}{1 + 0.90/0.70} = \frac{0.90}{1.60} = \mathbf{0.5625}$ ($56.25\%$)<br>
+            • ได้ขนาดตัวอย่างกลุ่มละ <strong>74 คน</strong> (Case 74 คน, Control 74 คน รวม 148 คน)<br>
+            <strong>12.3) การปรับเผื่อ Loss to follow-up 15% ($r = 0.15$) ในเรื่องที่ 1:</strong><br>
+            • ใช้สูตรหารด้วย $(1 - r)$: $n_{\text{per group}} = \frac{131}{1 - 0.15} = \frac{131}{0.85} = 154.12 \to$ ปัดขึ้นเป็น <strong>กลุ่มละ 155 คน</strong> (รวมทั้งหมด $155 \times 2 = \mathbf{310\text{ คน}}$)
           </div>
         </div>
       </details>
@@ -1511,7 +2033,7 @@
     </section>
 
     <footer>
-      <strong>Master Study Guide &amp; Mock Exam (3014710 + 3014831)</strong> • Suvinon Pluckwattanachai, M.D.<br>
+      <strong>Master Study Guide &amp; STATA Output Interpretation Lab (3014710 + 3014831)</strong> • Suvinon Pluckwattanachai, M.D.<br>
       Department of Preventive and Social Medicine, Faculty of Medicine, Chulalongkorn University • Hosted on GitHub Pages
     </footer>
   </main>
@@ -1699,78 +2221,122 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   renderFinder();
 
-  // 6. Interactive 20-MCQ Mock Exam Engine
+  // 6. Interactive 35-MCQ Mock Exam Engine with Category Filter & Show All
   const mcqs = [
-    { tag: 'L6-1', q: '1. วัดระดับ HbA1c ก่อนและหลังเข้าโปรแกรมควบคุมอาหาร 3 เดือน ในผู้ป่วยกลุ่มเดิม 25 คน โดยผลต่าง (after − before) แจกแจงปกติ ควรใช้สถิติใด?', opts: ['A. Independent two-sample t-test', 'B. Paired t-test', 'C. One-way ANOVA', 'D. Mann-Whitney U test'], ans: 1, exp: 'วัดซ้ำก่อน-หลังในคนเดียวกัน (Paired/Dependent data) และผลต่างแจกแจงปกติ จึงใช้ Paired t-test (ttest after == before)' },
-    { tag: 'L6-1', q: '2. ก่อนรัน Unpaired t-test ได้สั่ง sdtest LastSBP, by(Group) แล้วได้ค่า p-value = 0.008 (< 0.05) ควรทำอย่างไรต่อ?', opts: ['A. ใช้ ttest LastSBP, by(Group) ตามปกติ', 'B. ใช้ ttest LastSBP, by(Group) unequal (Welch t-test)', 'C. เปลี่ยนไปใช้ Chi-square test', 'D. ใช้ Paired t-test แทน'], ans: 1, exp: 'sdtest p < 0.05 แปลว่าความแปรปรวนของ 2 กลุ่มไม่เท่ากัน (Unequal variances) ต้องเติม option , unequal เพื่อใช้ Welch t-test' },
-    { tag: 'L6-2', q: '3. การแจกแจงความน่าจะเป็นแบบใดที่มีคุณสมบัติเด่นคือ Mean = Variance (E(Y) = Var(Y) = λ) และใช้กับ Count data?', opts: ['A. Normal distribution', 'B. Binomial distribution', 'C. Poisson distribution', 'D. Chi-square distribution'], ans: 2, exp: 'Poisson distribution ใช้กับข้อมูลจำนวนนับ (Count data) และมีคุณสมบัติเฉพาะคือ Mean = Variance = λ' },
-    { tag: 'L6-2', q: '4. ข้อใดอธิบายความแตกต่างระหว่าง Sign test กับ Wilcoxon signed-rank test ได้ถูกต้องที่สุด?', opts: ['A. Sign test ใช้กับ 2 กลุ่มอิสระ ส่วน Wilcoxon ใช้กับกลุ่มจับคู่', 'B. Sign test ดูเฉพาะทิศทาง (+/−) ไม่สนใจขนาดผลต่าง ส่วน Wilcoxon ใช้ทั้งเครื่องหมายและอันดับของขนาดผลต่าง', 'C. Sign test มี Power สูงกว่า Wilcoxon เสมอ', 'D. ทั้งสองวิธีต้องผ่านข้อตกลง Normality'], ans: 1, exp: 'Sign test ดูเฉพาะเครื่องหมาย (+/−) ของผลต่าง (Y ~ Binomial(n, 0.5)) จึงทิ้งข้อมูลขนาดไป ทำให้ Power ต่ำกว่า Wilcoxon signed-rank' },
-    { tag: 'Nonparam', q: '5. เปรียบเทียบคะแนนความปวด (Pain score 0–10, Ordinal, เบ้มาก) ระหว่างผู้ป่วยที่สุ่มได้รับยาแก้ปวด 4 ชนิด ควรใช้สถิติใด?', opts: ['A. One-way ANOVA', 'B. Wilcoxon signed-rank test', 'C. McNemar\'s test', 'D. Kruskal-Wallis test'], ans: 3, exp: 'เปรียบเทียบ ≥3 กลุ่มอิสระ และตัวแปรเป็น Ordinal / เบ้มาก ต้องใช้ Kruskal-Wallis test (kwallis / kwallis2)' },
-    { tag: 'L9', q: '6. ตามกฎของ Cochran สำหรับตาราง 2×2 ถ้าขนาดตัวอย่างรวม n = 18 คน ควรเลือกใช้การทดสอบใด?', opts: ['A. Pearson\'s Chi-square test เสมอ', 'B. Fisher\'s exact test เสมอ', 'C. McNemar\'s test เสมอ', 'D. Independent t-test'], ans: 1, exp: 'ตามกฎ Cochran สำหรับตาราง 2×2: เมื่อ n ≤ 20 ต้องใช้ Fisher\'s exact test เสมอ!' },
-    { tag: 'L10', q: '7. ข้อใดเป็น "ข้อเสีย (Disadvantage)" ที่สำคัญที่สุดของ Crossover Randomized Controlled Trial?', opts: ['A. ต้องใช้จำนวนผู้เข้าร่วมวิจัยมากกว่า Parallel RCT', 'B. ไม่สามารถลด Confounding จากปัจจัยส่วนบุคคลได้', 'C. อาจเกิด Carryover effect (ฤทธิ์ยาจากช่วงแรกตกค้างมาช่วงที่สอง)', 'D. มี Statistical power ต่ำกว่า Parallel design'], ans: 2, exp: 'Crossover RCT ช่วยลด Confounding และใช้คนน้อยลง แต่มีจุดอ่อนสำคัญคือ Carryover effect (ต้องมี Washout period) และ Period effect' },
-    { tag: 'L10', q: '8. ในการศึกษา Matched Case-Control ได้คู่ discordant pairs คือ b = 24 (Case+/Ctrl−) และ c = 8 (Case−/Ctrl+) ค่า Matched Odds Ratio เท่ากับเท่าใด?', opts: ['A. 0.33', 'B. 2.00', 'C. 3.00', 'D. 4.00'], ans: 2, exp: 'Matched OR = b / c = 24 / 8 = 3.00 (ไม่ใช้ช่อง concordant a และ d ในการคำนวณ!)' },
-    { tag: 'Epitab', q: '9. การศึกษา Case-Control ของมะเร็งปอดกับควันฟืน: Cases (Exposed=30, Unexposed=70), Controls (Exposed=15, Unexposed=85) ค่า Odds Ratio เท่ากับเท่าใด?', opts: ['A. 0.41', 'B. 1.50', 'C. 2.00', 'D. 2.43'], ans: 3, exp: 'OR = (a × d) / (b × c) = (30 × 85) / (70 × 15) = 2550 / 1050 = 2.43' },
-    { tag: 'MH', q: '10. เมื่อรัน cc mi coffee, by(smoke) พบว่า Test of homogeneity ได้ p = 0.012 (< 0.05) โดย OR ในคนสูบ = 3.20 และ OR ในคนไม่สูบ = 1.10 ควรสรุปและรายงานผลอย่างไร?', opts: ['A. รายงาน M-H Combined OR ค่าเดียวได้เลย', 'B. เกิด Effect Modification (Interaction) ห้ามรวมเป็นค่าเดียว ต้องรายงาน OR แยกตามแต่ละชั้นของ smoke', 'C. แปลว่า smoke ไม่ใช่ทั้ง Confounder และ Effect Modifier', 'D. ตัดตัวแปร smoke ออกจากโมเดลทันที'], ans: 1, exp: 'Test of homogeneity p < 0.05 แสดงว่า OR ในแต่ละชั้นแตกต่างกันจริง (Effect Modification / Interaction) ห้ามรวมเป็นค่า M-H เดียว ต้องรายงานแยกชั้น!' },
-    { tag: 'L11', q: '11. One-way ANOVA เปรียบเทียบ 4 กลุ่ม พบว่าซิก จึงทำ Post-hoc ทุกคู่ด้วย Bonferroni เพื่อคุม overall α = 0.05 ต้องใช้ระดับนัยสำคัญต่อคู่ (α*) เท่ากับเท่าใด?', opts: ['A. 0.05', 'B. 0.0125', 'C. 0.0083', 'D. 0.0167'], ans: 2, exp: '4 กลุ่มมีจำนวนคู่ c = 4(3)/2 = 6 คู่ ดังนั้น α* = 0.05 / 6 = 0.0083' },
-    { tag: 'L11', q: '12. ในบรรดาวิธี Post-hoc comparison ต่อไปนี้ วิธีใด "เข้มงวดที่สุด (Most conservative)" และวิธีใด "เข้มงวดน้อยที่สุด (Least conservative)" ตามลำดับ?', opts: ['A. Fisher\'s LSD และ Bonferroni', 'B. Bonferroni และ Fisher\'s LSD', 'C. Tukey และ Scheffé', 'D. Duncan และ Bonferroni'], ans: 1, exp: 'ตามสไลด์ L11: Bonferroni เข้มงวดที่สุด (Most conservative) → Scheffé → Tukey → Duncan → Fisher\'s LSD เข้มงวดน้อยที่สุด' },
-    { tag: 'L11', q: '13. ผลการรัน oneway y trt ใน STATA ได้ Bartlett\'s test Prob>chi2 = 0.721 หมายความว่าอย่างไร?', opts: ['A. ความแปรปรวนทั้ง 3 กลุ่มไม่เท่ากัน ต้องเปลี่ยนไปใช้ Kruskal-Wallis', 'B. ความแปรปรวนทั้ง 3 กลุ่มเท่ากัน ผ่านข้อตกลงเบื้องต้นของ One-way ANOVA', 'C. ค่าเฉลี่ยทั้ง 3 กลุ่มไม่แตกต่างกัน', 'D. ข้อมูลมีการแจกแจงเบ้ขวาอย่างรุนแรง'], ans: 1, exp: 'Bartlett\'s test ทดสอบ H0: ความแปรปรวนทุกกลุ่มเท่ากัน เมื่อ p = 0.721 ≥ 0.05 จึงไม่ปฏิเสธ H0 แปลว่าผ่านเกณฑ์ Equal variances!' },
-    { tag: 'L12', q: '14. หากต้องการเพิ่มความแม่นยำในการประมาณค่าเฉลี่ยโดยลด Margin of error (d) ลงครึ่งหนึ่ง (เช่นจาก ±100 เหลือ ±50) ขนาดตัวอย่างที่ต้องใช้จะเปลี่ยนแปลงอย่างไร?', opts: ['A. เพิ่มขึ้น 2 เท่า', 'B. เพิ่มขึ้น 4 เท่า', 'C. ลดลงครึ่งหนึ่ง', 'D. ลดลงเหลือ 1 ใน 4'], ans: 1, exp: 'จากสูตร n = Z²σ²/d² ค่า n แปรผกผันกับ d² เมื่อลด d ลงเหลือ 1/2 ค่า n จะเพิ่มขึ้นเป็น 2² = 4 เท่าเสมอ' },
-    { tag: 'L13', q: '15. ใน Simple Linear Regression ระหว่าง SBP กับ Age ได้ Pearson r = 0.60 สัดส่วนความผันแปรของ SBP ที่อธิบายได้ด้วย Age คือเท่าใด?', opts: ['A. 6%', 'B. 36%', 'C. 60%', 'D. 77%'], ans: 1, exp: 'สัดส่วนความผันแปรที่อธิบายได้คือ R² = r² = (0.60)² = 0.36 = 36%' },
-    { tag: 'L13', q: '16. พบ Pearson r = −0.82 (p < 0.001) ระหว่างชั่วโมงออกกำลังกายต่อสัปดาห์กับอัตราการเต้นหัวใจขณะพัก ข้อใดกล่าวถูกต้องที่สุด?', opts: ['A. การออกกำลังกายมากขึ้นเป็นสาเหตุทำให้หัวใจเต้นช้าลง', 'B. ออกกำลังกายอธิบายความผันแปรของอัตราการเต้นหัวใจได้ 82%', 'C. มีความสัมพันธ์เชิงเส้นทางลบในระดับสูงมาก: ออกกำลังกายมากสัมพันธ์กับอัตราการเต้นหัวใจขณะพักที่ต่ำกว่า', 'D. ไม่มีความสัมพันธ์กันเพราะค่า r ติดลบ'], ans: 2, exp: 'r = −0.82 คือ Strong negative linear association (ห้ามสรุป Causation และ R² = 0.82² = 67.2% ไม่ใช่ 82%)' },
-    { tag: 'L14', q: '17. ใส่ตัวแปร "ภูมิภาคที่อยู่อาศัย" (เหนือ, อีสาน, กลาง, ตะวันออก, ใต้ = 5 กลุ่ม) เป็นตัวแปรต้นใน Multiple Linear Regression ต้องสร้าง Dummy variables กี่ตัว?', opts: ['A. 1 ตัว', 'B. 4 ตัว', 'C. 5 ตัว', 'D. 10 ตัว'], ans: 1, exp: 'กฎตัวแปรดัมมี่คือ k − 1 = 5 − 1 = 4 ตัว (เว้น 1 กลุ่มไว้เป็น Reference group)' },
-    { tag: 'L14', q: '18. กราฟ Diagnostic ใดใช้ตรวจสอบข้อตกลง Homoscedasticity (Constant variance) ใน Linear Regression?', opts: ['A. Histogram ของตัวแปรตาม Y', 'B. Plot of residuals versus fitted values (rvfplot)', 'C. Box plot ของตัวแปรต้นแต่ละตัว', 'D. ROC curve (lroc)'], ans: 1, exp: 'Homoscedasticity ใน Linear Regression ตรวจสอบด้วย rvfplot (Residuals vs Fitted values) และ estat hettest' },
-    { tag: 'Logistic', q: '19. ใน Logistic Regression ทำนายโรคกล้ามเนื้อหัวใจขาดเลือด (yes/no) ค่า coefficient (β) ของการสูบบุหรี่เท่ากับ 0.693 ค่า Adjusted Odds Ratio เท่ากับเท่าใด?', opts: ['A. 0.50', 'B. 0.693', 'C. 1.69', 'D. 2.00'], ans: 3, exp: 'AOR = e^β = e^0.693 ≈ 2.00 (จำแม่นๆ: ln(2) ≈ 0.693!)' },
-    { tag: 'Logistic', q: '20. ผล Logistic Regression รายงาน AOR ของการออกกำลังกาย = 0.71 (95% CI: 0.45–1.12) ข้อใดแปลผลถูกต้อง?', opts: ['A. การออกกำลังกายลดความเสี่ยงโรคได้ 29% อย่างมีนัยสำคัญ', 'B. ไม่มีนัยสำคัญทางสถิติที่ α = 0.05 เพราะ 95% CI คร่อม 1', 'C. มีนัยสำคัญทางสถิติเพราะ 95% CI ไม่คร่อม 0', 'D. แปลผลไม่ได้หากไม่มีค่า p-value'], ans: 1, exp: 'Odds Ratio เป็นสถิติแบบอัตราส่วน (Ratio) ค่า Null คือ 1 เมื่อ 95% CI (0.45–1.12) คร่อม 1 จึงไม่ซิกที่ α = 0.05' }
+    { cat: 'choose', tag: 'Mock #1 • L6-1', q: '1. Researchers measure HbA1c before and after a 3-month diet program in the same 25 patients. The before–after differences are approximately normally distributed. Which test is most appropriate?', opts: ['A. Independent two-sample t-test', 'B. Paired t-test', 'C. One-way ANOVA', 'D. Chi-square test', 'E. Mann-Whitney U test'], ans: 1, exp: 'วัดซ้ำก่อน-หลังในคนเดียวกัน 25 คน (Paired data) และผลต่างแจกแจงปกติ จึงใช้ Paired t-test (ttest after == before)' },
+    { cat: 'choose', tag: 'Mock #2 • Nonparam', q: '2. Pain scores (0–10, ordinal, strongly skewed) are compared among patients randomized to 4 different analgesics. Which test is most appropriate?', opts: ['A. One-way ANOVA', 'B. Wilcoxon signed-rank test', 'C. McNemar\'s test', 'D. Pearson correlation', 'E. Kruskal-Wallis test'], ans: 4, exp: 'เปรียบเทียบ 4 กลุ่มอิสระ และตัวแปรตามเป็น Ordinal + เบ้มาก ต้องใช้ Kruskal-Wallis test (kwallis)' },
+    { cat: 'stata', tag: 'Mock #3 • L11', q: '3. A one-way ANOVA comparing 4 groups is significant. The researcher performs all possible pairwise comparisons using a Bonferroni correction to keep overall α at 0.05. What significance level should be used for each comparison?', opts: ['A. 0.05', 'B. 0.0125', 'C. 0.0083', 'D. 0.0167', 'E. 0.025'], ans: 2, exp: '4 กลุ่มมีจำนวนคู่ c = 4×3/2 = 6 คู่ ดังนั้น α* = 0.05 / 6 = 0.0083' },
+    { cat: 'reg', tag: 'Mock #4 • L13', q: '4. In a simple linear regression of systolic blood pressure on age, the Pearson correlation coefficient is r = 0.60. What proportion of the variation in systolic blood pressure is explained by age?', opts: ['A. 6%', 'B. 60%', 'C. 77%', 'D. 36%', 'E. Cannot be determined without the slope'], ans: 3, exp: 'สัดส่วนความผันแปรที่อธิบายได้คือ R² = r² = (0.60)² = 0.36 = 36%' },
+    { cat: 'reg', tag: 'Mock #5 • L14', q: '5. A researcher includes "region of residence" (North, Northeast, Central, East, South) as a predictor in a multiple linear regression. How many dummy (indicator) variables are needed?', opts: ['A. 4', 'B. 1', 'C. 5', 'D. 6', 'E. 10'], ans: 0, exp: 'มี k = 5 กลุ่ม ต้องสร้างตัวแปรดัมมี่ k − 1 = 5 − 1 = 4 ตัว (เว้น 1 กลุ่มเป็น Reference)' },
+    { cat: 'choose', tag: 'Mock #6 • L14', q: '6. Which diagnostic is used to check the assumption of constant variance (homoscedasticity) in linear regression?', opts: ['A. Plot of residuals versus fitted values (rvfplot)', 'B. Histogram of the outcome variable', 'C. Box plot of each predictor', 'D. Scatter plot of two predictors against each other', 'E. Frequency table of the outcome'], ans: 0, exp: 'ตรวจสอบ Homoscedasticity ด้วยกราฟ Residuals vs Fitted values (คำสั่ง rvfplot) และ estat hettest' },
+    { cat: 'reg', tag: 'Mock #7 • L13', q: '7. A study of 80 adults finds a Pearson correlation of r = −0.82 (p < 0.001) between weekly hours of exercise and resting heart rate. Which statement is correct?', opts: ['A. There is a weak negative relationship.', 'B. More exercise causes a lower resting heart rate.', 'C. There is a strong negative linear relationship: more exercise is associated with a lower resting heart rate.', 'D. Exercise explains 82% of the variation in resting heart rate.', 'E. There is no relationship because r is negative.'], ans: 2, exp: 'r = −0.82 คือความสัมพันธ์เชิงเส้นทางลบระดับสูงมาก (ห้ามสรุป Causation และ R² = (−0.82)² = 67.2% ไม่ใช่ 82%)' },
+    { cat: 'reg', tag: 'Mock #8 • Logistic', q: '8. In a logistic regression for myocardial infarction (yes/no), the coefficient (Coef.) for current smoking (1=yes, 0=no) is 0.693. What is the adjusted odds ratio for smoking?', opts: ['A. 0.50', 'B. 0.693', 'C. 1.69', 'D. 2.00', 'E. 6.93'], ans: 3, exp: 'AOR = e^β = e^0.693 ≈ 2.00 (เนื่องจาก ln(2) ≈ 0.693)' },
+    { cat: 'stata', tag: 'Mock #9 • Logistic CI', q: '9. A logistic regression reports an adjusted odds ratio for regular exercise of 0.71 (95% CI: 0.45–1.12). Which interpretation is correct?', opts: ['A. Exercise significantly reduces the odds of disease by 29%.', 'B. Exercise significantly increases the odds of disease.', 'C. The association is not statistically significant at α = 0.05 because the CI includes 1.', 'D. The association is significant because the CI does not include 0.', 'E. The odds ratio cannot be interpreted without the p-value.'], ans: 2, exp: 'Odds Ratio เป็นอัตราส่วน (Ratio) ค่า Null คือ 1 เมื่อ 95% CI (0.45–1.12) คร่อม 1 จึงไม่มีนัยสำคัญทางสถิติที่ α = 0.05' },
+    { cat: 'epi', tag: 'Mock #10 • Case-Control', q: '10. A case-control study of lung cancer gives: Cases (Exposed=30, Not exposed=70) and Controls (Exposed=15, Not exposed=85). What is the odds ratio?', opts: ['A. 0.41', 'B. 1.50', 'C. 2.00', 'D. 2.43', 'E. 3.00'], ans: 3, exp: 'OR = (30 × 85) / (70 × 15) = 2550 / 1050 = 2.43' },
+    { cat: 'stata', tag: 'STATA • sdtest', q: '11. รันคำสั่ง sdtest bwt, by(smoke) แล้วได้ 2*Pr(F < f) = 0.0032 นักวิจัยควรเลือกใช้คำสั่งใดในขั้นถัดไป?', opts: ['A. ttest bwt, by(smoke)', 'B. ttest bwt, by(smoke) unequal', 'C. oneway bwt smoke', 'D. prtest bwt, by(smoke)'], ans: 1, exp: 'sdtest ได้ p = 0.0032 (< 0.05) แปลว่า SD ของ 2 กลุ่มไม่เท่ากัน ต้องใช้ Welch\'s t-test โดยเติม option , unequal' },
+    { cat: 'stata', tag: 'STATA • Bartlett', q: '12. รันคำสั่ง oneway sbp group, bonferroni ได้ Prob > F = 0.0012 และบรรทัดล่างสุดแสดง Bartlett\'s test: Prob>chi2 = 0.642 ข้อใดถูกต้อง?', opts: ['A. ใช้ผล ANOVA ไม่ได้ เพราะ Bartlett\'s p > 0.05', 'B. ความแปรปรวนของทุกกลุ่มไม่แตกต่างกัน (ผ่านเกณฑ์) และมีค่าเฉลี่ย SBP อย่างน้อย 1 คู่แตกต่างกัน', 'C. ทุกกลุ่มมีค่าเฉลี่ย SBP แตกต่างกันทั้งหมดทุกคู่', 'D. ต้องเปลี่ยนไปรัน kwallis ทันที'], ans: 1, exp: 'Bartlett\'s p = 0.642 ≥ 0.05 แปลว่าความแปรปรวนเท่ากัน (ผ่านเกณฑ์!) และ Prob > F = 0.0012 < 0.05 แปลว่ามีอย่างน้อย 1 คู่ต่างกัน' },
+    { cat: 'stata', tag: 'STATA • kwallis', q: '13. ในผลลัพธ์ของคำสั่ง kwallis pain, by(drug) สำหรับคะแนนความปวดที่มีคนได้คะแนนซ้ำกันจำนวนมาก ควรอ่านค่า p-value จากบรรทัดใด?', opts: ['A. Chi-squared probability (บรรทัดบน)', 'B. Chi-squared with ties probability (บรรทัดล่าง)', 'C. Bartlett\'s Prob > chi2', 'D. Pr(|T| > |t|)'], ans: 1, exp: 'เมื่อข้อมูลมีค่าซ้ำกัน (Ties) เช่น คะแนนความปวด 0–10 ต้องอ่านบรรทัด probability with ties เสมอ' },
+    { cat: 'choose', tag: 'L6-2 • Distributions', q: '14. ข้อมูล "จำนวนครั้งที่ผู้ป่วยหอบหืดมาห้องฉุกเฉินใน 1 ปี" (0, 1, 2, 3, ... ครั้ง) มีการแจกแจงตามทฤษฎีแบบใด และมีคุณสมบัติอย่างไร?', opts: ['A. Binomial distribution; Mean = np', 'B. Poisson distribution; Mean = Variance = λ', 'C. Normal distribution; Mean = 0, SD = 1', 'D. F-distribution; เบ้ซ้ายเสมอ'], ans: 1, exp: 'ข้อมูลจำนวนนับต่อหน่วยเวลา (Count data) มีการแจกแจงแบบ Poisson โดยมีคุณสมบัติเด่นคือ Mean = Variance = λ' },
+    { cat: 'choose', tag: 'L9 • Cochran Rule', q: '15. ในตาราง 3×3 (รวม 9 ช่อง) เมื่อสั่ง tab x y, expected พบว่ามี 1 ช่องที่มีค่า Expected count = 3.8 (ส่วนอีก 8 ช่องมีค่า > 10 ทั้งหมด) ข้อใดถูกต้องตามกฎของ Cochran?', opts: ['A. ใช้ Pearson\'s Chi-square ได้ เพราะไม่มีช่องใด < 1 และมีช่องที่ E ≥ 5 คิดเป็น 8/9 = 88.9% (> 80%)', 'B. ห้ามใช้ Chi-square เด็ดขาดแม้จะมีแค่ช่องเดียวที่ < 5', 'C. ต้องใช้ McNemar\'s test แทน', 'D. ต้องยุบตารางให้เหลือ 1×1'], ans: 0, exp: 'ตามกฎ Cochran สำหรับตาราง R×C: ใช้ Chi-square ได้ถ้าไม่มีช่องใด E < 1 และช่องที่มี E ≥ 5 มีมากกว่า 80% (ในที่นี้ 8/9 = 88.9% > 80% จึงผ่านเกณฑ์!)' },
+    { cat: 'epi', tag: 'L10 • McNemar', q: '16. ในตาราง Matched Case-Control จำนวน 80 คู่ พบว่าคู่ที่ทั้ง Case และ Control สัมผัสปัจจัย (a) = 20, Case สัมผัสแต่ Control ไม่สัมผัส (b) = 30, Case ไม่สัมผัสแต่ Control สัมผัส (c) = 10, ไม่สัมผัสทั้งคู่ (d) = 20 ค่า McNemar\'s chi2 เท่ากับเท่าใด?', opts: ['A. 5.00', 'B. 10.00', 'C. 3.00', 'D. 15.00'], ans: 1, exp: 'McNemar χ² = (b − c)² / (b + c) = (30 − 10)² / (30 + 10) = 400 / 40 = 10.00 (และ Matched OR = b/c = 30/10 = 3.00)' },
+    { cat: 'stata', tag: 'STATA • cs vs cc', q: '17. ในโปรแกรม STATA คำสั่ง cs และ cc มีกฎการเรียงลำดับตัวแปรหลังคำสั่งอย่างไร?', opts: ['A. เอาตัวแปร Exposure ขึ้นก่อน Outcome เสมอ', 'B. เอาตัวแปร Outcome (โรค/เหตุการณ์) ขึ้นก่อน Exposure (ปัจจัยเสี่ยง) เสมอ เช่น cc lbw smoke', 'C. เรียงตัวไหนก่อนก็ได้ ผลลัพธ์เหมือนกัน', 'D. ต้องใส่ i. หน้าตัวแปรทั้งสองตัว'], ans: 1, exp: 'ในตระกูล epitab ของ STATA (cs, cc, ir) ต้องใส่ Outcome (case_var) ก่อน Exposure (exp_var) เสมอ เช่น cc lbw smoke' },
+    { cat: 'epi', tag: 'Epitab • AFe', q: '18. จากผล STATA คำสั่ง cc lbw smoke ได้ Odds ratio = 2.00 และ Attr. frac. ex. (AFe) = 0.50 ข้อใดแปลผลค่า AFe = 0.50 ได้ถูกต้อง?', opts: ['A. มารดาที่สูบบุหรี่มีโอกาสคลอดลูกน้ำหนักน้อยเป็น 0.50 เท่าของคนไม่สูบ', 'B. ในกลุ่มมารดาที่สูบบุหรี่ 50% ของการเกิดทารกน้ำหนักน้อยมีสาเหตุมาจากการสูบบุหรี่', 'C. มีมารดาสูบบุหรี่ทั้งหมด 50% ในการศึกษา', 'D. ค่า p-value เท่ากับ 0.50'], ans: 1, exp: 'AFe = (OR − 1)/OR = (2 − 1)/2 = 0.50 (50%) หมายถึง ในกลุ่มผู้สัมผัสปัจจัย (สูบบุหรี่) ร้อยละ 50 ของการเกิดโรคมีสาเหตุมาจากปัจจัยนั้น' },
+    { cat: 'epi', tag: 'MH • Confounding vs EM', q: '19. เมื่อรัน cc mi coffee, by(smoke) พบว่า Crude OR = 2.50, Stratum 0 OR = 1.80, Stratum 1 OR = 1.82, M-H combined OR = 1.81 และ Test of homogeneity Pr>chi2 = 0.94 ข้อใดสรุปถูกต้อง?', opts: ['A. smoke เป็น Effect Modifier ต้องรายงานแยกชั้น 1.80 และ 1.82', 'B. smoke เป็น Confounder เพราะ Homogeneity p ≥ 0.05 และ Crude OR ต่างจาก M-H OR เกิน 10% ให้รายงาน M-H OR = 1.81', 'C. smoke ไม่มีผลใดๆ ให้รายงาน Crude OR = 2.50', 'D. โมเดลนี้ใช้ไม่ได้เพราะ p = 0.94'], ans: 1, exp: 'Homogeneity p = 0.94 ≥ 0.05 (ไม่มี Interaction) แต่ Crude OR (2.50) ต่างจาก M-H OR (1.81) ถึง 38% (≥ 10%) ดังนั้น smoke เป็น Confounder ต้องรายงาน M-H Adjusted OR = 1.81' },
+    { cat: 'stata', tag: 'STATA • Factor Variable', q: '20. ถ้ารันคำสั่ง reg bwt race โดย "ลืมใส่ i." หน้าตัวแปร race (ซึ่งมีรหัส 1=White, 2=Black, 3=Asia) STATA จะประมวลผลอย่างไร?', opts: ['A. STATA จะแจ้ง Error และไม่ยอมรัน', 'B. STATA จะสร้าง Dummy variables 2 ตัวให้อัตโนมัติเหมือนเดิม', 'C. STATA จะมองว่า race เป็นตัวเลขต่อเนื่อง (Continuous) โดยบังคับให้ผลต่างจาก 1→2 เท่ากับ 2→3 เป็นเส้นตรง', 'D. STATA จะเปลี่ยนไปรัน Logistic regression แทน'], ans: 2, exp: 'ถ้าไม่ใส่ i. STATA จะถือว่าเลข 1, 2, 3 เป็นตัวแปรเชิงปริมาณต่อเนื่องและคำนวณความชันเส้นตรงตัวเดียว ซึ่งผิดหลักการวิเคราะห์ตัวแปรกลุ่ม!' },
+    { cat: 'stata', tag: 'STATA • ib#.race', q: '21. คำสั่ง reg bwt ib3.race smoke มีความหมายตรงกับข้อใด?', opts: ['A. ตัดกลุ่มที่ 3 ของ race ออกจากข้อมูล', 'B. กำหนดให้กลุ่มที่ 3 ของ race เป็นกลุ่มอ้างอิง (Base/Reference group)', 'C. สร้างตัวแปรดัมมี่ทั้งหมด 3 ตัว', 'D. ยกกำลังสามตัวแปร race'], ans: 1, exp: 'ib3.race (Indicator with Base = 3) คือการสั่งให้ STATA ใช้กลุ่มที่ 3 เป็นกลุ่มอ้างอิงในการเปรียบเทียบ' },
+    { cat: 'reg', tag: 'L14 • R2 vs Adj R2', q: '22. เหตุใดในการเปรียบเทียบตัวแบบ Multiple Linear Regression ที่มีจำนวนตัวแปรต้นไม่เท่ากัน จึงควรดูค่า Adjusted R-squared มากกว่า R-squared ปกติ?', opts: ['A. เพราะ R-squared ปกติคำนวณยากกว่า', 'B. เพราะ R-squared ปกติจะเพิ่มขึ้นหรือเท่าเดิมเสมอเมื่อใส่ตัวแปรเพิ่มเข้าไป แม้ตัวแปรนั้นจะไม่เกี่ยวข้องเลยก็ตาม', 'C. เพราะ Adjusted R-squared มีค่ามากกว่า R-squared เสมอ', 'D. เพราะ Adjusted R-squared ใช้แทนค่า p-value ได้'], ans: 1, exp: 'R² ปกติไม่มีวันลดลงเมื่อเพิ่มตัวแปรต้น ส่วน Adjusted R² มีการหักลบ (Penalty) ตามจำนวนตัวแปรต้นที่เพิ่มขึ้น จึงใช้เปรียบเทียบโมเดลได้ยุติธรรมกว่า' },
+    { cat: 'reg', tag: 'L14 • VIF', q: '23. หลังรัน Multiple Linear Regression นักวิจัยพิมพ์คำสั่ง vif เพื่อตรวจสอบสิ่งใด และเกณฑ์ปกติคือเท่าไร?', opts: ['A. ตรวจสอบ Normality; ต้อง > 0.05', 'B. ตรวจสอบ Multicollinearity (ความสัมพันธ์ซ้ำซ้อนระหว่างตัวแปรต้น); ค่า VIF ควร < 10', 'C. ตรวจสอบ Homoscedasticity; ค่า VIF ควร = 1.96', 'D. ตรวจสอบ Outlier ของตัวแปรตาม'], ans: 1, exp: 'VIF (Variance Inflation Factor) ใช้วัดปัญหา Multicollinearity ระหว่างตัวแปรต้น โดยค่า VIF < 10 (หรือ 1/VIF > 0.10) ถือว่ายอมรับได้' },
+    { cat: 'reg', tag: 'L14 • Null Hypothesis', q: '24. ในสมการ bwt = β0 + β1(Black) + β2(Asia) + ε สมมติฐานหลัก (H0) สำหรับทดสอบว่า "เชื้อชาติมีผลต่อน้ำหนักแรกเกิดหรือไม่" คือข้อใด?', opts: ['A. H0: β0 = 0', 'B. H0: β1 = β2 = 0', 'C. H0: β1 ≠ β2', 'D. H0: bwt = 0'], ans: 1, exp: 'การทดสอบภาพรวมของตัวแปรเชื้อชาติ คือการทดสอบว่าค่าสัมประสิทธิ์ของดัมมี่ทุกตัวเป็นศูนย์พร้อมกัน: H0: β1 = β2 = 0 (และ Ha: มีอย่างน้อยหนึ่ง βj ≠ 0)' },
+    { cat: 'stata', tag: 'STATA • reg CI', q: '25. ในตารางผลลัพธ์ reg bwt i.race smoke age พบว่าตัวแปร age มี Coef. = −3.13 และ [95% Conf. Interval] = [−22.24, +15.97] ข้อใดแปลผลถูกต้อง?', opts: ['A. อายุมารดามีผลลดน้ำหนักทารกอย่างมีนัยสำคัญ เพราะ Coef. ติดลบ', 'B. อายุมารดาไม่มีความสัมพันธ์อย่างมีนัยสำคัญทางสถิติ เพราะ 95% CI ของ Coef. คร่อม 0', 'C. อายุมารดามีความสัมพันธ์อย่างมีนัยสำคัญ เพราะ 95% CI คร่อม 1', 'D. ต้องนำ −3.13 ไปยกกำลัง e ก่อนแปลผล'], ans: 1, exp: 'ใน Linear Regression ค่า Coef. (β) เป็นผลต่าง (Difference) ค่า Null คือ 0 เมื่อ 95% CI [−22.24, +15.97] คร่อม 0 จึงไม่มีนัยสำคัญทางสถิติ (p = 0.747)' },
+    { cat: 'stata', tag: 'STATA • reg vs logistic', q: '26. ข้อใดสรุปความแตกต่างของการใช้คำสั่ง reg, logit และ logistic ใน STATA ได้ถูกต้องที่สุด?', opts: ['A. reg ใช้กับตัวแปรตาม Binary ส่วน logistic ใช้กับตัวแปรตาม Continuous', 'B. reg ใช้กับตัวแปรตาม Continuous; ส่วน logit และ logistic ใช้กับตัวแปรตาม Binary (0/1) โดย logit แสดงค่า β (log-odds) และ logistic แสดงค่า Odds Ratio', 'C.ทั้ง 3 คำสั่งให้ตัวเลขในตารางเหมือนกันทุกประการ', 'D. logit ใช้กับข้อมูล 3 กลุ่มขึ้นไปเท่านั้น'], ans: 1, exp: 'ดูที่ตัวแปรตาม Y: ถ้า Continuous ใช้ reg; ถ้า Binary (0/1) ใช้ logit (ได้ Coef. β) หรือ logistic (ได้ OR = e^β)' },
+    { cat: 'reg', tag: 'Logistic • Continuous OR', q: '27. ในตาราง logistic lbw ... พบว่าตัวแปรน้ำหนักแม่ (wt_lmp, ปอนด์) มี Odds Ratio = 0.96, P>|z| = 0.018, 95% CI [0.93, 0.99] ข้อใดแปลผลถูกต้อง?', opts: ['A. น้ำหนักแม่ไม่มีผลต่อทารกน้ำหนักน้อย เพราะ OR น้อยกว่า 1', 'B. เมื่อควบคุมปัจจัยอื่นคงที่ ทุกๆ 1 ปอนด์ของน้ำหนักแม่ที่เพิ่มขึ้น โอกาส (Odds) คลอดทารกน้ำหนักน้อยลดลง 4% อย่างมีนัยสำคัญทางสถิติ', 'C. เมื่อควบคุมปัจจัยอื่นคงที่ ทุกๆ 1 ปอนด์ของน้ำหนักแม่ที่เพิ่มขึ้น น้ำหนักลูกจะลดลง 0.96 กรัม', 'D. ไม่มีนัยสำคัญเพราะ 95% CI ไม่คร่อม 1'], ans: 1, exp: 'AOR = 0.96 (< 1 และ 95% CI ไม่คร่อม 1) เป็นปัจจัยป้องกัน: ทุกๆ 1 ปอนด์ที่เพิ่มขึ้น โอกาสเกิด lbw ลดลง (1 − 0.96)×100% = 4% อย่างมีนัยสำคัญ' },
+    { cat: 'reg', tag: 'Logistic • Multi-unit OR', q: '28. จากสมการ logit(dm) พบว่าค่าสัมประสิทธิ์ (Coef.) ของอายุ (age, ปี) เท่ากับ 0.045 หากอายุเพิ่มขึ้น 10 ปี ค่า Adjusted Odds Ratio จะเท่ากับเท่าใด?', opts: ['A. e^(0.045) = 1.046', 'B. 0.045 × 10 = 0.450', 'C. e^(0.045 × 10) = e^(0.45) ≈ 1.57', 'D. (0.045)^10'], ans: 2, exp: 'เมื่อตัวแปรต่อเนื่องเพิ่มขึ้น ΔX = 10 หน่วย: AOR = e^(β × ΔX) = e^(0.045 × 10) = e^0.45 ≈ 1.57 เท่า' },
+    { cat: 'reg', tag: 'Logistic • Screening', q: '29. ตามหลักของ Hosmer & Lemeshow (ในสไลด์ รศ.สมรัตน์) ในขั้น Univariate screening ควรคัดเลือกตัวแปรที่มีค่า p-value เท่าใดเข้าสู่การวิเคราะห์ Multivariable Logistic Regression?', opts: ['A. เฉพาะตัวแปรที่ p < 0.001 เท่านั้น', 'B. ตัวแปรที่มี p < 0.25 ร่วมกับตัวแปรที่มีความสำคัญทางคลินิก/ชีววิทยา', 'C. เฉพาะตัวแปรที่ p > 0.50', 'D. ไม่ต้องคัดเลือก ให้ตัดตัวแปรกลุ่มออกทั้งหมด'], ans: 1, exp: 'เกณฑ์ Hosmer & Lemeshow แนะนำให้คัดตัวแปรที่ Univariate test มีค่า p < 0.25 ร่วมกับตัวแปรที่มีความสำคัญทางชีววิทยาเข้าสู่โมเดลพหุคูณ' },
+    { cat: 'stata', tag: 'STATA • Hosmer-Lemeshow', q: '30. หลังรัน Logistic regression นักวิจัยสั่ง estat gof, group(10) ได้ค่า Hosmer–Lemeshow chi2(8) = 6.28, Prob > chi2 = 0.6159 ข้อใดแปลผลถูกต้อง?', opts: ['A. โมเดลนี้ไม่เหมาะสมกับข้อมูล (Poor fit) เพราะ p > 0.05', 'B. โมเดลนี้มีความเหมาะสมกับข้อมูลดี (Good fit) เพราะ p ≥ 0.05 (Observed ไม่ต่างจาก Expected)', 'C. ตัวแปรต้นทุกตัวในโมเดลไม่มีนัยสำคัญ', 'D. ต้องตัดกลุ่มตัวอย่างออก 10%'], ans: 1, exp: 'Hosmer-Lemeshow GOF ตั้ง H0 ว่าโมเดลฟิตดี (Observed = Expected) ดังนั้นเมื่อ p = 0.6159 ≥ 0.05 จึงแปลว่าโมเดลฟิตดี (Good fit)!' },
+    { cat: 'stata', tag: 'STATA • lrtest & lroc', q: '31. คำสั่งใดใน STATA ใช้เปรียบเทียบโมเดล Logistic Regression 2 โมเดลที่ซ้อนกัน (Nested models) และคำสั่งใดใช้วาดกราฟ ROC curve ตามลำดับ?', opts: ['A. vif และ rvfplot', 'B. lrtest และ lroc', 'C. sdtest และ oneway', 'D. pwmean และ kwallis2'], ans: 1, exp: 'lrtest (Likelihood Ratio Test) ใช้เปรียบเทียบ Full vs Reduced model ส่วน lroc ใช้วาดกราฟ ROC และคำนวณค่า AUC' },
+    { cat: 'epi', tag: 'L12 • Non-response', q: '32. คำนวณขนาดตัวอย่างจากสูตรได้ n = 360 คน หากต้องการเผื่ออัตราการไม่ตอบกลับ (Non-response rate) ร้อยละ 20% จะต้องเก็บตัวอย่างทั้งหมดกี่คน?', opts: ['A. 360 × 1.20 = 432 คน', 'B. 360 / (1 − 0.20) = 360 / 0.80 = 450 คน', 'C. 360 + 20 = 380 คน', 'D. 360 × 0.80 = 288 คน'], ans: 1, exp: 'การปรับ Non-response ต้องหารด้วย (1 − r) เสมอ: n_final = 360 / (1 − 0.20) = 360 / 0.80 = 450 คน (ห้ามคูณ 1.20!)' },
+    { cat: 'epi', tag: 'L12 • Error & Power', q: '33. ถ้าผู้วิจัยต้องการเพิ่มอำนาจการทดสอบ (Statistical Power, 1 − β) จาก 80% เป็น 90% โดยกำหนดเงื่อนไขอื่นคงที่ ขนาดตัวอย่างที่ต้องใช้จะเปลี่ยนไปอย่างไร?', opts: ['A. ขนาดตัวอย่างเพิ่มขึ้น (เพราะ Z_(1−β) เพิ่มจาก 0.84 เป็น 1.28)', 'B. ขนาดตัวอย่างลดลง', 'C. ขนาดตัวอย่างเท่าเดิม', 'D. ค่า α จะลดลงเป็น 0'], ans: 0, exp: 'เมื่อต้องการ Power สูงขึ้น (โอกาสเกิด Type II error β ลดลง) ค่า Z_(1−β) ในตัวเศษจะเพิ่มจาก 0.84 เป็น 1.28 ทำให้ต้องใช้ขนาดตัวอย่าง n เพิ่มขึ้น' },
+    { cat: 'reg', tag: 'Logistic • Predicted Prob', q: '34. หากคำนวณค่า Linear predictor (log-odds หรือ z) จากสมการ Logistic regression ของผู้ป่วยรายหนึ่งได้เท่ากับ z = 0 ความน่าจะเป็น (Predicted probability, P) ที่ผู้ป่วยรายนี้จะเป็นโรคเท่ากับเท่าใด?', opts: ['A. 0%', 'B. 25%', 'C. 50% (0.50)', 'D. 100%'], ans: 2, exp: 'เมื่อ z = 0 (นั่นคือ Odds = e^0 = 1): P = 1 / (1 + e^0) = 1 / (1 + 1) = 0.50 หรือ 50% พอดี!' },
+    { cat: 'choose', tag: 'ANOVA vs t-test', q: '35. ถ้านำข้อมูลที่มี 2 กลุ่มอิสระ (เช่น ชาย vs หญิง) มารัน One-way ANOVA (oneway bwt gender) แทนการใช้ Independent t-test (ttest bwt, by(gender)) ผลลัพธ์จะเป็นอย่างไร?', opts: ['A. รันไม่ได้ เพราะ ANOVA บังคับต้องมี 3 กลุ่มขึ้นไปเท่านั้น', 'B. รันได้ โดยจะได้ค่า F = t² และได้ค่า p-value เท่ากับ two-sided t-test ทุกประการ', 'C. รันได้ แต่ค่า p-value จะต่างกัน 2 เท่า', 'D. รันได้ แต่จะได้ค่า Odds Ratio ออกมาแทน'], ans: 1, exp: 'สำหรับ 2 กลุ่ม One-way ANOVA และ Independent t-test (two-sided) และ Simple Linear Regression ให้ผลลัพธ์ทางคณิตศาสตร์เท่ากันเป๊ะ โดย F = t² และ p-value เท่ากัน!' }
   ];
 
   const mcqContainer = document.getElementById('mcqContainer');
   const scoreText = document.getElementById('examScoreText');
-  let answered = 0, correct = 0;
+  let userAnswers = {};
+  let currentCat = 'all';
 
   function renderQuiz() {
-    answered = 0; correct = 0;
-    updateScore();
     mcqContainer.innerHTML = '';
     mcqs.forEach((item, idx) => {
+      if (currentCat !== 'all' && item.cat !== currentCat) return;
       const card = document.createElement('div');
       card.className = 'mcq-card';
+      const chosen = userAnswers[idx];
       card.innerHTML = `
         <div class="mcq-q"><span class="mcq-tag">${item.tag}</span>${item.q}</div>
         <div class="mcq-opts">
-          ${item.opts.map((opt, oi) => `<button class="mcq-opt" data-idx="${idx}" data-oi="${oi}">${opt}</button>`).join('')}
+          ${item.opts.map((opt, oi) => {
+            let cls = 'mcq-opt';
+            let dis = '';
+            if (chosen !== undefined) {
+              dis = 'disabled';
+              if (oi === item.ans) cls += ' correct';
+              else if (oi === chosen && chosen !== item.ans) cls += ' wrong';
+            }
+            return `<button class="${cls}" data-idx="${idx}" data-oi="${oi}" ${dis}>${opt}</button>`;
+          }).join('')}
         </div>
-        <div class="mcq-exp" id="exp-${idx}"><strong>💡 เฉลย:</strong> ${item.exp}</div>
+        <div class="mcq-exp ${chosen !== undefined ? 'show' : ''}" id="exp-${idx}"><strong>💡 เฉลย:</strong> ${item.exp}</div>
       `;
       mcqContainer.appendChild(card);
     });
+
     mcqContainer.querySelectorAll('.mcq-opt').forEach(btn => {
       btn.addEventListener('click', () => {
         const idx = parseInt(btn.dataset.idx, 10);
         const oi = parseInt(btn.dataset.oi, 10);
-        const card = btn.closest('.mcq-card');
-        const allBtns = card.querySelectorAll('.mcq-opt');
-        allBtns.forEach(b => b.disabled = true);
-        answered++;
-        if (oi === mcqs[idx].ans) {
-          btn.classList.add('correct');
-          correct++;
-        } else {
-          btn.classList.add('wrong');
-          allBtns[mcqs[idx].ans].classList.add('correct');
-        }
-        document.getElementById(`exp-${idx}`).classList.add('show');
+        userAnswers[idx] = oi;
+        renderQuiz();
         updateScore();
       });
     });
   }
 
   function updateScore() {
+    const keys = Object.keys(userAnswers);
+    const answered = keys.length;
+    let correct = 0;
+    keys.forEach(k => {
+      const i = parseInt(k, 10);
+      if (userAnswers[i] === mcqs[i].ans) correct++;
+    });
     const pct = answered ? Math.round((correct / answered) * 100) : 0;
     scoreText.textContent = `คะแนนของคุณ: ${correct} / ${mcqs.length} (ตอบแล้ว ${answered} ข้อ • ถูก ${pct}%)`;
   }
 
-  document.getElementById('examResetBtn').addEventListener('click', renderQuiz);
+  document.querySelectorAll('#mcqFilterBar .f-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#mcqFilterBar .f-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      currentCat = btn.dataset.cat;
+      renderQuiz();
+    });
+  });
+
+  document.getElementById('examResetBtn').addEventListener('click', () => {
+    userAnswers = {};
+    renderQuiz();
+    updateScore();
+  });
+
+  document.getElementById('examShowAllBtn').addEventListener('click', () => {
+    mcqs.forEach((m, i) => { if (userAnswers[i] === undefined) userAnswers[i] = m.ans; });
+    renderQuiz();
+    updateScore();
+  });
+
   renderQuiz();
+  updateScore();
 });
 </script>
 </body>
