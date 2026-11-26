@@ -1721,6 +1721,200 @@
         • $\chi^2, df = 1, \alpha = 0.05 \implies \mathbf{3.841}$ &nbsp;|&nbsp; $\chi^2, df = 2, \alpha = 0.05 \implies \mathbf{5.991}$ &nbsp;|&nbsp; $e \text{ (Euler's number)} \approx \mathbf{2.718}$ (จำเพิ่ม: $\ln(2) \approx 0.693 \implies e^{0.693} = 2.00$)
       </div>
 
+      
+      <!-- ===================================================== -->
+      <!-- PART A-0: PAST EXAM RECALLS (โพยข้อสอบข้อเขียนจริงรุ่นพี่!) -->
+      <!-- ===================================================== -->
+      <h3 class="sub-title" style="margin-top:10px;border-left-color:#e11d48;color:#be123c;font-size:17.5px;">
+        🎯 โพยข้อสอบข้อเขียนจริงจากรุ่นพี่ (Past Exam Written Recalls — เก็งตรงจุด 100%)
+      </h3>
+      <p class="body-p">รวบรวมโจทย์ข้อเขียนที่ออกสอบจริงตามโพยรุ่นพี่ ป.โท–เอก เวชศาสตร์ป้องกันฯ จุฬาฯ พร้อมวิธีเขียนตอบทีละบรรทัดให้ได้คะแนนเต็ม</p>
+
+      <!-- RECALL 1: SOMRAT 6 TRUE/FALSE LOGISTIC STATEMENTS -->
+      <details class="written-prob" open>
+        <summary>📌 โพยข้อเขียน #1 (อ.สมรัตน์): โจทย์ถาม ถูก/ผิด (True or False) เรื่อง Logistic Regression — ถ้าผิด ผิดอย่างไร?</summary>
+        <div class="written-body">
+          <p><strong>รูปแบบข้อสอบจริง:</strong> อาจารย์ให้ข้อความเกี่ยวกับ Logistic Regression มา 6–10 ข้อ แล้วถามว่า <strong>"ข้อใดถูก ข้อใดผิด ถ้าผิด ผิดเพราะอะไร จงแก้ไขให้ถูกต้อง"</strong></p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>ข้อความในข้อสอบ</th>
+                  <th>ถูก / ผิด</th>
+                  <th>เหตุผลและคำตอบที่ถูกต้อง (สำหรับเขียนอธิบาย)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>1. กราฟความสัมพันธ์ระหว่างความน่าจะเป็น ($P$) กับตัวแปรต้น ($X$) ใน Logistic regression เป็นเส้นตรง</strong></td>
+                  <td><span class="tag tag-rose">❌ ผิด</span></td>
+                  <td>กราฟระหว่างความน่าจะเป็น $P(Y=1)$ กับ $X$ เป็น <strong>เส้นโค้งรูปตัว S (Sigmoid / S-shaped curve)</strong> เพื่อจำกัดค่า $P$ ให้อยู่ระหว่าง $0$ ถึง $1$ เสมอ <em>(ส่วนที่เป็นเส้นตรงคือกราฟระหว่างค่า <strong>Logit / Log-odds $\ln[\frac{P}{1-P}]$</strong> กับ $X$)</em></td>
+                </tr>
+                <tr>
+                  <td><strong>2. ตัวแปรต้น (Independent variables / $X$) ใน Logistic regression ต้องเป็นตัวแปรกลุ่ม (Categorical) เท่านั้น</strong></td>
+                  <td><span class="tag tag-rose">❌ ผิด</span></td>
+                  <td>ตัวแปรต้น ($X$) สามารถเป็นได้ <strong>ทั้งตัวแปรต่อเนื่อง (Continuous) และตัวแปรกลุ่ม (Categorical / Dummy variables)</strong> หรือผสมกันหลายชนิดในสมการเดียวกันได้</td>
+                </tr>
+                <tr>
+                  <td><strong>3. ตัวแปรตาม (Dependent variable / $Y$) ใน Binary Logistic regression ต้องเป็นตัวแปรต่อเนื่อง (Continuous) เท่านั้น</strong></td>
+                  <td><span class="tag tag-rose">❌ ผิด</span></td>
+                  <td>ตัวแปรตาม ($Y$) ใน Binary Logistic regression ต้องเป็น <strong>ตัวแปรเชิงกลุ่ม 2 ค่า (Binary / Dichotomous outcome: 1 = เกิดโรค, 0 = ไม่เกิดโรค) เท่านั้น</strong> <em>(ถ้าตัวแปรตามเป็น Continuous ต้องใช้ Linear Regression)</em></td>
+                </tr>
+                <tr>
+                  <td><strong>4. ค่าสัมประสิทธิ์การถดถอย ($\beta$) ในสมการ Logistic regression คือค่า Odds Ratio (OR) สามารถแปลผลเป็นกี่เท่าได้ทันที</strong></td>
+                  <td><span class="tag tag-rose">❌ ผิด</span></td>
+                  <td>ค่า $\beta$ คือ <strong>Log-odds ($\ln[\text{OR}]$)</strong> ไม่ใช่ค่า OR! หากต้องการได้ค่า Adjusted Odds Ratio ต้องนำ $e$ ไปยกกำลังค่า $\beta$ ก่อนเสมอ ($\mathbf{\text{OR} = e^{\beta}}$)</td>
+                </tr>
+                <tr>
+                  <td><strong>5. การประมาณค่าพารามิเตอร์ ($\beta$) ใน Logistic regression ใช้วิธี Ordinary Least Squares (OLS) เหมือน Linear regression</strong></td>
+                  <td><span class="tag tag-rose">❌ ผิด</span></td>
+                  <td>Logistic regression <strong>ไม่ใช้วิธี OLS</strong> แต่ใช้วิธี <strong>Maximum Likelihood Estimation (MLE)</strong> และทดสอบการเปรียบเทียบโมเดลด้วย <strong>Likelihood Ratio Test (LRT)</strong> และ Wald test</td>
+                </tr>
+                <tr>
+                  <td><strong>6. ใน Logistic regression ข้อตกลงเบื้องต้นกำหนดว่าความคลาดเคลื่อน (Error) ต้องมีการแจกแจงแบบปกติ (Normal distribution) และความแปรปรวนคงที่ (Homoscedasticity)</strong></td>
+                  <td><span class="tag tag-rose">❌ ผิด</span></td>
+                  <td>เนื่องจาก $Y$ มีแค่ 0 กับ 1 ความคลาดเคลื่อนจึงมีการแจกแจงแบบ <strong>Binomial (Bernoulli)</strong> ไม่ได้แจกแจงแบบปกติ และความแปรปรวนคือ $P(1-P)$ ซึ่งไม่คงที่โดยธรรมชาติ จึง <strong>ไม่ต้องใช้ข้อตกลง Normality และ Homoscedasticity ของ Residuals</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>7. ในการคัดกรองตัวแปรทีละตัว (Univariate screening) ตามเกณฑ์ของ Hosmer &amp; Lemeshow ควรคัดตัวแปรที่มี $p &lt; 0.25$ เข้าสู่ Multivariable model</strong></td>
+                  <td><span class="tag tag-green">✅ ถูก</span></td>
+                  <td>ถูกต้อง ตามหลัก Hosmer &amp; Lemeshow คัดตัวแปรที่ Univariate test มีค่า $p &lt; 0.25$ ร่วมกับตัวแปรที่มีความสำคัญทางคลินิก/ชีววิทยาเข้าสู่สมการพหุคูณ</td>
+                </tr>
+                <tr>
+                  <td><strong>8. การทดสอบความเหมาะสมของโมเดลด้วย Hosmer–Lemeshow goodness-of-fit test ถ้าได้ $p &lt; 0.05$ แปลว่าโมเดลมีความเหมาะสมดี (Good fit)</strong></td>
+                  <td><span class="tag tag-rose">❌ ผิด</span></td>
+                  <td>Hosmer–Lemeshow ตั้ง $H_0$ ว่า Observed = Expected (โมเดลฟิตดี) ดังนั้นจะสรุปว่าโมเดลฟิตดี (Good fit) ต้องได้ค่า <strong>$p \ge 0.05$</strong> (ถ้า $p &lt; 0.05$ แปลว่าโมเดลฟิตไม่ดี / Poor fit!)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- RECALL 2: SOMRAT STROKE LOGISTIC TABLE WITH MISSING OR -->
+      <details class="written-prob" open>
+        <summary>📌 โพยข้อเขียน #2 (อ.สมรัตน์): ตาราง Logistic Regression โรค Stroke — ให้ Coef. และ SE มา เว้นช่อง OR ไว้ให้คำนวณและแปลผล</summary>
+        <div class="written-body">
+          <p><strong>โจทย์ตามโพยรุ่นพี่:</strong> การศึกษาปัจจัยเสี่ยงต่อการเกิดโรคหลอดเลือดสมอง (<code>stroke</code>: 1 = เป็น, 0 = ไม่เป็น) ในผู้ป่วย 400 ราย โดยวิเคราะห์ด้วย Multiple Logistic Regression ได้ค่าสัมประสิทธิ์ (<code>Coef.</code>) และ <code>Std. Err.</code> ดังตาราง (โดยเว้นช่อง <strong>Adjusted OR</strong> และ <strong>95% CI ของ OR</strong> ไว้):</p>
+          <div class="code-box"><pre>Variable                     |   Coef. (β)   Std. Err.     z      P>|z|    Adjusted OR    [95% CI of OR]
+-----------------------------+--------------------------------------------------------------------------
+ht (1=ความดันสูง, 0=ปกติ)      |     1.100       0.250     4.40     0.000       [ A ]         [   B   ]
+sex (1=ชาย, 0=หญิง)           |     0.693       0.220     3.15     0.002       [ C ]         [   D   ]
+smoke (1=สูบบุหรี่, 0=ไม่สูบ)     |     0.350       0.240     1.46     0.144       [ E ]         [   F   ]
+age (อายุ, ปี - ต่อเนื่อง)        |     0.050       0.015     3.33     0.001       [ G ]         [   H   ]
+_cons                        |    -5.200       0.950    -5.47     0.000</pre></div>
+          <p><strong>คำถาม:</strong><br>
+          1) จงคำนวณค่า <strong>Adjusted OR</strong> และ <strong>95% CI ของ OR</strong> ในช่อง [A] ถึง [H] (กำหนด $e \approx 2.718, Z_{0.975} = 1.96$)<br>
+          2) จงเขียนสมการ Logit ของการเกิดโรค Stroke<br>
+          3) จงแปลผลค่า Adjusted OR ของทุกตัวแปร (<code>ht</code>, <code>sex</code>, <code>smoke</code>, <code>age</code>) และหากอายุเพิ่มขึ้น <strong>10 ปี</strong> จะมีค่า Adjusted OR เท่าใด?</p>
+          <div class="sol-box">
+            <strong>✅ เฉลยวิธีคิดและประโยคแปลผลได้คะแนนเต็ม:</strong><br>
+            <strong>1) สูตรคำนวณ:</strong> $\mathbf{\text{Adjusted OR} = e^{\beta}}$ และ $\mathbf{95\%\text{ CI of OR} = e^{\beta \pm 1.96 \times SE}}$<br>
+            • <strong><code>ht</code> ($\beta = 1.100, SE = 0.250$):</strong><br>
+            &nbsp;&nbsp;— <strong>[A] Adjusted OR</strong> $= e^{1.100} \approx \mathbf{3.00}$<br>
+            &nbsp;&nbsp;— <strong>[B] 95% CI:</strong> $\beta \pm 1.96(0.250) = 1.100 \pm 0.490 = [0.610, \; 1.590] \implies [e^{0.610}, \; e^{1.590}] = \mathbf{[1.84, \; 4.90]}$ (ไม่คร่อม 1 → ซิก)<br>
+            • <strong><code>sex</code> ($\beta = 0.693, SE = 0.220$):</strong><br>
+            &nbsp;&nbsp;— <strong>[C] Adjusted OR</strong> $= e^{0.693} \approx \mathbf{2.00}$<br>
+            &nbsp;&nbsp;— <strong>[D] 95% CI:</strong> $0.693 \pm 1.96(0.220) = 0.693 \pm 0.431 = [0.262, \; 1.124] \implies [e^{0.262}, \; e^{1.124}] = \mathbf{[1.30, \; 3.08]}$ (ไม่คร่อม 1 → ซิก)<br>
+            • <strong><code>smoke</code> ($\beta = 0.350, SE = 0.240$):</strong><br>
+            &nbsp;&nbsp;— <strong>[E] Adjusted OR</strong> $= e^{0.350} \approx \mathbf{1.42}$<br>
+            &nbsp;&nbsp;— <strong>[F] 95% CI:</strong> $0.350 \pm 1.96(0.240) = 0.350 \pm 0.470 = [-0.120, \; +0.820] \implies [e^{-0.120}, \; e^{0.820}] = \mathbf{[0.89, \; 2.27]}$ (<strong>คร่อม 1 → ไม่ซิก!</strong>)<br>
+            • <strong><code>age</code> ($\beta = 0.050, SE = 0.015$):</strong><br>
+            &nbsp;&nbsp;— <strong>[G] Adjusted OR (ต่อ 1 ปี)</strong> $= e^{0.050} \approx \mathbf{1.051}$ (หรือเพิ่มขึ้น $5.1\%$ ต่อปี)<br>
+            &nbsp;&nbsp;— <strong>[H] 95% CI:</strong> $0.050 \pm 1.96(0.015) = 0.050 \pm 0.0294 = [0.0206, \; 0.0794] \implies \mathbf{[1.021, \; 1.083]}$ (ไม่คร่อม 1 → ซิก)<br><br>
+            <strong>2) สมการ Logit:</strong><br>
+            $$\text{logit}(P_{\text{stroke}}) = \ln\!\left(\frac{P}{1-P}\right) = -5.200 + 1.100(\text{ht}) + 0.693(\text{sex}) + 0.350(\text{smoke}) + 0.050(\text{age})$$<br>
+            <strong>3) ประโยคแปลผลรายตัวแปร (ต้องขึ้นต้นด้วย "เมื่อควบคุมปัจจัยอื่นๆ ในสมการให้คงที่"):</strong><br>
+            • <strong><code>ht</code>:</strong> เมื่อควบคุมเพศ, การสูบบุหรี่ และอายุให้คงที่ ผู้ที่เป็นโรคความดันโลหิตสูงมีโอกาส (Odds) เกิดโรค Stroke เป็น <strong>3.00 เท่า</strong> ของผู้ที่ความดันปกติ อย่างมีนัยสำคัญทางสถิติ ($95\%\text{ CI: } 1.84 - 4.90, p &lt; 0.001$)<br>
+            • <strong><code>sex</code>:</strong> เมื่อควบคุมปัจจัยอื่นให้คงที่ เพศชายมีโอกาส (Odds) เกิดโรค Stroke เป็น <strong>2.00 เท่า</strong> ของเพศหญิง อย่างมีนัยสำคัญทางสถิติ ($95\%\text{ CI: } 1.30 - 3.08, p = 0.002$)<br>
+            • <strong><code>smoke</code>:</strong> เมื่อควบคุมปัจจัยอื่นให้คงที่ ผู้ที่สูบบุหรี่มีโอกาสเกิดโรค Stroke เป็น 1.42 เท่าของผู้ไม่สูบบุหรี่ <strong>แต่ไม่มีนัยสำคัญทางสถิติ</strong> ($95\%\text{ CI: } 0.89 - 2.27$ ซึ่งคร่อม 1, $p = 0.144$)<br>
+            • <strong><code>age</code> (ต่อ 1 ปี และต่อ 10 ปี):</strong> เมื่อควบคุมปัจจัยอื่นให้คงที่ <strong>ทุกๆ 1 ปีที่อายุเพิ่มขึ้น</strong> โอกาสเกิดโรค Stroke เพิ่มขึ้นเป็น <strong>1.051 เท่า (หรือเพิ่มขึ้น 5.1%)</strong> อย่างมีนัยสำคัญทางสถิติ ($p = 0.001$) และหากอายุเพิ่มขึ้น <strong>10 ปี</strong> จะมี $\text{Adjusted OR} = e^{0.050 \times 10} = e^{0.50} \approx \mathbf{1.65\text{ เท่า}}$
+          </div>
+        </div>
+      </details>
+
+      <!-- RECALL 3: LINEAR REGRESSION BABY BIRTH WEIGHT EQUATION & DUMMY INTERPRETATION -->
+      <details class="written-prob" open>
+        <summary>📌 โพยข้อเขียน #3: ตาราง Multiple Linear Regression น้ำหนักทารก (bwt) — เขียนสมการและแปลผล Dummy เทียบผิวขาว</summary>
+        <div class="written-body">
+          <p><strong>โจทย์ตามโพยรุ่นพี่:</strong> ให้ตาราง Multiple Linear Regression ทำนายน้ำหนักทารกแรกเกิด (<code>bwt</code>, กรัม) จากน้ำหนักมารดา (<code>lwt</code>, ปอนด์), โรคความดันโลหิตสูง (<code>ht</code>: 1=เป็น, 0=ไม่เป็น) และเชื้อชาติ (<code>race</code>: White เป็นกลุ่มอ้างอิง, <code>Black</code>: 1=ผิวดำ, <code>Other</code>: 1=ผิวสีอื่นๆ):</p>
+          <div class="code-box"><pre>------------------------------------------------------------------------------
+         bwt | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         lwt |      4.430      1.710     2.59   0.010       1.055       7.805
+          ht |   -580.200    220.500    -2.63   0.009   -1015.250    -145.150
+       Black |   -475.500    158.200    -3.01   0.003    -787.620    -163.380
+       Other |   -350.400    119.800    -2.92   0.004    -586.760    -114.040
+       _cons |   2580.000    230.000    11.22   0.000    2126.200    3033.800
+------------------------------------------------------------------------------</pre></div>
+          <p><strong>คำถาม:</strong> (1) จงเขียนสมการถดถอยพหุคูณ และ (2) จงแปลผลค่าสัมประสิทธิ์ $b_1, b_2, b_3, b_4$ ทุกตัว (ระวังจุดที่รุ่นพี่เตือนเรื่องการแปลผล $b_3, b_4$!)</p>
+          <div class="sol-box">
+            <strong>✅ เฉลยละเอียดตรงตามโพยรุ่นพี่:</strong><br>
+            <strong>1) สมการถดถอยพหุคูณ (Multiple Linear Regression Equation):</strong><br>
+            $$\widehat{\text{Baby birth weight}} = 2580.00 + 4.43(\text{น้ำหนักแม่}) - 580.20(\text{โรคความดัน}) - 475.50(\text{ผิวดำ}) - 350.40(\text{ผิวสีอื่นๆ})$$
+            <strong>2) การแปลผลค่าสัมประสิทธิ์แต่ละตัว (จุดสำคัญ: ต้องระบุว่าเทียบกับกลุ่มอ้างอิงใด และคุมตัวแปรใดคงที่):</strong><br>
+            • <strong>$b_1 = +4.43$ (น้ำหนักแม่ <code>lwt</code>):</strong> <strong>เมื่อควบคุมภาวะโรคความดันโลหิตสูงและเชื้อชาติของมารดาให้คงที่</strong> ทุกๆ 1 ปอนด์ของน้ำหนักมารดาที่เพิ่มขึ้น ทารกจะมีน้ำหนักแรกเกิดเฉลี่ย <strong>เพิ่มขึ้น 4.43 กรัม</strong> อย่างมีนัยสำคัญทางสถิติ ($95\%\text{ CI: } 1.06 \text{ ถึง } 7.81, p = 0.010$)<br>
+            • <strong>$b_2 = -580.20$ (โรคความดัน <code>ht</code>):</strong> <strong>เมื่อควบคุมน้ำหนักมารดาและเชื้อชาติให้คงที่</strong> ทารกที่เกิดจากมารดาที่เป็นโรคความดันโลหิตสูงจะมีน้ำหนักแรกเกิดเฉลี่ย <strong>น้อยกว่ามารดาที่ไม่เป็นโรคความดันโลหิตสูงอยู่ 580.20 กรัม</strong> อย่างมีนัยสำคัญทางสถิติ ($95\%\text{ CI: } -1015.25 \text{ ถึง } -145.15, p = 0.009$)<br>
+            • <strong>$b_3 = -475.50$ (เชื้อชาติผิวดำ <code>Black</code>):</strong> <span style="color:#be123c;font-weight:700;">[จุดเน้นตามโพย!]</span> <strong>เมื่อควบคุมน้ำหนักมารดาและโรคความดันโลหิตสูงให้คงที่</strong> ทารกที่เกิดจากมารดาเชื้อชาติผิวดำ (Black) มีน้ำหนักแรกเกิดเฉลี่ย <strong>น้อยกว่าทารกที่เกิดจากมารดาเชื้อชาติผิวขาว (White ซึ่งเป็นกลุ่มอ้างอิง) อยู่ 475.50 กรัม</strong> อย่างมีนัยสำคัญทางสถิติ ($95\%\text{ CI: } -787.62 \text{ ถึง } -163.38, p = 0.003$)<br>
+            • <strong>$b_4 = -350.40$ (เชื้อชาติผิวสีอื่นๆ <code>Other</code>):</strong> <span style="color:#be123c;font-weight:700;">[จุดเน้นตามโพย!]</span> <strong>เมื่อควบคุมน้ำหนักมารดาและโรคความดันโลหิตสูงให้คงที่</strong> ทารกที่เกิดจากมารดาเชื้อชาติผิวสีอื่นๆ (Other) มีน้ำหนักแรกเกิดเฉลี่ย <strong>น้อยกว่าทารกที่เกิดจากมารดาเชื้อชาติผิวขาว (White ซึ่งเป็นกลุ่มอ้างอิง) อยู่ 350.40 กรัม</strong> อย่างมีนัยสำคัญทางสถิติ ($95\%\text{ CI: } -586.76 \text{ ถึง } -114.04, p = 0.004$)
+          </div>
+        </div>
+      </details>
+
+      <!-- RECALL 4: PROVE ANOVA 3 GROUPS (MEG GULANICK SELF-EFFICACY) -->
+      <details class="written-prob" open>
+        <summary>📌 โพยข้อเขียน #4: พิสูจน์และสร้างตาราง One-Way ANOVA 3 กลุ่ม (โจทย์ Meg Gulanick Self-Efficacy, N = 37) + เขียน Hypothesis &amp; Assumptions</summary>
+        <div class="written-body">
+          <p><strong>โจทย์จริง (Meg Gulanick et al.):</strong> สุ่มผู้ป่วยหลังเกิดภาวะหัวใจ 37 คน เข้ากลุ่มการดูแล 3 กลุ่ม วัดคะแนน Self-efficacy ที่ 4 สัปดาห์:<br>
+          • <strong>Group 1 (Teaching + Testing + Training, $n_1 = 11$):</strong> 156, 119, 107, 108, 100, 170, 130, 154, 107, 137, 107 ($\bar{Y}_1 = 126.82, SD_1 = 24.25$)<br>
+          • <strong>Group 2 (Teaching + Testing only, $n_2 = 13$):</strong> 132, 105, 144, 136, 136, 132, 159, 152, 117, 89, 142, 151, 82 ($\bar{Y}_2 = 129.00, SD_2 = 24.07$)<br>
+          • <strong>Group 3 (Routine care only, $n_3 = 13$):</strong> 110, 117, 124, 106, 113, 94, 113, 121, 101, 119, 77, 90, 66 ($\bar{Y}_3 = 103.92, SD_3 = 17.71$)<br>
+          <strong>คำถาม:</strong> a) State the statistical hypotheses and assumptions | b) Construct the ANOVA table and conclude at $\alpha = 0.05$</p>
+          <div class="sol-box">
+            <strong>✅ เฉลยครบทุกส่วนสำหรับเขียนในห้องสอบ:</strong><br>
+            <strong>a) Statistical Hypotheses &amp; Assumptions:</strong><br>
+            • <strong>Hypotheses:</strong><br>
+            &nbsp;&nbsp;— $H_0: \mu_1 = \mu_2 = \mu_3$ (ค่าเฉลี่ยคะแนน Self-efficacy ทั้ง 3 กลุ่มไม่แตกต่างกัน)<br>
+            &nbsp;&nbsp;— $H_a:$ มีค่าเฉลี่ยอย่างน้อย 1 คู่ที่ไม่เท่ากัน (At least one $\mu_i \neq \mu_j$ for $i \neq j$)<br>
+            • <strong>Assumptions 3 ข้อ (I–N–E):</strong><br>
+            &nbsp;&nbsp;1) <strong>Independence:</strong> ข้อมูลแต่ละรายเป็นอิสระต่อกันทั้งภายในกลุ่มและระหว่างกลุ่ม (สุ่มเข้า 3 กลุ่มอิสระ)<br>
+            &nbsp;&nbsp;2) <strong>Normality:</strong> คะแนน Self-efficacy ในแต่ละกลุ่ม (หรือ Residuals) มีการแจกแจงแบบปกติ<br>
+            &nbsp;&nbsp;3) <strong>Homogeneity of variances (Equal variances):</strong> ความแปรปรวนของประชากรทั้ง 3 กลุ่มเท่ากัน ($\sigma_1^2 = \sigma_2^2 = \sigma_3^2$, ทดสอบด้วย Bartlett's test ได้ $\chi^2(2) = 1.34, p = 0.512 \ge 0.05$ ผ่านเกณฑ์)<br><br>
+            <strong>b) ตาราง One-Way ANOVA ($N = 37, \bar{Y}_{\text{grand}} = 119.54$):</strong><br>
+            • <strong>Between Groups:</strong> $SS_B = \mathbf{4,916.63}$, $df_B = 3 - 1 = \mathbf{2}$, $MS_B = \frac{4916.63}{2} = \mathbf{2,458.31}$<br>
+            • <strong>Within Groups:</strong> $SS_W = \mathbf{16,596.56}$, $df_W = 37 - 3 = \mathbf{34}$, $MS_W = \frac{16596.56}{34} = \mathbf{488.13}$<br>
+            • <strong>Total:</strong> $SS_T = \mathbf{21,513.19}$, $df_T = 37 - 1 = \mathbf{36}$<br>
+            • <strong>$F$-statistic:</strong> $F = \frac{MS_B}{MS_W} = \frac{2458.31}{488.13} = \mathbf{5.04}$, $\mathbf{p\text{-value} = 0.0121}$<br>
+            • <strong>Conclusion:</strong> เนื่องจาก $F(2, 34) = 5.04, p = 0.0121 &lt; 0.05$ จึง <strong>Reject $H_0$</strong> สรุปว่าคะแนน Self-efficacy เฉลี่ยของผู้ป่วยทั้ง 3 กลุ่มแตกต่างกันอย่างมีนัยสำคัญทางสถิติ (เมื่อทดสอบรายคู่ด้วย Bonferroni พบว่า Group 1 [$\text{Mean}=126.82, p=0.049$] และ Group 2 [$\text{Mean}=129.00, p=0.020$] มีคะแนนสูงกว่า Group 3 [$\text{Mean}=103.92$] อย่างมีนัยสำคัญ ส่วน Group 1 กับ Group 2 ไม่ต่างกัน $p=1.000$)
+          </div>
+        </div>
+      </details>
+
+      <!-- RECALL 5: 4 SAMPLE SIZE & SURVEY BP PROBLEMS -->
+      <details class="written-prob" open>
+        <summary>📌 โพยข้อเขียน #5: รวม 4 โจทย์คำนวณ Sample Size (ถามจำนวนต่อกลุ่ม!) &amp; โจทย์ Survey BP (Rural vs Urban)</summary>
+        <div class="written-body">
+          <p><strong>รวมโจทย์คำนวณ Sample Size และ 2×2 Survey ที่ออกสอบจริง:</strong></p>
+          <div class="sol-box" style="margin-top:6px;">
+            <strong>1) โจทย์ Drug A (64%) vs Drug B (82%) — ถาม $n$ ต่อกลุ่ม (One-tailed $\alpha = 0.05 \to Z = 1.64$, Power 80% $\to Z = 0.84$):</strong><br>
+            • $p_1 = 0.64, p_2 = 0.82 \implies \bar{p} = \frac{0.64+0.82}{2} = 0.73$<br>
+            • $n = \frac{\left[1.64\sqrt{2(0.73)(0.27)} + 0.84\sqrt{0.64(0.36)+0.82(0.18)}\right]^2}{(0.82 - 0.64)^2} = \frac{(1.0297 + 0.5164)^2}{0.0324} = \frac{2.3905}{0.0324} = 73.78 \implies \mathbf{74\text{ คนต่อกลุ่ม}}$ (รวม 148 คน)<br><br>
+            <strong>2) โจทย์ยาลดความดัน (Antihypertensive drug) — ต้องการตรวจจับผลต่าง $\Delta = 5\text{ mmHg}$, $SD = 10\text{ mmHg}$, Power 90% ($Z_{1-\beta} = 1.28$):</strong><br>
+            • <strong>Two-sided ($Z_{1-\alpha/2} = 1.96$):</strong> $n = \frac{2\sigma^2(Z_{\alpha/2}+Z_{1-\beta})^2}{\Delta^2} = \frac{2(10^2)(1.96+1.28)^2}{5^2} = \frac{200 \times 10.4976}{25} = 83.98 \implies \mathbf{84\text{ คนต่อกลุ่ม}}$ (รวม 168 คน)<br>
+            • <strong>One-sided ($Z_{1-\alpha} = 1.64$):</strong> $n = \frac{2(10^2)(1.64+1.28)^2}{5^2} = 8 \times (2.92)^2 = 68.21 \implies \mathbf{69\text{ คนต่อกลุ่ม}}$<br><br>
+            <strong>3) โจทย์ประมาณความชุก Hypertension ในผู้สูงอายุ (Previous prevalence $p = 20\%$, Acceptable error $E = 5\%$):</strong><br>
+            • $n = \frac{Z_{1-\alpha/2}^2 p(1-p)}{E^2} = \frac{(1.96)^2 (0.20)(0.80)}{(0.05)^2} = \frac{3.8416 \times 0.16}{0.0025} = 245.86 \implies \mathbf{246\text{ คน}}$<br><br>
+            <strong>4) โจทย์ Q31.1–31.2 Cohort Study ภาวะ MIS-C (ติดเชื้อ Covid $500/1,000,000$ vs วัคซีน $10/100,000$, $\alpha=0.05$, Power 80%, Drop-out 10%):</strong><br>
+            • <strong>31.1 Sample Size:</strong> $p_1 = 0.0005, p_2 = 0.0001, \bar{p} = 0.0003 \implies n = \frac{[1.96\sqrt{2(0.0003)(0.9997)} + 0.84\sqrt{0.0005(0.9995)+0.0001(0.9999)}]^2}{(0.0004)^2} = \mathbf{29,390\text{ คน/กลุ่ม}}$ (ถ้า STATA `power` ได้ $29,424$ คน/กลุ่ม) → ปรับเผื่อ 10% Drop-out ($n / 0.90$) ได้ <strong>$32,656\text{ คน/กลุ่ม}$ (รวม $65,312$ คน)</strong> [หรือจาก STATA ได้ $32,694$ คน/กลุ่ม รวม $65,388$ คน]<br>
+            • <strong>31.2 ผลหลังเก็บจริง 1 ปี (ติดเชื้อ: MIS-C 12, ปกติ 29,500 | วัคซีน: MIS-C 5, ปกติ 30,100):</strong> สั่ง <code>csi 12 5 29500 30100</code> ได้ $R_1 = 12/29512 = 0.0407\%, R_0 = 5/30105 = 0.0166\% \implies \mathbf{\text{RR} = 2.45}$ ($95\%\text{ CI: } \mathbf{0.86 - 6.95}$ คร่อม 1!), $\chi^2(1) = \mathbf{3.02}, \mathbf{p = 0.0820 \ge 0.05} \implies$ <strong>Fail to reject $H_0$</strong> (ความเสี่ยง MIS-C ไม่แตกต่างกันอย่างมีนัยสำคัญทางสถิติ)<br><br>
+            <strong>5) โจทย์ Survey of BP in a City (Rural: คนทั้งหมด 200, Abnormal BP 20 | Urban: คนทั้งหมด 250, Abnormal BP 38):</strong><br>
+            • <span style="color:#be123c;font-weight:700;">ระวังกับดัก!</span> ต้องลบหาคนปกติก่อน: Rural Normal $= 200-20 = 180$ ($p_1 = 10.0\%$), Urban Normal $= 250-38 = 212$ ($p_2 = 15.2\%$)<br>
+            • กด STATA: <code>prtesti 200 20 250 38, count</code> หรือ <code>csi 20 38 180 212</code> หรือ <code>tabi 20 180 \ 38 212, chi2 expected</code><br>
+            • <strong>คำตอบ:</strong> (1) ใช้ Chi-square ได้เพราะ $E$ ทุกช่อง $\ge 5$ (ต่ำสุด $25.78$), (2) $\mathbf{\chi^2(1) = 2.68, p = 0.1019}$ ($z = -1.636$), (3) 95% CI ของผลต่างสัดส่วน (Rural$-$Urban $= -5.2\%$) คือ $\mathbf{[-11.29\%, +0.89\%]}$ (คร่อม 0) และ 95% CI ของ PR (Urban vs Rural $= 1.52$) คือ $\mathbf{[0.91, 2.53]}$ (คร่อม 1), (4) <strong>Fail to reject $H_0$</strong> สัดส่วนความดันผิดปกติในเขตชนบทและเขตเมืองไม่แตกต่างกันอย่างมีนัยสำคัญ
+          </div>
+        </div>
+      </details>
+
       <!-- Scoreboard & Category Filter -->
       <div class="exam-scoreboard">
         <div>
